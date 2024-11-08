@@ -1,0 +1,35 @@
+<div *ngIf="recipe" class="recipe-container">
+    <h2 class="recipe-title">{{ recipe.title }}</h2>
+    <img [src]="recipe.image" alt="Imagen de {{ recipe.title }}" class="recipe-image" />
+  
+    <!-- Información General -->
+    <div class="recipe-info">
+      <p><strong>Tiempo de preparación:</strong> {{ recipe.readyInMinutes }} minutos</p>
+      <p><strong>Calificación:</strong> {{ recipe.spoonacularScore.toFixed(2) }} / 100</p>
+    </div>
+  
+    <!-- Ingredientes -->
+    <h3>Ingredientes</h3>
+    <ul class="ingredient-list">
+      <li *ngFor="let ingredient of recipe.extendedIngredients">
+        {{ ingredient.amount.toFixed(1) }}
+        {{ingredient.name}}
+         {{ingredient.unit}}
+  
+      </li>
+    </ul>
+  
+    <!-- Instrucciones -->
+  
+    <h3>Instrucciones</h3>
+    <ul>
+      <li *ngFor="let step of getInstructions()">
+        {{ step }}</li>
+    </ul>
+  
+  
+  </div>
+  
+  
+  <button>Agregar a mi lista</button>
+  

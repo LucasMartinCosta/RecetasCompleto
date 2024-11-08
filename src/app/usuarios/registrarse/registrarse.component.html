@@ -1,0 +1,81 @@
+<section>
+    <h4 id="titulo-registro">Registro Usuario</h4>
+    <form [formGroup]="formulario" (ngSubmit)="addUsuario()">
+        
+        
+            <section class="contenedor-datos">
+                
+                <div class="div-input">
+                    <label for="username" class="ingresar-datos">Nombre usuario</label>
+                    <input type="text" id="username" formControlName="nombreUsuario">
+                </div>
+                @if (formulario.controls['nombreUsuario'].touched) {
+                    @if (formulario.controls['nombreUsuario'].getError('required')) {
+                        <span class="requerido">*Campo requerido</span>
+                      }
+                }
+                
+            </section>
+           
+            <section class="contenedor-datos">
+
+                <div class="div-input">
+                    <label for="email" class="ingresar-datos">Email</label>
+                    <input type="email" id="email" formControlName="email">
+                    @if (formulario.controls['email'].touched) {
+                        @if (formulario.controls['email'].getError('required')) {
+                            <span class="requerido">*Campo requerido</span>
+                        }
+                        @if (formulario.controls['email'].getError('email')) {
+                            <span class="requerido">*El email no es un correo valido</span>
+                        }
+                    }
+                    
+                </div>
+
+            </section>
+           
+
+            <section class="contenedor-datos">
+
+                <div class="div-input">
+                    <label for="contraseña" class="ingresar-datos">Contraseña</label>
+                    <input type="password" formControlName="contrasena">
+                </div>
+                @if (formulario.controls['contrasena'].touched) {
+                    @if (formulario.controls['contrasena'].getError('required')) {
+                        <span class="requerido">*Campo requerido</span>
+                    }
+                }
+               
+            </section>
+            
+            <button class="btn">Registrar usuario</button>
+       
+    </form>
+
+</section>
+
+<footer>
+    <div class="info1">
+        <p id="titulo-redes">Redes</p>
+        <ul>
+            
+            <li>
+                <a href="" target="_blank">GitHub</a>
+            </li>
+            <li>
+                <a href="" target="_blank">Instagram</a>
+            </li>
+            <li>
+                <a href="" target="_blank">Facebook</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="info2">
+        <h4 class="derechos">Todos los derechos reservados</h4>
+    </div>
+   
+</footer>
+

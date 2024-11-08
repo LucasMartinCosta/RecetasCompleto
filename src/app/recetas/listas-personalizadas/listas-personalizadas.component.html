@@ -1,0 +1,17 @@
+<h2>Crear listas personalizadas</h2>
+
+<!-- Crear una nueva lista -->
+ <form [formGroup]="formulario" (ngSubmit)="postLista()">
+    <label for="nombre">Nombre: </label>
+    <input type="text" placeholder="Nombre de la nueva lista" formControlName="nombre">
+    <button type="submit">Crear Lista</button>
+
+    @if (formulario.controls["nombre"].getError("required") && formulario.controls["nombre"].touched) {
+        <p>Campo Requerido</p>
+    }
+ </form>
+  
+
+<!-- En este componente se crean listas personalizadas y las carga en el archivo recetas.json 
+    Lo que falta hacer ahora es ver como podemos agregar las recetas propias y de la api a las listas -->
+

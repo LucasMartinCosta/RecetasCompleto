@@ -1,0 +1,71 @@
+.recipe-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e8c899ad;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recipe-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ba904e;
+    font-family: 'quicksand';
+  }
+  
+  .recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-info {
+    font-size: 1.1em;
+    color: #7e654e;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-info p {
+    margin: 5px 0;
+  }
+  
+  .ingredient-list {
+    list-style-type:none;
+    padding: 0;
+  
+  }
+  
+  .ingredient-list li {
+    background-color: #e3c98d;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 15px;
+    font-size: 1.1em;
+    color: #7e654e;
+  }
+  
+  .recipe-instructions {
+    font-size: 1.1em;
+    line-height: 1.5;
+    color:#7e654e;
+  }
+  
+  h3 {
+    margin-top: 30px;
+    font-size: 1.6em;
+    color: #7e654e;
+  }
+  
+  button{
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+    background-color:  #e09422ad;
+    color: white;
+    cursor: pointer;
+  }
+  

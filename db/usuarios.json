@@ -1,0 +1,16 @@
+{
+  "Usuarios": [
+    {
+      "id": "beb6",
+      "nombreUsuario": "lucas",
+      "contrasena": "123",
+      "email": "Lucassmartin.costa@gmail.com"
+    },
+    {
+      "id": "e69f",
+      "nombreUsuario": "lucas2",
+      "contrasena": "456",
+      "email": "lucas@gmai.com"
+    }
+  ]
+}

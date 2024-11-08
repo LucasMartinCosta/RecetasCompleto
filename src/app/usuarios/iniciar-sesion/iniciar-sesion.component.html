@@ -1,0 +1,63 @@
+<h1 class="titulo">Bon APPetit</h1>
+
+
+<section class="section-form">
+
+    <div class="contenedor-img">
+       <img src="/img/imagenLogo.jpeg" alt="Logo">
+    </div>
+    
+    <form id="formulario" [formGroup]="formulario" (ngSubmit)="ingresar()">
+        
+            
+            <section class="contenedor-datos">
+                
+                <div class="div-input">
+                    <label for="" class="ingresar-datos">Ingrese el nombre de usuario</label>
+                    <input type="text" formControlName="nombreUsuario">
+                </div>
+                    @if (formulario.controls['nombreUsuario'].getError('required')) {
+                        <span class="requerido">*Campo requerido</span>
+                    }
+        
+            </section>
+        
+            <section class="contenedor-datos">
+        
+                <div class="div-input">
+                    <label for="" class="ingresar-datos">Ingrese la contraseña</label>
+                    <input type="password" formControlName="contrasena">
+                </div>
+                    @if (formulario.controls['contrasena'].getError('required')) {
+                        <span class="requerido">*Campo requerido</span>
+                    }
+            </section>
+       
+            <button class="btn" type="submit">Ingresar</button>
+    </form>
+</section>
+
+<footer>
+    <div class="info1">
+        <p id="titulo-redes">Redes</p>
+        <ul>
+            
+            <li>
+                <a href="" target="_blank">GitHub</a>
+            </li>
+            <li>
+                <a href="" target="_blank">Instagram</a>
+            </li>
+            <li>
+                <a href="" target="_blank">Facebook</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="info2">
+        <h4 class="derechos">Todos los derechos reservados</h4>
+    </div>
+   
+</footer>
+
+
