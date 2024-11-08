@@ -3,11 +3,13 @@ import { RecipeInfo } from '../../interfaces/recetas';
 import { RecetasService } from '../../service/recetas.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-login.component";
+import { FooterComponent } from "../../shared/footer/footer.component";
 
 @Component({
   selector: 'app-receta-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavBarLoginComponent, FooterComponent],
   templateUrl: './receta-detail.component.html',
   styleUrl: './receta-detail.component.css'
 })

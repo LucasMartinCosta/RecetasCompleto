@@ -1,9 +1,76 @@
-button{
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 45px;
-    background-color:  #e09422ad;
-    color: white;
-    cursor: pointer;
-  }
+.cont-recetas{
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+.recetas-ind{
   
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  height: 250px;
+  width: 500px;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: rgba(247, 207, 121, 0.596);
+  text-align: center;
+  box-shadow: 1px 1px 10px rgba(247, 207, 121, 0.596);
+}
+.texto-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 250px;
+  height: 190px;
+  margin-left: 5px;
+}
+.texto-card li{
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+
+.btn{
+  padding: 5px;
+  font-size: 15px;
+  width: 150px;
+  background-color: rgba(247, 207, 121, 0.596);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.btn:hover{
+  background-color: rgb(247, 207, 121);
+  color: rgb(0, 0, 0);
+}
+.cont-img {
+  width: 250px;   /* Tamaño del contenedor */
+  height: 200px;  /* Tamaño del contenedor */
+  box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+  overflow: hidden; /* Evita que la imagen se salga del contenedor */
+}
+
+.cont-img img {
+  width: 100%;     /* La imagen ocupa el 100% del ancho del contenedor */
+  height: 100%;    /* La imagen ocupa el 100% del alto del contenedor */
+  object-fit: cover; /* La imagen cubre todo el espacio del contenedor */
+  object-position: center; /* Muestra el centro de la imagen */
+}
+
+
+li{
+list-style: none;
+}
+
+.titulo{
+  font-size: 20px;
+  text-decoration: none;
+}

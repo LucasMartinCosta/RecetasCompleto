@@ -13,7 +13,7 @@ export class RecetasService {
   constructor() { }
 
   http = inject(HttpClient); 
-  private key = environment.tokenLucas
+  private key = environment.tokeIma2;
 
 
   getRecetasByIngredients (ingredients : string, number:number) : Observable<any> {

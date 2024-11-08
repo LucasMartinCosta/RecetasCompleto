@@ -1,0 +1,41 @@
+footer{
+    margin-top: 200px;
+    background-color: rgba(247, 207, 121, 0.596);
+    border-top: 1px solid black;
+    margin-top: 50px;
+    height: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+ul li{
+    list-style: none;
+}
+
+
+.derechos{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(0, 0, 0);
+}
+#titulo-redes{
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    
+}
+
+.info1 ul li{
+    margin-top: 5px;
+}
+
+.info1 ul li a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.info1 ul li a:hover{
+    border-bottom: 1px solid rgb(0, 0, 0);
+}

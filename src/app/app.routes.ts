@@ -7,11 +7,9 @@ import { RecetaDetailComponent } from './recetas/receta-detail/receta-detail.com
 
 
 export const routes: Routes = [
-    {path:'inicio',component:PagInicioComponent},
+    {path:'',component:PagInicioComponent},
     {path:'registrarse', component:RegistrarseComponent},
     {path:'iniciarSesion',component:IniciarSesionComponent},
     {path:'home',component:HomePageComponent},
-    {path:'**',redirectTo:'inicio'}, 
-    {path:'receta-detalle/:id', component: RecetaDetailComponent}
-   
+    {path:'recetas-detalles/:id', component: RecetaDetailComponent}
 ];

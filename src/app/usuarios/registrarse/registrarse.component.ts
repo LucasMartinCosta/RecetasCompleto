@@ -3,11 +3,12 @@ import { User } from '../../interfaces/user';
 import { UsuariosService } from '../../service/usuarios.service';
 import { Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NavbarComponent],
   templateUrl: './registrarse.component.html',
   styleUrl: './registrarse.component.css'
 })

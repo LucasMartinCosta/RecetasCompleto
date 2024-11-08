@@ -11,6 +11,12 @@
       "nombreUsuario": "lucas2",
       "contrasena": "456",
       "email": "lucas@gmai.com"
+    },
+    {
+      "id": "8496",
+      "nombreUsuario": "imanol",
+      "contrasena": "ima",
+      "email": "imanolsayago0@gmail.com"
     }
   ]
 }

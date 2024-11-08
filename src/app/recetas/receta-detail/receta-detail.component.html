@@ -1,6 +1,14 @@
-<div *ngIf="recipe" class="recipe-container">
+<app-nav-bar-login></app-nav-bar-login>
+<section>
+
+  <div *ngIf="recipe" class="recipe-container">
+
     <h2 class="recipe-title">{{ recipe.title }}</h2>
-    <img [src]="recipe.image" alt="Imagen de {{ recipe.title }}" class="recipe-image" />
+
+    <div class="cont-img">
+      <img [src]="recipe.image" alt="Imagen de {{ recipe.title }}" class="recipe-image" />
+    </div>
+    
   
     <!-- Información General -->
     <div class="recipe-info">
@@ -9,27 +17,39 @@
     </div>
   
     <!-- Ingredientes -->
-    <h3>Ingredientes</h3>
-    <ul class="ingredient-list">
-      <li *ngFor="let ingredient of recipe.extendedIngredients">
-        {{ ingredient.amount.toFixed(1) }}
-        {{ingredient.name}}
-         {{ingredient.unit}}
-  
-      </li>
-    </ul>
+     <div class="cont-ingredientes">
+
+      <h3>Ingredientes</h3>
+      <div class="info-ingredientes">
+        <ul class="ingredient-list">
+          <li *ngFor="let ingredient of recipe.extendedIngredients">
+            {{ ingredient.amount.toFixed(1) }}
+            {{ingredient.name}}
+             {{ingredient.unit}}
+      
+          </li>
+        </ul>
+      </div>
+      
+     </div>
+    
   
     <!-- Instrucciones -->
   
-    <h3>Instrucciones</h3>
-    <ul>
-      <li *ngFor="let step of getInstructions()">
-        {{ step }}</li>
-    </ul>
+    <div class="cont-instrucciones">
+      <h3>Instrucciones</h3>
+      <ul>
+        <li *ngFor="let step of getInstructions()">
+          {{ step }}</li>
+      </ul>
+    </div>
+    
   
   
   </div>
   
-  
   <button>Agregar a mi lista</button>
+</section>
+
   
+  <app-footer></app-footer>

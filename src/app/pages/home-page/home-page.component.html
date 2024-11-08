@@ -1,31 +1,20 @@
-<section>
-    <div class="cont-p">
-        <p>No sabes que comer?Aca te dejamos 5 recetas para que pruebes</p>
-    </div>
-
-    <button (click)="obtenerRecetasRandom()" > activarRecetas </button>
-
-    <div class="cont-recetas">
-        @for (item of listaRecetas; track $index) {
-
-            <app-receta-card [receta]="item" (verDetalles)="navigateToDetails($event)"> </app-receta-card>
+<app-nav-bar-login></app-nav-bar-login>
+<div class="contenedor-section">
+    <section>
+        <div class="cont-p">
+            <p>No sabes que comer?Aca te dejamos 5 recetas para que pruebes</p>
+        </div>
+    
+        <button (click)="obtenerRecetasRandom()" > activarRecetas </button>
+    
+        <div class="cont-recetas">
+            @for (item of listaRecetas; track $index) {
+    
+                <app-receta-card [receta]="item" (verDetalles)="navigateToDetails($event)"> </app-receta-card>
             
-             <br><br><br>
-        }
-    </div>
-</section>
+            }
+        </div>
+    </section>
+</div>
 
-
-<!-- 
-
-<div class="recetas-ind">
-
-                <div class="cont-img">
-                    <img src="{{item.image}}" alt="">
-                </div>
-                
-                <li class="titulo">{{item.title}}</li> <br>
-                 <button class="btn">Ver informacion detallada</button>
-            </div>
-
--->
+<app-footer></app-footer>

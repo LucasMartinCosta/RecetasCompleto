@@ -4,11 +4,13 @@ import { RecetasService } from '../../service/recetas.service';
 import { RecipeInfo } from '../../interfaces/recetas';
 import { RecetasRandom, Recipe } from '../../interfaces/recetasRandom';
 import { RecetaCardComponent } from "../../recetas/receta-card/receta-card.component";
+import { FooterComponent } from "../../shared/footer/footer.component";
+import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-login.component";
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RecetaCardComponent],
+  imports: [RecetaCardComponent, FooterComponent, NavBarLoginComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
@@ -36,8 +38,6 @@ export class HomePageComponent {
   }
 
   navigateToDetails(id: number) {
-   this.rutas.navigate([`/receta-detalle/${id}`]);
+   this.rutas.navigate([`recetas-detalles/${id}`]);
   }
-
-
 }
