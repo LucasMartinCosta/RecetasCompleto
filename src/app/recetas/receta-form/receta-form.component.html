@@ -1,0 +1,63 @@
+<form [formGroup]="formulario" (ngSubmit)="addRecipe()">
+  <fieldset>
+     <label>
+      Título:
+      <input formControlName="title" type="text" />
+    </label>
+    <div *ngIf="formulario.get('title')?.invalid && formulario.get('title')?.touched">
+      El título es requerido.
+    </div>
+  
+    <label>Ingredientes:</label>
+    <div formArrayName="ingredients">
+      <div *ngFor="let ingredient of ingredients.controls; let i = index">
+        <input [formControlName]="i" type="text" />
+        <button type="button" (click)="removeIngredient(i)">Eliminar</button>
+      </div>
+    </div>
+    <button type="button" (click)="addIngredient()">Añadir Ingrediente</button>
+  
+    <label>
+      Vegetariano:
+      <input formControlName="vegetarian" type="checkbox" />
+    </label>
+  
+    <label>
+      Vegano:
+      <input formControlName="vegan" type="checkbox" />
+    </label>
+  
+    <label>
+      Sin gluten:
+      <input formControlName="glutenFree" type="checkbox" />
+    </label>
+  
+    <label>
+      Tiempo de preparación (minutos):
+      <input formControlName="readyInMinutes" type="number" />
+    </label>
+    <div *ngIf="formulario.get('readyInMinutes')?.invalid && formulario.get('readyInMinutes')?.touched">
+      Tiempo mínimo es 1 minuto.
+    </div>
+  
+    <label>
+      Porciones:
+      <input formControlName="servings" type="number" />
+    </label>
+    <div *ngIf="formulario.get('servings')?.invalid && formulario.get('servings')?.touched">
+      La cantidad mínima de porciones es 1.
+    </div>
+  
+    <label>
+      Instrucciones:
+      <textarea formControlName="instructions"></textarea>
+    </label>
+    <div *ngIf="formulario.get('instructions')?.invalid && formulario.get('instructions')?.touched">
+      Las instrucciones son requeridas.
+    </div>
+  
+    <button type="submit" [disabled]="formulario.invalid" >Guardar Receta</button>
+    <button >agregar a una lista</button>
+  </fieldset>
+   
+  </form>
