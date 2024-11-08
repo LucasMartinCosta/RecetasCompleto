@@ -1,0 +1,50 @@
+{
+  "listasPersonalizadas": [
+    {
+      "id": "2a22",
+      "nombre": "vhukgyhj",
+      "recetas": []
+    }
+  ],
+  "recetas": [
+    {
+      "id": "7012",
+      "title": "dsd",
+      "ingredients": [
+        "dssds"
+      ],
+      "vegetarian": false,
+      "vegan": false,
+      "glutenFree": false,
+      "readyInMinutes": 2,
+      "servings": 1,
+      "instructions": "dsds"
+    },
+    {
+      "id": "0b65",
+      "title": "dsd",
+      "ingredients": [
+        "dssds"
+      ],
+      "vegetarian": true,
+      "vegan": false,
+      "glutenFree": false,
+      "readyInMinutes": 2,
+      "servings": 1,
+      "instructions": "dsds"
+    },
+    {
+      "id": "b93b",
+      "title": "rerere",
+      "ingredients": [
+        "dssdserr"
+      ],
+      "vegetarian": true,
+      "vegan": true,
+      "glutenFree": true,
+      "readyInMinutes": 2,
+      "servings": 1,
+      "instructions": "dsds"
+    }
+  ]
+}
