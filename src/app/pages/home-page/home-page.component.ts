@@ -8,6 +8,7 @@ import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-lo
 import { Subscription } from 'rxjs';
 import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
+import { User } from '../../interfaces/user';
 import { RecetaListComponent } from '../../recetas/receta-list/receta-list.component';
 
 @Component({

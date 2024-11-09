@@ -73,5 +73,15 @@ export class UsuariosService {
     return this.http.delete<void>(this.urlActivo); // Esta línea elimina todos los usuarios activos si json-server lo permite.
   }
 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
 
 }

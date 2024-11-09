@@ -15,7 +15,7 @@ export class NavBarLoginComponent {
   private servicioUser = inject(UsuariosService); 
   private ruta = inject(Router)
 
-
+  
 
   obtenerUserActivo() {
     this.servicioUser.getUserActivo().subscribe({
@@ -45,5 +45,7 @@ export class NavBarLoginComponent {
       }
     });
   }
+
+  
 
 }

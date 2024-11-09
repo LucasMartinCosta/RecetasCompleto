@@ -1,16 +1,11 @@
 {
-  "UsuarioActivo": [
-    {
-      "id": "434f",
-      "nombreUsuario": "imanol"
-    }
-  ],
+  "UsuarioActivo": [],
   "Usuarios": [
     {
-      "id": "434f",
-      "nombreUsuario": "imanol",
-      "contrasena": "imanol",
-      "email": "imanolsayago0@gmail.com",
+      "id": "021f",
+      "nombreUsuario": "lucas",
+      "contrasena": "111111",
+      "email": "Lucassmartin.costa@gmail.com",
       "listas": []
     }
   ]
