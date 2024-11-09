@@ -29,12 +29,22 @@ form {
   form input[type="number"],
   form textarea {
     width: 100%;
+    max-width: 100%;
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
     border: 1px solid #e6b76d;
     border-radius: 4px;
     font-size: 1rem;
+    box-sizing: border-box; /* Asegura que el padding se incluya dentro del tamaño total */
+    resize: vertical; /* Permite redimensionar verticalmente */
+    max-height: 700px; /* Limita la altura máxima */
+  }
+  
+  /* También puedes agregar un control sobre el tamaño mínimo del campo de texto */
+  form textarea:focus {
+    outline: none;
+    border-color: #e09422;
   }
 
   /* Estilos para checkbox */

@@ -1,8 +1,25 @@
 <app-nav-bar-login></app-nav-bar-login>
 
+<div class="recetas-container">
+  <h2>Recetas Disponibles</h2>
+
+  <div *ngFor="let receta of recetas" class="receta-card">
+    <h3>{{ receta.title }}</h3>
+    <p><strong>Ingredientes:</strong></p>
+    <p><strong>Tiempo de preparación:</strong> {{ receta.readyInMinutes }} minutos</p>
+    <p><strong>Porciones:</strong> {{ receta.servings }}</p>
+    <p><strong>Instrucciones:</strong> {{ receta.instructions }}</p>
+    <img *ngIf="receta.image" [src]="receta.image" alt="Imagen de la receta" class="receta-image" />
+    
+    <button >Actualizar</button>
+    <button >Eliminar</button>
+  </div>
+</div>
+
 <form [formGroup]="formulario" (ngSubmit)="addRecipe()">
   <fieldset>
-     <label>
+    <!-- Título -->
+    <label>
       Título:
       <input formControlName="title" type="text" />
     </label>
@@ -10,15 +27,7 @@
       El título es requerido
     </div>
 
-    <label>Ingredientes:</label>
-    <div formArrayName="ingredients">
-      <div *ngFor="let ingredient of ingredients.controls; let i = index">
-        <input [formControlName]="i" type="text" />
-        <button type="button" class="button-click" (click)="removeIngredient(i)">Eliminar</button>
-      </div>
-    </div>
-    <button type="button" class="button-click" (click)="addIngredient()">Añadir Ingrediente</button>
-
+    <!-- Checkboxes para vegetariano, vegano y sin gluten -->
     <label>
       Vegetariano:
       <input formControlName="vegetarian" type="checkbox" />
@@ -34,6 +43,7 @@
       <input formControlName="glutenFree" type="checkbox" />
     </label>
 
+    <!-- Tiempo de preparación -->
     <label>
       Tiempo de preparación (minutos):
       <input formControlName="readyInMinutes" type="number" />
@@ -42,6 +52,7 @@
       Tiempo mínimo es 1 minuto
     </div>
 
+    <!-- Porciones -->
     <label>
       Porciones:
       <input formControlName="servings" type="number" />
@@ -50,6 +61,7 @@
       La cantidad mínima de porciones es 1
     </div>
 
+    <!-- Instrucciones -->
     <label>
       Instrucciones:
       <textarea formControlName="instructions"></textarea>
@@ -58,10 +70,16 @@
       Las instrucciones son requeridas
     </div>
 
-    <button type="submit" [disabled]="formulario.invalid" >Guardar receta</button>
-    <button class="button-click" >Agregar a una lista</button>
+    <!-- Imagen -->
+    <label>
+      Imagen (URL):
+      <input formControlName="image" type="text" />
+    </label>
+
+    <!-- Botón para guardar receta -->
+    <button type="submit" [disabled]="formulario.invalid">Guardar receta</button>
+    <button class="button-click">Agregar a una lista</button>
   </fieldset>
+</form>
 
-  </form>
-
-  <app-footer></app-footer>
+<app-footer></app-footer>
