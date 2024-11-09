@@ -1,3 +1,18 @@
+
+export interface Receta {
+    vegetarian:               boolean;
+    vegan:                    boolean;
+    glutenFree:               boolean;
+    id:                       number;
+    title:                    string;
+    readyInMinutes:           number;
+    servings:                 number;
+    image:                    string;
+    instructions:             string;
+    spoonacularScore:         number;
+}
+
+
 export interface RecipeInfo {
     vegetarian:               boolean;
     vegan:                    boolean;
@@ -47,9 +62,23 @@ export interface Metric {
     unitLong:  string;
 }
 
-export interface ListaRecetasPersonalizadas { //agregar el id del usuario para identificar que lista de listas pertenece a cada user. Cuando un usuario inicia sesion hay que hacer un get de sus listas y cargarlas automaticamente
+
+export interface ListaRecetasPersonalizadas {
     id ?: number;
     nombre ?: string; // Nombre de la lista
     recetas: RecipeInfo[]; // Array de recetas (puedes usar la interfaz que ya tienes para recetas)
   }
 
+  export interface Receta2 {
+    id?:                       string;
+    title:                    string;
+    ingredients:              (string | null)[];
+    vegetarian:               boolean;
+    vegan:                    boolean;
+    glutenFree:               boolean;
+    readyInMinutes:           number;
+    servings:                 number;
+    //image?:                    string;
+    instructions:             string;
+  
+}

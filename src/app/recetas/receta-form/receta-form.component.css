@@ -1,0 +1,107 @@
+/* Estilos generales */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilos para los labels */
+  form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #333;
+  }
+  
+  /* Estilos para los inputs y textarea */
+  form input[type="text"],
+  form input[type="number"],
+  form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  /* Estilos para checkbox */
+  form input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  /* Estilos para el FormArray de ingredientes */
+  .ingredients-group {
+    margin-bottom: 10px;
+  }
+  
+  .ingredients-group input[type="text"] {
+    width: calc(100% - 50px);
+    display: inline-block;
+  }
+  
+  .ingredients-group button {
+    width: 40px;
+    display: inline-block;
+    margin-left: 5px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .ingredients-group button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Botón de añadir ingrediente */
+  .add-ingredient-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .add-ingredient-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Estilos para los mensajes de error */
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Botón de enviar */
+  button[type="submit"] {
+    width: 100%;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #27ae60;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  

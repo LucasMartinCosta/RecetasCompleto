@@ -4,6 +4,7 @@ import { RegistrarseComponent } from './usuarios/registrarse/registrarse.compone
 import { IniciarSesionComponent } from './usuarios/iniciar-sesion/iniciar-sesion.component';
 import { PagInicioComponent } from './pages/pag-inicio/pag-inicio.component';
 import { RecetaDetailComponent } from './recetas/receta-detail/receta-detail.component';
+import { RecetaFormComponent } from './recetas/receta-form/receta-form.component';
 
 
 export const routes: Routes = [
@@ -11,5 +12,6 @@ export const routes: Routes = [
     {path:'registrarse', component:RegistrarseComponent},
     {path:'iniciarSesion',component:IniciarSesionComponent},
     {path:'home',component:HomePageComponent},
-    {path:'recetas-detalles/:id', component: RecetaDetailComponent}
+    {path:'recetas-detalles/:id', component: RecetaDetailComponent},
+    {path:'agregar', component: RecetaFormComponent}
 ];

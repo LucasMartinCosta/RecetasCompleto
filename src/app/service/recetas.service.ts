@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { EnvironmentInjector, inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
-import { RecipeInfo } from '../interfaces/recetas';
+import { Receta2, RecipeInfo } from '../interfaces/recetas';
 import { RecetasRandom } from '../interfaces/recetasRandom';
 
 @Injectable({
@@ -14,6 +14,7 @@ export class RecetasService {
 
   http = inject(HttpClient); 
   private key = environment.tokeIma2;
+  private baseUrl = 'http://localhost:3000/recetas';
 
 
   getRecetasByIngredients (ingredients : string, number:number) : Observable<any> {
@@ -62,5 +63,23 @@ export class RecetasService {
     // Hacer la solicitud GET con parámetros y headers
     return this.http.get<RecetasRandom>(url, { headers, params });
   }
+//form
+getRecetas(): Observable<Receta2[]> {
+  return this.http.get<Receta2[]>(this.baseUrl);
+}
 
+  postRectea(receta: Receta2): Observable <Receta2>{
+    return this.http.post<Receta2>(this.baseUrl,receta);
+  }
+
+  
+   updateReceta(idReceta: string, receta: Receta2): Observable<Receta2> {
+    return this.http.put<Receta2>(`${this.baseUrl}/${idReceta}`, receta);
+  }
+
+  
+  deleteReceta(idReceta: string): Observable<Receta2> {
+    return this.http.delete<Receta2>(`${this.baseUrl}/${idReceta}`);
+  }
+  //form
 }
