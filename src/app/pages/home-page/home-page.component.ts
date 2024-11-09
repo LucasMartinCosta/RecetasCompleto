@@ -1,7 +1,6 @@
 import { Component, EventEmitter, inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecetasService } from '../../service/recetas.service';
-import { RecipeInfo } from '../../interfaces/recetas';
 import { RecetasRandom, Recipe } from '../../interfaces/recetasRandom';
 import { RecetaCardComponent } from "../../recetas/receta-card/receta-card.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
@@ -9,6 +8,7 @@ import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-lo
 import { Subscription } from 'rxjs';
 import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
+import { User } from '../../interfaces/user';
 import { RecetaListComponent } from '../../recetas/receta-list/receta-list.component';
 import { MenuInicioComponent } from '../../menu/menu-inicio/menu-inicio.component';
 
@@ -28,6 +28,7 @@ export class HomePageComponent implements OnInit, OnDestroy{
     this.sub = this.servicioUser.auth().subscribe({
       next: (activeUser) => {
         if (activeUser){
+          this.asignarUserActivo(activeUser)
           this.usuario = activeUser
         }
       }
@@ -38,7 +39,8 @@ export class HomePageComponent implements OnInit, OnDestroy{
     id:0,
     nombreUsuario:"invitado"
   }
-  private sub? : Subscription;
+
+  private sub? : Subscription; 
 
   rutas = inject(Router);
   servicio= inject(RecetasService);
@@ -63,6 +65,17 @@ export class HomePageComponent implements OnInit, OnDestroy{
 
   navigateToDetails(id: number) {
    this.rutas.navigate([`recetas-detalles/${id}`]);
+  }
+
+  asignarUserActivo (user:UserActivo){
+    this.servicioUser.postUserActivo(user).subscribe({
+      next: (user) => {
+        console.log("Usuario en sesion:", user);
+      },
+      error: (e:Error) => {
+        console.log(e.message);
+      }
+    })
   }
 
 

@@ -14,6 +14,7 @@ export class UsuariosService {
 
   private activeUserSubject = new BehaviorSubject<UserActivo| undefined>(undefined);
   urlUsuarios= 'http://localhost:3000/Usuarios';
+  urlActivo = "http://localhost:3000/UsuarioActivo"
   http= inject(HttpClient);
 
   auth(): Observable<UserActivo | undefined> {
@@ -51,38 +52,36 @@ export class UsuariosService {
     );
   }
 
-  /*
-
-  Registrarse(usuario: User):Observable<Boolean>{
-    return this.http.post<User>(this.urlUsuarios,usuario).pipe(
-      map(({id,nombreUsuario})=>{
-        if(id){
-          this.userActivo = {id,nombreUsuario};
-          return true;
-        }
-        return false;
-      })
-    )
+  getUSerById (id:string) : Observable<User>{
+    return this.http.get<User>(`${this.urlUsuarios}/${id}`)
   }
 
-  getUsuarios():Observable<User[]>{
-    return this.http.get<User[]>(this.urlUsuarios);
+
+  postUserActivo (user:UserActivo) : Observable<UserActivo> {
+    return this.http.post<UserActivo>(this.urlActivo, user)
   }
 
-  login(nombreUsuario: string, password: string): Observable<boolean> {
-    
-    return this.http.get<User[]>(`${this.urlUsuarios}?nombreUsuario=${nombreUsuario}`).pipe(
-      map((users) => {
-        const user = users.at(0);
-        if (user && user.nombreUsuario == nombreUsuario && user.contrasena == password) {
-           this.userActivo = { nombreUsuario: user.nombreUsuario, id: user.id! }; 
-         
-          return true;
-        }
-        return false;
-      })
-    );
+  getUserActivo(): Observable<UserActivo[]> {
+    return this.http.get<UserActivo[]>(this.urlActivo);
   }
-    */
+
+  deleteUserActivo (id:string) : Observable<void>{
+    return this.http.delete<void>(`${this.urlActivo}/${id}`)
+  }
+
+  clearUserActivo(): Observable<void> {
+    return this.http.delete<void>(this.urlActivo); // Esta línea elimina todos los usuarios activos si json-server lo permite.
+  }
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
 
 }

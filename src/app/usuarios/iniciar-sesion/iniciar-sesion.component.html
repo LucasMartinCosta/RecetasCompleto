@@ -8,20 +8,34 @@
        <img src="/img/imagenLogo.jpeg" alt="Logo">
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onLogin()">
-        <fieldset>
-            <legend>Inicio de sesión</legend>
-            <section>
-                <label for="username">Nombre de Usuario</label>
-                <input type="text" id="username" autocomplete="username" formControlName="username">
+    <form id="formulario" [formGroup]="form" (ngSubmit)="onLogin()">
+        
+            
+            <section class="contenedor-datos">
+                <div class="div-input">
+                    <label  class="ingresar-datos" for="username">Nombre de Usuario</label>
+                    <input type="text" id="username" autocomplete="username" formControlName="username">
+                </div>
+                @if (form.controls['username'].getError('required')) {
+                    <span class="requerido">*Campo requerido</span>
+                }
+                
             </section>
-            <section>
-                <label for="password">Contraseña</label>
+
+            <section class="contenedor-datos">
+                <div class="div-input">
+                <label class="ingresar-datos" for="password">Contraseña</label>
                 <input #password type="password" id="password" formControlName="password">
-                <button type="button" (click)="onRevealPassword(password)">Ojito</button>
+                
+            </div>
+            @if (form.controls['password'].getError('required')) {
+                <span class="requerido">*Campo requerido</span>
+            }
+            <button class="reveal" type="button" (click)="onRevealPassword(password)">ojo</button>
             </section>
-            <button type="submit" [disabled]="form.invalid">Iniciar sesión</button>
-        </fieldset>
+
+            <button type="submit" [disabled]="form.invalid" class="btn">Iniciar sesión</button>
+       
     </form>
     
     <!-- 
@@ -80,5 +94,7 @@
     </div>
    
 </footer>
+
+
 
 

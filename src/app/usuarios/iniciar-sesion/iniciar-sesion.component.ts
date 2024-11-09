@@ -5,11 +5,12 @@ import { Router, RouterLink, RouterLinkActive, RouterModule } from '@angular/rou
 import { routes } from '../../app.routes';
 import { UsuariosService } from '../../service/usuarios.service';
 import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
+import { FooterComponent } from "../../shared/footer/footer.component";
 
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [ReactiveFormsModule, NavbarComponent, RouterModule],
+  imports: [ReactiveFormsModule, NavbarComponent, RouterModule, FooterComponent],
   templateUrl: './iniciar-sesion.component.html',
   styleUrl: './iniciar-sesion.component.css'
 })
@@ -49,8 +50,6 @@ export class IniciarSesionComponent {
     }
   }
   
-
-
 
 
   /*

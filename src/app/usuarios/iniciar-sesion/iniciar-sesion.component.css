@@ -145,3 +145,11 @@ ul li{
 .requerido{
     color: rgb(226, 72, 72);
 }
+
+.reveal{
+    padding: 4px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background-color: rgba(247, 207, 121, 0.596);
+    border: none;
+}

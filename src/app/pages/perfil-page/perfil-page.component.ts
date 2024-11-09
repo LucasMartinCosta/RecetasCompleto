@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UsuariosService } from '../../service/usuarios.service';
+import { UserActivo } from '../../interfaces/user-activo';
 
 @Component({
   selector: 'app-perfil-page',
@@ -8,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './perfil-page.component.css'
 })
 export class PerfilPageComponent {
+
+  servicio = inject(UsuariosService);
 
 }

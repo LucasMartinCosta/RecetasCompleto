@@ -67,7 +67,7 @@ export interface ListaRecetasPersonalizadas {
     id ?: number;
     nombre ?: string; // Nombre de la lista
     recetas: RecipeInfo[]; // Array de recetas (puedes usar la interfaz que ya tienes para recetas)
-  }
+}
 
   export interface Receta2 {
     id?:                       string;
