@@ -9,7 +9,7 @@ import { User } from '../interfaces/user';
 })
 export class UsuariosService {
 
-  
+
   constructor() { }
 
   private activeUserSubject = new BehaviorSubject<UserActivo| undefined>(undefined);
@@ -61,6 +61,10 @@ export class UsuariosService {
     return this.http.post<UserActivo>(this.urlActivo, user)
   }
 
+  editUser(user: User): Observable<User>{
+    return this.http.put<User>(`${this.urlUsuarios}/${user.id}`, user);
+  }
+
   getUserActivo(): Observable<UserActivo[]> {
     return this.http.get<UserActivo[]>(this.urlActivo);
   }
@@ -73,15 +77,15 @@ export class UsuariosService {
     return this.http.delete<void>(this.urlActivo); // Esta línea elimina todos los usuarios activos si json-server lo permite.
   }
 
- 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
+
 
 
 }

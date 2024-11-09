@@ -3,6 +3,10 @@
     {
       "id": "021f",
       "nombreUsuario": "lucas"
+    },
+    {
+      "id": "021f",
+      "nombreUsuario": "lucas"
     }
   ],
   "Usuarios": [
@@ -12,7 +16,6 @@
       "contrasena": "111111",
       "email": "Lucassmartin.costa@gmail.com",
       "listas": []
-
     }
   ]
 }

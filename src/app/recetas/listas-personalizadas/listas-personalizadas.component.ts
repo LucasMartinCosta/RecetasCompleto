@@ -87,6 +87,7 @@ export class ListasPersonalizadasComponent implements OnInit{
         next: () => {
           console.log("Lista creada correctamente");
           this.userComun.listas.push(listaNueva);
+          this.servicioUsuario.editUser(this.userComun)
         },
         error: (e:Error) => {
           console.log(e.message);
