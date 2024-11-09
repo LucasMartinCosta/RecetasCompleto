@@ -1,6 +1,6 @@
 <div class="page-container">
 <app-nav-bar-login></app-nav-bar-login>
-<h2>Crear listas personalizadas</h2>
+<h2>Crea tus propias listas personalizadas</h2>
 <!-- Crear una nueva lista -->
 <form [formGroup]="formulario" (ngSubmit)="postLista()" class="formulario">
   <div class="input-container">
@@ -12,7 +12,7 @@
       class="form-input" />
   </div>
 
-  <!-- Mensaje de error -->
+ 
   <div *ngIf="formulario.controls['nombre'].hasError('required') && formulario.controls['nombre'].touched" class="error-message">
     <p>Campo requerido</p>
   </div>

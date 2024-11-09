@@ -1,1 +1,28 @@
-<p>mi-listas works!</p>
+<div class="page-container">
+  <app-nav-bar-login></app-nav-bar-login>
+
+  <div class="content">
+    <h3>Mis listas</h3>
+    <div class="contenedor">
+      <button [routerLink]="['/agregar-lista']" class="submit-button">Crear nueva lista</button>
+    </div>
+
+    
+    <div *ngIf="listas.length > 0; else noListas">
+      <ul class="lista-de-listas">
+        <li *ngFor="let lista of listas" class="item-lista">
+          <span>{{ lista.nombre }}</span>
+          <button (click)="verDetallesLista(lista.id)">Ver detalles</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Mensaje para cuando no hay listas -->
+    <ng-template #noListas>
+      <p>No tienes listas personalizadas creadas.</p>
+    </ng-template>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+

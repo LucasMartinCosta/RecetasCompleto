@@ -9,6 +9,7 @@ import { RecetaListComponent } from './recetas/receta-list/receta-list.component
 import { ListasPersonalizadasComponent } from './recetas/listas-personalizadas/listas-personalizadas.component';
 import { MiListasComponent } from './recetas/mi-listas/mi-listas.component';
 import { PerfilPageComponent } from './pages/perfil-page/perfil-page.component';
+import { Component } from '@angular/core';
 
 
 export const routes: Routes = [
@@ -22,5 +23,6 @@ export const routes: Routes = [
     {path:'crear-recetario', component: ListasPersonalizadasComponent},
     {path: 'mi-listas', component:MiListasComponent},
     {path:'agregar-lista', component:ListasPersonalizadasComponent},
-    {path:'perfil', component:PerfilPageComponent}
+    {path:'perfil', component:PerfilPageComponent},
+    {path:'mis-listas', component: MiListasComponent}
 ];

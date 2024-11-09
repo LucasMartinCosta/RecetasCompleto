@@ -20,6 +20,10 @@ export class ListasPersonalizadasService {
     return this.http.get<ListaRecetasPersonalizadas[]>(this.url);
   }
 
+  getListabyId(id: string):Observable<ListaRecetasPersonalizadas>{
+    return this.http.get<ListaRecetasPersonalizadas>(`${this.url}/${id}`);
+  }
+
   // Crear una nueva lista
   addLista(lista: ListaRecetasPersonalizadas): Observable<ListaRecetasPersonalizadas> {
     return this.http.post<ListaRecetasPersonalizadas>(this.url, lista);
