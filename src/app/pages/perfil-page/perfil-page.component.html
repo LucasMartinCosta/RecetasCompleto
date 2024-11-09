@@ -1,1 +1,40 @@
-<p>perfil-page works!</p>
+<app-nav-bar-login></app-nav-bar-login>
+
+<section>
+
+
+    <div class="carta-perfil">
+
+       
+            <img src="img/perfil-de-usuario.webp" alt="">
+     
+
+        <div class="info-general">
+
+            <div class="info-personal">
+                <p class="info-txt">ID</p>
+                <p class="info-llamada">{{userComun.id}}</p>
+            </div>
+
+            <div class="info-personal">
+                
+                <p class="info-txt">Nombre usuario:</p>
+                <p class="info-llamada">{{userComun.nombreUsuario}}</p>
+            </div>
+
+           <div class="info-personal">
+            <p class="info-txt">Email:</p>
+            <p class="info-llamada">{{userComun.email}}</p>
+           </div>
+
+           <div class="info-personal">
+            
+            <button class="btn" href="">Mis recetas</button>
+           </div>
+            
+        </div>
+
+    </div>
+</section>
+
+<app-footer></app-footer>

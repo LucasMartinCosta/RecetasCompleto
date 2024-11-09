@@ -1,5 +1,10 @@
 {
-  "UsuarioActivo": [],
+  "UsuarioActivo": [
+    {
+      "id": "021f",
+      "nombreUsuario": "lucas"
+    }
+  ],
   "Usuarios": [
     {
       "id": "021f",

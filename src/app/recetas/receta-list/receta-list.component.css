@@ -1,3 +1,8 @@
+.buscador-container{
+  display: flex;
+  flex-direction: column;
+}
+
 .form-busqueda {
     display: flex;
     flex-direction: row;

@@ -52,7 +52,7 @@ export class UsuariosService {
     );
   }
 
-  getUSerById (id:string) : Observable<User>{
+  getUSerById (id:number) : Observable<User>{
     return this.http.get<User>(`${this.urlUsuarios}/${id}`)
   }
 
