@@ -1,22 +1,25 @@
 {
   "Usuarios": [
     {
-      "id": "beb6",
+      "id": "068f",
       "nombreUsuario": "lucas",
-      "contrasena": "123",
-      "email": "Lucassmartin.costa@gmail.com"
+      "contrasena": "123123",
+      "email": "Lucassmartin.costa@gmail.com",
+      "listas": []
     },
     {
-      "id": "e69f",
-      "nombreUsuario": "lucas2",
-      "contrasena": "456",
-      "email": "lucas@gmai.com"
-    },
-    {
-      "id": "8496",
+      "id": "f096",
       "nombreUsuario": "imanol",
-      "contrasena": "ima",
-      "email": "imanolsayago0@gmail.com"
+      "contrasena": "asdasd",
+      "email": "ima@gmail.com",
+      "listas": []
+    },
+    {
+      "id": "b196",
+      "nombreUsuario": "nicolas",
+      "contrasena": "nicolas",
+      "email": "nico@gmail.com",
+      "listas": []
     }
   ]
 }

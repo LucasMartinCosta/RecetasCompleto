@@ -1,8 +1,12 @@
+import { ListaRecetasPersonalizadas } from "./recetas";
+
+
 export interface User {
     id?:number,
     nombreUsuario:string,
     email?:string,
-    contrasena:string
+    contrasena:string, 
+    listas: ListaRecetasPersonalizadas[]
 }
 
 

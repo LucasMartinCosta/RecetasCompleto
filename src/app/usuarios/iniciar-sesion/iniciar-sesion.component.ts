@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from '../../interfaces/user';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { routes } from '../../app.routes';
 import { UsuariosService } from '../../service/usuarios.service';
 import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
@@ -9,15 +9,51 @@ import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [ReactiveFormsModule, NavbarComponent],
+  imports: [ReactiveFormsModule, NavbarComponent, RouterModule],
   templateUrl: './iniciar-sesion.component.html',
   styleUrl: './iniciar-sesion.component.css'
 })
 export class IniciarSesionComponent {
 
-  listausuarios:Array<User>=[];
   fb = inject(FormBuilder)
+  authService = inject(UsuariosService); 
+  router = inject(Router)
 
+  listausuarios:Array<User>=[];
+
+  form = this.fb.group({
+    username: ['', [Validators.required, Validators.minLength(4)]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  })
+
+  onLogin() {
+    if (this.form.invalid) return;
+    const { username, password } = this.form.getRawValue();
+    this.authService.login(username!, password!).subscribe({
+      next: (loggedIn) => {
+        if (loggedIn) {
+          this.router.navigate(['home']);
+        } else { 
+          console.log('error en las credenciales');
+        }
+      },
+      error: console.log
+    });
+  }
+
+  onRevealPassword(pwInput: HTMLInputElement) {
+    if (pwInput.type == 'password') {
+      pwInput.type = 'text';
+    } else {
+      pwInput.type = 'password';
+    }
+  }
+  
+
+
+
+
+  /*
   servicioUsuario= inject(UsuariosService);
   rutas = inject(Router);
 
@@ -72,7 +108,7 @@ export class IniciarSesionComponent {
     })
     }
 
-   
+   */
     
     
 }

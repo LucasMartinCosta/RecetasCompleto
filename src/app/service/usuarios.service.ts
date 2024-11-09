@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserActivo } from '../interfaces/user-activo';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -11,10 +11,47 @@ export class UsuariosService {
 
   
   constructor() { }
-  private userActivo?:UserActivo;
 
+  private activeUserSubject = new BehaviorSubject<UserActivo| undefined>(undefined);
   urlUsuarios= 'http://localhost:3000/Usuarios';
   http= inject(HttpClient);
+
+  auth(): Observable<UserActivo | undefined> {
+    return this.activeUserSubject.asObservable();
+  }
+
+  login(username: string, password: string): Observable<boolean> {
+    return this.http.get<User[]>(`${this.urlUsuarios}?username=${username}`).pipe(
+      map((users) => {
+        const user = users.at(0);
+        if (user && user.nombreUsuario == username && user.contrasena == password) {
+          this.activeUserSubject.next({ nombreUsuario: user.nombreUsuario, id: user.id! });
+          return true;
+        }
+        return false;
+      }),
+      catchError(() => of(false))
+    );
+  }
+
+  logout(): Observable<boolean> {
+    this.activeUserSubject.next(undefined);
+    return of(true);
+  }
+
+  signup(user: User): Observable<boolean> {
+    return this.http.post<User>(this.urlUsuarios, user).pipe(
+      map(({ id, nombreUsuario }) => {
+        if (id) {
+          this.activeUserSubject.next({id, nombreUsuario});
+          return true;
+        }
+        return false;
+      })
+    );
+  }
+
+  /*
 
   Registrarse(usuario: User):Observable<Boolean>{
     return this.http.post<User>(this.urlUsuarios,usuario).pipe(
@@ -46,5 +83,6 @@ export class UsuariosService {
       })
     );
   }
+    */
 
 }

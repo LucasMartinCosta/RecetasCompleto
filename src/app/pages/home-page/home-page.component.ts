@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecetasService } from '../../service/recetas.service';
 import { RecipeInfo } from '../../interfaces/recetas';
@@ -6,6 +6,9 @@ import { RecetasRandom, Recipe } from '../../interfaces/recetasRandom';
 import { RecetaCardComponent } from "../../recetas/receta-card/receta-card.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
 import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-login.component";
+import { Subscription } from 'rxjs';
+import { UsuariosService } from '../../service/usuarios.service';
+import { UserActivo } from '../../interfaces/user-activo';
 
 @Component({
   selector: 'app-home-page',
@@ -14,17 +17,35 @@ import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-lo
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit, OnDestroy{
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
+  ngOnInit(): void {  //aca se autentifica el usuario y se guarda en una variable
+    this.sub = this.servicioUser.auth().subscribe({
+      next: (activeUser) => {
+        if (activeUser){
+          this.usuario = activeUser
+        } 
+      }
+    });
+  }
 
+  usuario:UserActivo = {
+    id:0, 
+    nombreUsuario:"invitado"
+  }
+  private sub? : Subscription; 
 
   rutas = inject(Router);
   servicio= inject(RecetasService);
+  servicioUser = inject(UsuariosService)
 
   listaRecetas: Array<Recipe>= []
   
   obtenerRecetasRandom()
   {
-    this.servicio.getRandomRecipe(5).subscribe(
+    this.servicio.getRandomRecipe(1).subscribe(
       {
         next:(data)=>{
         console.log(data);
@@ -40,4 +61,7 @@ export class HomePageComponent {
   navigateToDetails(id: number) {
    this.rutas.navigate([`recetas-detalles/${id}`]);
   }
+
+
+
 }

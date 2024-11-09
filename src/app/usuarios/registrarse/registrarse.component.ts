@@ -4,6 +4,8 @@ import { UsuariosService } from '../../service/usuarios.service';
 import { Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
+import { ListasPersonalizadasComponent } from '../../recetas/listas-personalizadas/listas-personalizadas.component';
+import { ListaRecetasPersonalizadas } from '../../interfaces/recetas';
 
 @Component({
   selector: 'app-registrarse',
@@ -14,7 +16,53 @@ import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 })
 export class RegistrarseComponent {
 
-  
+  private formBuilder = inject(FormBuilder);
+
+  form = this.formBuilder.group({
+    username: ['', [Validators.required, Validators.minLength(4)]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    email: ['', [Validators.required, Validators.email]]
+  })
+
+  listasIniciales : ListaRecetasPersonalizadas[] = []
+
+  constructor(private authService: UsuariosService, private router: Router) { }
+
+  onSubmit() {
+    if (this.form.invalid) return;
+    const formValues = this.form.getRawValue();
+    
+    const user: User = {
+      nombreUsuario: formValues.username ?? '',  // Usa un valor predeterminado si es null
+      contrasena: formValues.password ?? '',
+      email: formValues.email ?? '', 
+      listas : this.listasIniciales
+    };
+
+    this.authService.signup(user).subscribe({
+      next: () => {
+        alert('Usuario agregado');
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.error(error);
+        console.log('redirecting to Home');
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 1500);
+      }
+    })
+  }
+
+  onRevealPassword(pwInput: HTMLInputElement) {
+    if (pwInput.type == 'password') {
+      pwInput.type = 'text';
+    } else {
+      pwInput.type = 'password';
+    }
+  }
+
+  /*
   rutas = inject(Router);
   fb= inject(FormBuilder);
   servicioLog= inject(UsuariosService);
@@ -75,4 +123,7 @@ export class RegistrarseComponent {
    {
     this.rutas.navigate(['iniciarSesion']);
    }
+
+   */
+
 }
