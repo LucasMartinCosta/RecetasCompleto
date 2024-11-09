@@ -7,6 +7,7 @@ import { RecetaDetailComponent } from './recetas/receta-detail/receta-detail.com
 import { RecetaFormComponent } from './recetas/receta-form/receta-form.component';
 import { RecetaListComponent } from './recetas/receta-list/receta-list.component';
 import { ListasPersonalizadasComponent } from './recetas/listas-personalizadas/listas-personalizadas.component';
+import { MiListasComponent } from './recetas/mi-listas/mi-listas.component';
 
 
 export const routes: Routes = [
@@ -16,7 +17,9 @@ export const routes: Routes = [
     {path:'home',component:HomePageComponent},
     {path:'recetas-detalles/:id', component: RecetaDetailComponent},
     {path:'agregar-receta', component: RecetaFormComponent},
-    {path: '**', redirectTo: 'home'},
+
     {path: 'recetas', component: RecetaListComponent},
-    {path:'agregar-lista', component:ListasPersonalizadasComponent}
+    {path:'crear-recetario', component: ListasPersonalizadasComponent},
+    {path: 'mi-listas', component:MiListasComponent},
+    {path:'**', redirectTo:'home'}
 ];

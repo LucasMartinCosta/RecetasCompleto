@@ -1,38 +1,71 @@
-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    background-color: rgba(247, 207, 121, 0.596);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.192);
-}
-.navegacion ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-}
-#titulo
-{
-    margin-left: 15px;
-    color: rgb(92, 87, 87);
-    border-bottom: 1px solid rgb(0, 0, 0);
-    font-family: 'Montserrat', sans-serif;
-}
-.navegacion ul li{
-    margin-left: 10px;
-    margin-right: 15px;
-}
-.navegacion ul li a{
-    text-decoration: none;
-    font-size: 20px;
-    color: rgb(92, 87, 87);
-    font-family: 'Montserrat', sans-serif;
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: rgba(247, 207, 121, 0.596);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.192);
 }
 
-.navegacion ul li a:hover{
-    border-bottom: 1px solid rgb(92, 87, 87);
-    border-top: 1px solid rgb(92, 87, 87);
+.navegacion ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+#titulo {
+  margin-left: 15px;
+  color: rgb(92, 87, 87);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navegacion ul li {
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.navegacion ul li a, .navegacion ul li button {
+  padding: 10px;
+  background-color: #e09422;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navegacion ul li a:hover, .navegacion ul li button:hover {
+  border-bottom: 1px solid rgb(92, 87, 87);
+  border-top: 1px solid rgb(92, 87, 87);
+}
+
+.submit-button {
+  padding: 1px;
+  background-color: #e09422;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.submit-button:hover {
+  border-bottom: 1px solid rgb(92, 87, 87);
+  border-top: 1px solid rgb(92, 87, 87);
 }
