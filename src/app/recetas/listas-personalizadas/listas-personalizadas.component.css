@@ -2,23 +2,24 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .formulario {
   display: flex;
   flex-direction: column;
+  flex: 1;
   width: 100%;
   align-items: center;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 30px auto;
-  margin: 15px auto;
+  max-width: 400px; /* Cambiado de 600px a 400px */
+  margin: 20px auto; /* Ajusta el margen superior e inferior */
   font-family: 'Montserrat', sans-serif;
 }
+
 
 h2{
   font-family: 'Montserrat', sans-serif;
@@ -85,3 +86,13 @@ h2{
   font-size: 14px;
   margin-top: 5px;
 }
+
+footer {
+  margin-top: auto; /* Empuja el footer hacia abajo */
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #f7cf79;
+  color: #555;
+}
+

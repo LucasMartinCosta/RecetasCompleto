@@ -18,11 +18,9 @@ export const routes: Routes = [
     {path:'home',component:HomePageComponent},
     {path:'recetas-detalles/:id', component: RecetaDetailComponent},
     {path:'agregar-receta', component: RecetaFormComponent},
-
     {path: 'recetas', component: RecetaListComponent},
     {path:'crear-recetario', component: ListasPersonalizadasComponent},
     {path: 'mi-listas', component:MiListasComponent},
-    
     {path:'agregar-lista', component:ListasPersonalizadasComponent},
     {path:'perfil', component:PerfilPageComponent}
 ];

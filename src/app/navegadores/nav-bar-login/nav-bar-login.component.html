@@ -1,18 +1,16 @@
-<nav>
-    <div>
-        <h2 id="titulo">Bon APPetit</h2>
-    </div>
-
-    <div class="navegacion">
-
-        <ul>
-            <li>
-                <a href="perfil">Perfil</a>
-            </li>
-            <li>
-                <button (click)="obtenerUserActivo()" class="submit-button">Cerrar sesion</button>
-            </li>
-
-        </ul>
-    </div>
+<nav class="navegacion">
+  <div class="logo-container">
+    <button mat-button class="menu-option" [routerLink]="['/home']">
+      <img src="/img/imagenLogo.jpeg" alt="Logo" class="logo-image">
+    </button>
+  </div>
+  <ul class="menu">
+    <li><a routerLink="/perfil">Perfil</a></li>
+    <li>
+      <button (click)="obtenerUserActivo()" class="submit-button">Cerrar sesión</button>
+    </li>
+  </ul>
 </nav>
+
+
+

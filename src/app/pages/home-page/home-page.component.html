@@ -10,11 +10,12 @@
 <div class="contenedor-section">
     <section>
         <div class="cont-p">
-            <p>¿Estás sin ideas para la comida? Acá te tiramos 5 recetas para que te
-              inspires y pruebes algo nuevo. ¡A cocinar se ha dicho!</p>
+            <p>¿Estás sin ideas para la comida? <br> 
+              Acá te tiramos la receta del dia para que te
+              inspires y pruebes algo nuevo <br> ¡A cocinar se ha dicho!</p>
         </div>
 
-        <button (click)="obtenerRecetasRandom()" > activarRecetas </button>
+        <button (click)="obtenerRecetasRandom()" > Ver receta</button>
 
         <div class="cont-recetas">
             @for (item of listaRecetas; track $index) {

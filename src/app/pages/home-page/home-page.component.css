@@ -101,6 +101,21 @@ font-size: 20px;
 text-decoration: none;
 
 }
+button {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 45px;
+  width: 200px;
+  background-color: #e09422ad;
+  color: white;
+  cursor: pointer;
+  margin-top: 0;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #e2a731;
+}
 
 
 

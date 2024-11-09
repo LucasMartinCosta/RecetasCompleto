@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { UsuariosService } from '../../service/usuarios.service';
 import { routes } from '../../app.routes';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar-login',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './nav-bar-login.component.html',
   styleUrl: './nav-bar-login.component.css'
 })

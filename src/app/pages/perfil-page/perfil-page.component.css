@@ -22,7 +22,7 @@ img{
 }
 
 .info-general{
-   
+
     width: 80%;
     height: 400px;
     display: flex;
@@ -31,7 +31,7 @@ img{
     justify-content: space-around;
     padding: 15px;
     margin-top: -15px;
- 
+
 }
 .info-personal{
     display: flex;
@@ -43,14 +43,16 @@ img{
 .info-txt{
     font-size: 40px;
     border-bottom: 1px solid rgb(0, 0, 0);
-  
+   font-family: 'Montserrat', sans-serif;
+  color: rgb(92, 87, 87);
+
 }
 .btn{
     padding: 20px;
     font-size: 18px;
     width: 150px;
     background-color: rgba(247, 207, 121, 0.596);
-    color: rgb(0, 0, 0);
+    color: rgb(92, 87, 87);
     border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     margin-bottom: -10px;
@@ -58,8 +60,11 @@ img{
 
 .btn:hover{
     background-color: rgba(247, 207, 121, 0.925);
+
 }
 .info-llamada{
     font-size: 30px;
     margin-top: 5px;
 }
+
+
