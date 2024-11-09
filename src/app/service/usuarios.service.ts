@@ -14,6 +14,7 @@ export class UsuariosService {
 
   private activeUserSubject = new BehaviorSubject<UserActivo| undefined>(undefined);
   urlUsuarios= 'http://localhost:3000/Usuarios';
+  urlActivo = "http://localhost:3000/UsuarioActivo"
   http= inject(HttpClient);
 
   auth(): Observable<UserActivo | undefined> {
@@ -49,6 +50,23 @@ export class UsuariosService {
         return false;
       })
     );
+  }
+
+
+  postUserActivo (user:UserActivo) : Observable<UserActivo> {
+    return this.http.post<UserActivo>(this.urlActivo, user)
+  }
+
+  getUserActivo(): Observable<UserActivo[]> {
+    return this.http.get<UserActivo[]>(this.urlActivo);
+  }
+
+  deleteUserActivo (id:string) : Observable<void>{
+    return this.http.delete<void>(`${this.urlActivo}/${id}`)
+  }
+
+  clearUserActivo(): Observable<void> {
+    return this.http.delete<void>(this.urlActivo); // Esta línea elimina todos los usuarios activos si json-server lo permite.
   }
 
   /*

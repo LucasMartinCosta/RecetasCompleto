@@ -32,7 +32,6 @@ export class ListasPersonalizadasComponent{
     } 
 
     postLista () {
-
       this.setNombreLista(); 
       const listaNueva : ListaRecetasPersonalizadas = {
         nombre : this.nombreLista, 
