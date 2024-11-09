@@ -1,5 +1,22 @@
 {
-  "listasPersonalizadas": [],
+  "listasPersonalizadas": [
+    {
+      "id": "",
+      "idUsuario": "",
+      "title": "",
+      "recetas": {}
+    },
+    {
+      "id": "9290",
+      "nombre": "xd",
+      "recetas": []
+    },
+    {
+      "id": "d506",
+      "nombre": "xddd",
+      "recetas": []
+    }
+  ],
   "recetas": [
     {
       "id": "95e9",

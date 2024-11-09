@@ -10,10 +10,10 @@ export class ListasPersonalizadasService {
 
   constructor() { }
 
-  url : string = "http://localhost:3000/listasPersonalizadas"
+  url : string = "http://localhost:3100/listasPersonalizadas"
 
 
-  http = inject(HttpClient); 
+  http = inject(HttpClient);
 
    // Obtener todas las listas
   getListas(): Observable<ListaRecetasPersonalizadas[]> {
@@ -30,7 +30,7 @@ export class ListasPersonalizadasService {
   }
 
   postLista (lista: ListaRecetasPersonalizadas) : Observable <ListaRecetasPersonalizadas> {
-    return this.http.post<ListaRecetasPersonalizadas>(this.url, lista); 
+    return this.http.post<ListaRecetasPersonalizadas>(this.url, lista);
   }
 
   // Actualizar una lista
