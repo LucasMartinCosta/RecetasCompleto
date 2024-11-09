@@ -1,21 +1,5 @@
 <app-nav-bar-login></app-nav-bar-login>
 
-<div class="recetas-container">
-  <h2>Recetas Disponibles</h2>
-
-  <div *ngFor="let receta of recetas" class="receta-card">
-    <h3>{{ receta.title }}</h3>
-    <p><strong>Ingredientes:</strong></p>
-    <p><strong>Tiempo de preparación:</strong> {{ receta.readyInMinutes }} minutos</p>
-    <p><strong>Porciones:</strong> {{ receta.servings }}</p>
-    <p><strong>Instrucciones:</strong> {{ receta.instructions }}</p>
-    <img *ngIf="receta.image" [src]="receta.image" alt="Imagen de la receta" class="receta-image" />
-    
-    <button >Actualizar</button>
-    <button >Eliminar</button>
-  </div>
-</div>
-
 <form [formGroup]="formulario" (ngSubmit)="addRecipe()">
   <fieldset>
     <!-- Título -->
@@ -81,5 +65,28 @@
     <button class="button-click">Agregar a una lista</button>
   </fieldset>
 </form>
+
+<div class="recetas-container">
+  <h2>Recetas Disponibles</h2>
+
+  <div *ngFor="let receta of recetas" class="receta-card">
+    <h3>{{ receta.title }}</h3>
+    <p><strong>Ingredientes:</strong></p>
+    <p><strong>Tiempo de preparación:</strong> {{ receta.readyInMinutes }} minutos</p>
+    <p><strong>Porciones:</strong> {{ receta.servings }}</p>
+    <p><strong>Instrucciones:</strong> {{ receta.instructions }}</p>
+    <img *ngIf="receta.image" [src]="receta.image" alt="Imagen de la receta" class="receta-image" />
+
+    @for (receta of recetas; track receta.id) {
+      <app-delete-update-output
+    [receta]="receta"
+    (delete)="deleteRecipe($event)"
+    (update)="updateRecipe($event)"
+      >
+    </app-delete-update-output>
+    }
+
+
+
 
 <app-footer></app-footer>
