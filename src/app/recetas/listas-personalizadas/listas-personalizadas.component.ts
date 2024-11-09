@@ -3,11 +3,14 @@ import { ListaRecetasPersonalizadas, RecipeInfo } from '../../interfaces/recetas
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from '../../shared/footer/footer.component';
+import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 
 @Component({
   selector: 'app-listas-personalizadas',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, RouterModule],
+  imports: [ReactiveFormsModule, FormsModule, RouterModule,
+  FooterComponent,NavBarLoginComponent],
   templateUrl: './listas-personalizadas.component.html',
   styleUrl: './listas-personalizadas.component.css'
 })
