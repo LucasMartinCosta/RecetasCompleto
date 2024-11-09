@@ -10,11 +10,13 @@ import { Subscription } from 'rxjs';
 import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { RecetaListComponent } from '../../recetas/receta-list/receta-list.component';
+import { MenuInicioComponent } from '../../menu/menu-inicio/menu-inicio.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RecetaCardComponent, FooterComponent, NavBarLoginComponent, RecetaListComponent],
+  imports: [RecetaCardComponent, FooterComponent, NavBarLoginComponent, RecetaListComponent
+  ,MenuInicioComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

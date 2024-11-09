@@ -1,33 +1,39 @@
 .form-busqueda {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
+    margin: 30px;
+
   }
-  
+
   .input-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+
+
   }
-  
+
   input {
     flex-grow: 10px;
     padding: 10px;
     margin-right: 10px;
+
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  
+
   button {
     padding: 10px 15px;
     border: 1px solid #ccc;
-    border-radius: 45px;
+    border-radius: 5px;
     background-color: #e09422ad;
     color: white;
     cursor: pointer;
+    margin: 5px;
   }
-  
+
   button:hover {
     background-color: #e2a731;
   }

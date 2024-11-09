@@ -2,23 +2,24 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ListaRecetasPersonalizadas, RecipeInfo } from '../../interfaces/recetas';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-listas-personalizadas',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, RouterModule],
   templateUrl: './listas-personalizadas.component.html',
   styleUrl: './listas-personalizadas.component.css'
 })
 export class ListasPersonalizadasComponent{
-    
+
 
     listas: ListaRecetasPersonalizadas[] = []; //esta variable solo sirve para mostrar las todas las listas
-    servicio = inject(ListasPersonalizadasService); 
-    fb = inject(FormBuilder); 
+    servicio = inject(ListasPersonalizadasService);
+    fb = inject(FormBuilder);
 
-    nombreLista ?= ""; 
-    arrayRecetas : RecipeInfo[] = []; 
+    nombreLista ?= "";
+    arrayRecetas : RecipeInfo[] = [];
 
     constructor() {}
 
@@ -27,15 +28,15 @@ export class ListasPersonalizadasComponent{
     })
 
     setNombreLista () {
-      if (this.formulario.invalid) return; 
+      if (this.formulario.invalid) return;
       this.nombreLista = this.formulario.get("nombre")?.value || "";
-    } 
+    }
 
     postLista () {
 
-      this.setNombreLista(); 
+      this.setNombreLista();
       const listaNueva : ListaRecetasPersonalizadas = {
-        nombre : this.nombreLista, 
+        nombre : this.nombreLista,
         recetas : this.arrayRecetas
       }
 
@@ -54,7 +55,7 @@ export class ListasPersonalizadasComponent{
       this.servicio.deleteLista(id). subscribe ({
         next : (lista) => {
           console.log("Lista eliminada correctamente", lista);
-        }, 
+        },
         error: (e:Error) => {
           console.log(e.message);
         }
@@ -64,7 +65,7 @@ export class ListasPersonalizadasComponent{
 
 
 
-    
-  
+
+
 }
 

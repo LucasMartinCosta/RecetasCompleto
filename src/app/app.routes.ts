@@ -5,6 +5,8 @@ import { IniciarSesionComponent } from './usuarios/iniciar-sesion/iniciar-sesion
 import { PagInicioComponent } from './pages/pag-inicio/pag-inicio.component';
 import { RecetaDetailComponent } from './recetas/receta-detail/receta-detail.component';
 import { RecetaFormComponent } from './recetas/receta-form/receta-form.component';
+import { RecetaListComponent } from './recetas/receta-list/receta-list.component';
+import { ListasPersonalizadasComponent } from './recetas/listas-personalizadas/listas-personalizadas.component';
 
 
 export const routes: Routes = [
@@ -13,6 +15,8 @@ export const routes: Routes = [
     {path:'iniciarSesion',component:IniciarSesionComponent},
     {path:'home',component:HomePageComponent},
     {path:'recetas-detalles/:id', component: RecetaDetailComponent},
-    {path:'agregar', component: RecetaFormComponent},
-    {path: '**', redirectTo: 'home'}
+    {path:'agregar-receta', component: RecetaFormComponent},
+    {path: '**', redirectTo: 'home'},
+    {path: 'recetas', component: RecetaListComponent},
+    {path:'agregar-lista', component:ListasPersonalizadasComponent}
 ];
