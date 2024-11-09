@@ -1,5 +1,16 @@
 {
-  "listasPersonalizadas": [],
+  "listasPersonalizadas":
+  [
+    {
+      "id": "",
+      "idUsuario": "",
+      "title": "",
+      "recetas":
+      {
+
+      }
+    }
+  ],
   "recetas": [
     {
       "id": "95e9",

@@ -5,6 +5,9 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
+import { UsuariosService } from '../../service/usuarios.service';
+import { UserActivo } from '../../interfaces/user-activo';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-listas-personalizadas',
@@ -14,7 +17,44 @@ import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-lo
   templateUrl: './listas-personalizadas.component.html',
   styleUrl: './listas-personalizadas.component.css'
 })
-export class ListasPersonalizadasComponent{
+export class ListasPersonalizadasComponent implements OnInit{
+
+  ngOnInit(): void {
+    this.servicioUsuario.getUserActivo().subscribe(
+      {
+        next:(usuario)=>{
+          this.userACT=usuario[0];
+          this.servicioUsuario.getUSerById(this.userACT.id).subscribe({
+
+            next:(usuario)=>
+            {
+              this.userComun=usuario;
+            },
+            error:(err:Error)=>
+            {
+              console.log(err.message);
+            }
+          })
+        },
+        error:(err:Error)=>{
+          console.log(err.message);
+        }
+      }
+    )
+  }
+
+  userACT:UserActivo={
+    id:0,
+    nombreUsuario:''
+  };
+  userComun:User={
+    nombreUsuario:'',
+    contrasena:'',
+    listas:[]
+  };
+
+
+    servicioUsuario = inject(UsuariosService);
 
 
     listas: ListaRecetasPersonalizadas[] = []; //esta variable solo sirve para mostrar las todas las listas
@@ -46,6 +86,7 @@ export class ListasPersonalizadasComponent{
       this.servicio.postLista(listaNueva).subscribe({
         next: () => {
           console.log("Lista creada correctamente");
+          this.userComun.listas.push(listaNueva);
         },
         error: (e:Error) => {
           console.log(e.message);
