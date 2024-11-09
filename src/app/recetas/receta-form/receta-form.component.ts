@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { Receta, Receta2 } from '../../interfaces/recetas';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
+import { DeleteUpdateOutputComponent } from '../delete-update-output/delete-update-output.component';
 
 @Component({
   selector: 'app-receta-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FooterComponent,NavBarLoginComponent],
+  imports: [ReactiveFormsModule, CommonModule, FooterComponent,NavBarLoginComponent,DeleteUpdateOutputComponent],
   templateUrl: './receta-form.component.html',
   styleUrl: './receta-form.component.css'
 })
@@ -67,18 +68,10 @@ addRecipe(){
 }
 
 updateRecipe(id:number) {
-  if (this.formulario.invalid || id === null) return;
-  const receta = this.formulario.getRawValue();
 
-  this.serviceRec.updateReceta(id, receta).subscribe({
-    next: () => {
-      alert('¡Receta actualizada con éxito!');
-      this.router.navigate(['']);
-    },
-    error: (e: Error) => {
-      console.error('Error al actualizar receta:', e.message);
-    }
-  });
+      this.router.navigate([`modificar-receta/:${id}`]);
+   
+  
 }
 
 // Método para eliminar receta
@@ -88,7 +81,7 @@ deleteRecipe(id:number) {
   this.serviceRec.deleteReceta(id).subscribe({
     next: () => {
       alert('¡Receta eliminada con éxito!');
-      this.router.navigate(['']);
+     // this.router.navigate(['']);
     },
     error: (e: Error) => {
       console.error('Error al eliminar receta:', e.message);
