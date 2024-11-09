@@ -3,7 +3,7 @@ export interface Receta {
     vegetarian:               boolean;
     vegan:                    boolean;
     glutenFree:               boolean;
-    id:                       number;
+    id?:                       number;
     title:                    string;
     readyInMinutes:           number;
     servings:                 number;

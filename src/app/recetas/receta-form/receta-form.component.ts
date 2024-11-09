@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators, FormArray } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { CommonModule } from '@angular/common';
-import { Receta2 } from '../../interfaces/recetas';
+import { Receta, Receta2 } from '../../interfaces/recetas';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 
@@ -22,21 +22,18 @@ export class RecetaFormComponent implements OnInit {
   fb = inject(FormBuilder);
   router = inject(Router);
   route = inject(ActivatedRoute);
-  recetas: Array<Receta2>= [];
-
-
-
+  recetas: Array<Receta>= [];
 
   formulario=this.fb.nonNullable.group({
-    title: ['', Validators.required],
-      ingredients: this.fb.array([this.fb.control('', Validators.required)]),  // Asegúrate de que los ingredientes son strings
-      vegetarian: [false, Validators.required],  // Tipo boolean
-      vegan: [false, Validators.required],       // Tipo boolean
-      glutenFree: [false, Validators.required],  // Tipo boolean
-      readyInMinutes: [0, [Validators.required, Validators.min(1)]],  // Tipo number
-      servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
-      instructions: ['', Validators.required]
-
+    title: ['', Validators.required],  
+    vegetarian: [false, Validators.required],  // Tipo boolean
+    vegan: [false, Validators.required],       // Tipo boolean
+    glutenFree: [false, Validators.required],  // Tipo boolean
+    readyInMinutes: [0, [Validators.required, Validators.min(1)]],  // Tipo number
+    servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
+    instructions: ['', Validators.required],
+    image: [''],
+    spoonacularScore: [0]
   });
 
   ngOnInit(){
@@ -53,18 +50,7 @@ export class RecetaFormComponent implements OnInit {
       }
     )
   }
-get ingredients() {
-  return this.formulario.get('ingredients') as FormArray;
-}
-
-addIngredient() {
-  this.ingredients.push(this.fb.control(''));
-}
-
-removeIngredient(index: number) {
-  this.ingredients.removeAt(index);
-}
-
+  
 addRecipe(){
   if(this.formulario.invalid) return
   const receta = this.formulario.getRawValue()
@@ -80,7 +66,7 @@ addRecipe(){
   })
 }
 
-updateRecipe(id:string) {
+updateRecipe(id:number) {
   if (this.formulario.invalid || id === null) return;
   const receta = this.formulario.getRawValue();
 
@@ -96,7 +82,7 @@ updateRecipe(id:string) {
 }
 
 // Método para eliminar receta
-deleteRecipe(id:string) {
+deleteRecipe(id:number) {
   if (id=== null) return alert('BOLUDAZO')
 
   this.serviceRec.deleteReceta(id).subscribe({

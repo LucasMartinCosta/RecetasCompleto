@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { EnvironmentInjector, inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
-import { Receta2, RecipeInfo } from '../interfaces/recetas';
+import { Receta, Receta2, RecipeInfo } from '../interfaces/recetas';
 import { RecetasRandom } from '../interfaces/recetasRandom';
 
 @Injectable({
@@ -64,22 +64,22 @@ export class RecetasService {
     return this.http.get<RecetasRandom>(url, { headers, params });
   }
 //form
-getRecetas(): Observable<Receta2[]> {
-  return this.http.get<Receta2[]>(this.baseUrl);
+getRecetas(): Observable<Receta[]> {
+  return this.http.get<Receta[]>(this.baseUrl);
 }
 
-  postRectea(receta: Receta2): Observable <Receta2>{
-    return this.http.post<Receta2>(this.baseUrl,receta);
+  postRectea(receta: Receta): Observable <Receta>{
+    return this.http.post<Receta>(this.baseUrl,receta);
   }
 
 
-   updateReceta(idReceta: string, receta: Receta2): Observable<Receta2> {
-    return this.http.put<Receta2>(`${this.baseUrl}/${idReceta}`, receta);
+   updateReceta(idReceta: number, receta: Receta): Observable<Receta> {
+    return this.http.put<Receta>(`${this.baseUrl}/${idReceta}`, receta);
   }
 
 
-  deleteReceta(idReceta: string): Observable<Receta2> {
-    return this.http.delete<Receta2>(`${this.baseUrl}/${idReceta}`);
+  deleteReceta(idReceta: number): Observable<Receta> {
+    return this.http.delete<Receta>(`${this.baseUrl}/${idReceta}`);
   }
   //form
 }
