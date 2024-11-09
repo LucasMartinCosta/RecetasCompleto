@@ -2,7 +2,7 @@
 form {
   font-family: 'Montserrat', sans-serif;
     max-width: 600px;
-    margin: 15px;
+    margin: auto;
     padding: 50px;
     background-color: rgba(247, 207, 121, 0.596);
     border-radius: 10px;
@@ -11,6 +11,7 @@ form {
     flex-direction: column;
     align-items: center;
     font-size: larger;
+    margin-top: 20px;
 }
 
 
