@@ -9,11 +9,12 @@ import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-lo
 import { Subscription } from 'rxjs';
 import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
+import { RecetaListComponent } from '../../recetas/receta-list/receta-list.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RecetaCardComponent, FooterComponent, NavBarLoginComponent],
+  imports: [RecetaCardComponent, FooterComponent, NavBarLoginComponent, RecetaListComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
@@ -26,23 +27,23 @@ export class HomePageComponent implements OnInit, OnDestroy{
       next: (activeUser) => {
         if (activeUser){
           this.usuario = activeUser
-        } 
+        }
       }
     });
   }
 
   usuario:UserActivo = {
-    id:0, 
+    id:0,
     nombreUsuario:"invitado"
   }
-  private sub? : Subscription; 
+  private sub? : Subscription;
 
   rutas = inject(Router);
   servicio= inject(RecetasService);
   servicioUser = inject(UsuariosService)
 
   listaRecetas: Array<Recipe>= []
-  
+
   obtenerRecetasRandom()
   {
     this.servicio.getRandomRecipe(1).subscribe(

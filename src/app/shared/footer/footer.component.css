@@ -16,15 +16,18 @@ ul li{
 
 .derechos{
     font-size: 20px;
-    color: rgb(0, 0, 0);
-    border-bottom: 1px solid rgb(0, 0, 0);
-    border-top: 1px solid rgb(0, 0, 0);
+    color: rgb(92, 87, 87);
+    border-bottom: 1px solid rgb(196, 150, 66);
+    border-top: 1px solid rgb(196, 150, 66);
+    font-family: 'Montserrat', sans-serif;
 }
 #titulo-redes{
     font-size: 22px;
-    color: rgb(0, 0, 0);
-    border-bottom: 1px solid rgb(0, 0, 0);
-    
+    color:rgb(92, 87, 87);
+    border-bottom: 1px solid rgb(196, 150, 66);
+    font-family: 'Montserrat', sans-serif;
+
+
 }
 
 .info1 ul li{
@@ -32,8 +35,9 @@ ul li{
 }
 
 .info1 ul li a{
-    color: rgb(0, 0, 0);
+    color: rgb(92, 87, 87);
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .info1 ul li a:hover{

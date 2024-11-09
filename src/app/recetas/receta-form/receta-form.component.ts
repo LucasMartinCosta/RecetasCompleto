@@ -5,11 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { CommonModule } from '@angular/common';
 import { Receta2 } from '../../interfaces/recetas';
+import { FooterComponent } from '../../shared/footer/footer.component';
+import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 
 @Component({
   selector: 'app-receta-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, FooterComponent,NavBarLoginComponent],
   templateUrl: './receta-form.component.html',
   styleUrl: './receta-form.component.css'
 })
@@ -22,8 +24,8 @@ export class RecetaFormComponent implements OnInit {
   route = inject(ActivatedRoute);
   recetas: Array<Receta2>= [];
 
- 
- 
+
+
 
   formulario=this.fb.nonNullable.group({
     title: ['', Validators.required],
@@ -33,8 +35,8 @@ export class RecetaFormComponent implements OnInit {
       glutenFree: [false, Validators.required],  // Tipo boolean
       readyInMinutes: [0, [Validators.required, Validators.min(1)]],  // Tipo number
       servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
-      instructions: ['', Validators.required] 
-   
+      instructions: ['', Validators.required]
+
   });
 
   ngOnInit(){
@@ -42,9 +44,9 @@ export class RecetaFormComponent implements OnInit {
       {
         next: (recetas)=>{
          this.recetas=recetas;
-      
+
         },
-    
+
         error:(e:Error)=>{
           console.log(e);
         }
@@ -76,7 +78,7 @@ addRecipe(){
 
     }
   })
-} 
+}
 
 updateRecipe(id:string) {
   if (this.formulario.invalid || id === null) return;

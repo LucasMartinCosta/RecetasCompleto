@@ -1,5 +1,5 @@
 app-nav-bar-login{
-   
+
   display: block;
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@ app-nav-bar-login{
 
 .recipe-container {
 
-    font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
     max-width: 600px;
     margin: 0 auto;
     padding: 50px;
@@ -20,44 +20,44 @@ app-nav-bar-login{
     flex-direction: column;
     align-items: center;
   }
-  
+
   .recipe-title {
     text-align: center;
     font-size: 50px;
     margin-bottom: 20px;
     color: #ba904e;
-    font-family: 'quicksand';
-    
+    font-family: 'Montserrat', sans-serif;
+
   }
   .cont-img {
-    width:400px;   
-    height: 300px;  
+    width:400px;
+    height: 300px;
     box-shadow: 1px 1px 5px black;
     border-radius: 10px;
-    overflow: hidden; 
+    overflow: hidden;
   }
-  
+
   .recipe-image{
-    width: 100%;     
-    height: 100%;    
-    object-fit: cover; 
-    object-position: center; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
-  
+
   .recipe-info {
     margin-top: 30px;
     font-size: 1.1em;
     color: #7e654e;
     margin-bottom: 20px;
   }
-  
+
   .recipe-info p {
     font-size: 25px;
     margin: 5px 0;
   }
 
   .cont-ingredientes{
-  
+
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@ app-nav-bar-login{
     list-style-type:none;
     padding: 0;
   }
-  
+
   .ingredient-list li {
     background-color: #e3c98d;
     padding: 10px;
@@ -84,27 +84,44 @@ app-nav-bar-login{
     list-style: none;
     text-decoration: none;
   }
-  
+
   .recipe-instructions {
     font-size: 1.1em;
     line-height: 1.5;
     color:#7e654e;
   }
-  
+
   h3 {
     margin-top: 30px;
     font-size: 1.6em;
     color: #7e654e;
   }
-  
+
   button{
     padding: 10px 15px;
     border: 1px solid #ccc;
-    border-radius: 45px;
+    border-radius: 15px;
     background-color:  #e09422ad;
     color: white;
     cursor: pointer;
+    width: 50%;
+
+
   }
+  .add-to-list-btn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #e09422ad;
+    color: white;
+    cursor: pointer;
+    width: 70%;
+    margin: 20px auto;
+    display: block;
+    font-size: 16px;
+  }
+
+
 ul{
   list-style:none;
 }
@@ -123,7 +140,7 @@ ul{
   .cont-instrucciones h3{
     font-size: 35px;
   }
-  
+
 
   app-footer{
     display: block;
@@ -131,4 +148,3 @@ ul{
     padding: 0;
     width: 100%;
     }
-    

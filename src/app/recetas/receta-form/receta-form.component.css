@@ -1,23 +1,28 @@
 /* Estilos generales */
 form {
+  font-family: 'Montserrat', sans-serif;
     max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
+    margin: 15px;
+    padding: 50px;
+    background-color: rgba(247, 207, 121, 0.596);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px  #e6b76d;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+}
+
+
   /* Estilos para los labels */
   form label {
     font-weight: bold;
     margin-top: 10px;
     display: block;
-    color: #333;
+    color: rgb(92, 87, 87);
+
   }
-  
+
   /* Estilos para los inputs y textarea */
   form input[type="text"],
   form input[type="number"],
@@ -26,56 +31,47 @@ form {
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #e6b76d;
     border-radius: 4px;
     font-size: 1rem;
   }
-  
+
   /* Estilos para checkbox */
   form input[type="checkbox"] {
     margin-right: 5px;
   }
-  
+
   /* Estilos para el FormArray de ingredientes */
   .ingredients-group {
     margin-bottom: 10px;
   }
-  
+
   .ingredients-group input[type="text"] {
     width: calc(100% - 50px);
     display: inline-block;
+
   }
-  
+
   .ingredients-group button {
     width: 40px;
     display: inline-block;
     margin-left: 5px;
     background-color: #e74c3c;
-    color: white;
+    color: #e8bf7e;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
-  
+
   .ingredients-group button:hover {
     background-color: #c0392b;
   }
-  
-  /* Botón de añadir ingrediente */
-  .add-ingredient-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
+
+
   .add-ingredient-button:hover {
-    background-color: #2980b9;
+    background-color: #e2a731;
   }
-  
+
   /* Estilos para los mensajes de error */
   .error-message {
     color: #e74c3c;
@@ -83,11 +79,11 @@ form {
     margin-top: -10px;
     margin-bottom: 10px;
   }
-  
+
   /* Botón de enviar */
   button[type="submit"] {
     width: 100%;
-    background-color: #2ecc71;
+    background-color: #e09422ad;
     color: white;
     border: none;
     padding: 12px;
@@ -95,13 +91,37 @@ form {
     border-radius: 4px;
     cursor: pointer;
   }
-  
+
   button[type="submit"]:hover {
-    background-color: #27ae60;
+    background-color: #e2a731;
   }
-  
+
   button[type="submit"]:disabled {
-    background-color: #bdc3c7;
+    background-color: #e8bf7e;
     cursor: not-allowed;
   }
-  
+
+  .button-click {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e09422ad;
+    color: white;
+    cursor: pointer;
+    width: auto;
+    margin: 10px auto;
+    display: block;
+    font-size: 0.9rem;
+
+  }
+  fieldset {
+    border: none;
+  }
+
+
+  app-footer{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    }
