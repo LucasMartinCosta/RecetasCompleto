@@ -4,5 +4,6 @@ export const environment = {
     tokenLaura: "b5e8202b42d045efa8f6d691f7387274",
     tokeIma2: "d1b6c71a62c047fdb339cb798541d010",
     tokenLucas: "b5e8202b42d045efa8f6d691f7387274",
-    tokenLaura2: "3ba222c566f94017b14a6f97a809aac1"
+    tokenLaura2: "3ba222c566f94017b14a6f97a809aac1",
+    tokenManu: "92d1b9af307d45168464d7a3496b85bc"
 };
