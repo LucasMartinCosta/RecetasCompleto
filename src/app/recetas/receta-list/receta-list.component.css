@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   
   .input-container {
@@ -12,10 +13,11 @@
   }
   
   input {
+    margin: 10px;
     flex-grow: 10px;
     padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
+    width: 600px;
+    border: 2px solid rgb(247, 207, 121);
     border-radius: 5px;
   }
   
@@ -23,11 +25,15 @@
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 45px;
+    width: 200px;
     background-color: #e09422ad;
     color: white;
     cursor: pointer;
+    margin-top: 5px;
+    font-size: 15px;
   }
   
   button:hover {
     background-color: #e2a731;
   }
+  
