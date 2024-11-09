@@ -13,5 +13,6 @@ export const routes: Routes = [
     {path:'iniciarSesion',component:IniciarSesionComponent},
     {path:'home',component:HomePageComponent},
     {path:'recetas-detalles/:id', component: RecetaDetailComponent},
-    {path:'agregar', component: RecetaFormComponent}
+    {path:'agregar', component: RecetaFormComponent},
+    {path: '**', redirectTo: 'home'}
 ];

@@ -52,6 +52,10 @@ export class UsuariosService {
     );
   }
 
+  getUSerById (id:string) : Observable<User>{
+    return this.http.get<User>(`${this.urlUsuarios}/${id}`)
+  }
+
 
   postUserActivo (user:UserActivo) : Observable<UserActivo> {
     return this.http.post<UserActivo>(this.urlActivo, user)

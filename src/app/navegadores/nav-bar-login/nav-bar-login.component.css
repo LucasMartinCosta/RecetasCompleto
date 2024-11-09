@@ -17,8 +17,9 @@ nav{
 #titulo
 {
     margin-left: 15px;
-    color: rgb(0, 0, 0);
+    color: rgb(92, 87, 87);
     border-bottom: 1px solid rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
 }
 .navegacion ul li{
     margin-left: 10px;
@@ -27,10 +28,11 @@ nav{
 .navegacion ul li a{
     text-decoration: none;
     font-size: 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(92, 87, 87);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navegacion ul li a:hover{
-    border-bottom: 1px solid rgb(0, 0, 0);
-    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(92, 87, 87);
+    border-top: 1px solid rgb(92, 87, 87);
 }

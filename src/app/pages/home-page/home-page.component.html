@@ -1,23 +1,28 @@
-<app-nav-bar-login> </app-nav-bar-login>
 
-<p> {{usuario.id}} {{usuario.nombreUsuario}} </p> 
+
+<p> {{usuario.id}} {{usuario.nombreUsuario}} </p>
+<app-nav-bar-login></app-nav-bar-login>
+
+<app-receta-list></app-receta-list>
 
 <div class="contenedor-section">
     <section>
         <div class="cont-p">
-            <p>No sabes que comer?Aca te dejamos 5 recetas para que pruebes</p>
+            <p>¿Estás sin ideas para la comida? Acá te tiramos 5 recetas para que te
+              inspires y pruebes algo nuevo. ¡A cocinar se ha dicho!</p>
         </div>
-    
+
         <button (click)="obtenerRecetasRandom()" > activarRecetas </button>
-    
+
         <div class="cont-recetas">
             @for (item of listaRecetas; track $index) {
-    
+
                 <app-receta-card [receta]="item" (verDetalles)="navigateToDetails($event)"> </app-receta-card>
-            
+
             }
         </div>
     </section>
 </div>
 
 <app-footer> </app-footer>
+

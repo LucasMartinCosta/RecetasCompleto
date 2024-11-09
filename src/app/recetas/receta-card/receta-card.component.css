@@ -8,7 +8,7 @@
   height: 100%;
 }
 .recetas-ind{
-  
+
   border-radius: 5px;
   margin: 10px;
   display: flex;
@@ -34,6 +34,8 @@
 .texto-card li{
   font-size: 30px;
   margin-bottom: 4px;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(92, 87, 87);
 }
 
 .btn{
@@ -41,7 +43,7 @@
   font-size: 15px;
   width: 150px;
   background-color: rgba(247, 207, 121, 0.596);
-  color: rgb(0, 0, 0);
+  color: rgb(92, 87, 87);
   border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
   margin-bottom: 5px;
@@ -73,4 +75,7 @@ list-style: none;
 .titulo{
   font-size: 20px;
   text-decoration: none;
+  color: rgb(92, 87, 87);
+  font-family: 'Montserrat', sans-serif;
+
 }

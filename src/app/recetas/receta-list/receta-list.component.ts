@@ -68,6 +68,6 @@ export class RecetaListComponent{
   }
 
   navigateToDetails(id: number) {
-    this.router.navigate([`/receta-detalle/${id}`]);
+    this.router.navigate([`/recetas-detalles/${id}`]);
 }
 }

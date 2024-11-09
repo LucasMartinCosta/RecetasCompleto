@@ -12,19 +12,19 @@ export class RecetasService {
 
   constructor() { }
 
-  http = inject(HttpClient); 
-  private key = environment.tokeIma2;
+  http = inject(HttpClient);
+  private key = environment.tokenLaura2;
   private baseUrl = 'http://localhost:3000/recetas';
 
 
   getRecetasByIngredients (ingredients : string, number:number) : Observable<any> {
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json', 
+      'Content-Type': 'application/json',
       'x-api-key': this.key
-    }); 
+    });
 
-    const ignorePantry : boolean = true; 
+    const ignorePantry : boolean = true;
     const params = {ingredients, number,ignorePantry}
     const url = "https://api.spoonacular.com/recipes/findByIngredients"
 
@@ -34,25 +34,25 @@ export class RecetasService {
   getRecipeInfotmation (id:number) : Observable <RecipeInfo> {
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json', 
+      'Content-Type': 'application/json',
       'x-api-key': this.key
     });
 
-    const includeNutrition : boolean = false; 
-    const addWinePairing : boolean = false; 
-    const addTasteData : boolean = false; 
+    const includeNutrition : boolean = false;
+    const addWinePairing : boolean = false;
+    const addTasteData : boolean = false;
 
     const params = {id, includeNutrition, addWinePairing, addTasteData}
     const url = `https://api.spoonacular.com/recipes/${id}/information`;
-  
+
     return this.http.get<RecipeInfo>(url, {headers, params})
   }
 
 
   getRandomRecipe(number: number = 1, includeNutrition: boolean = false): Observable<RecetasRandom> {
     const params = new HttpParams()
-      .set('number', number.toString())  
-      .set('includeNutrition', includeNutrition.toString()); 
+      .set('number', number.toString())
+      .set('includeNutrition', includeNutrition.toString());
 
     // Crear los headers con la API Key
     const headers = new HttpHeaders({
@@ -72,12 +72,12 @@ getRecetas(): Observable<Receta2[]> {
     return this.http.post<Receta2>(this.baseUrl,receta);
   }
 
-  
+
    updateReceta(idReceta: string, receta: Receta2): Observable<Receta2> {
     return this.http.put<Receta2>(`${this.baseUrl}/${idReceta}`, receta);
   }
 
-  
+
   deleteReceta(idReceta: string): Observable<Receta2> {
     return this.http.delete<Receta2>(`${this.baseUrl}/${idReceta}`);
   }
