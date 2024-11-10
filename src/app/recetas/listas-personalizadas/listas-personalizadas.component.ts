@@ -8,12 +8,13 @@ import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-lo
 import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listas-personalizadas',
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule, RouterModule,
-  FooterComponent,NavBarLoginComponent],
+  FooterComponent,NavBarLoginComponent, CommonModule],
   templateUrl: './listas-personalizadas.component.html',
   styleUrl: './listas-personalizadas.component.css'
 })

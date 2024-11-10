@@ -11,20 +11,24 @@ import { MiListasComponent } from './recetas/mi-listas/mi-listas.component';
 import { PerfilPageComponent } from './pages/perfil-page/perfil-page.component';
 import { Component } from '@angular/core';
 import { RecetaUpdateComponent } from './recetas/receta-update/receta-update.component';
+import { ListaDetailComponent } from './recetas/lista-detail/lista-detail.component';
 
 
 export const routes: Routes = [
     {path:'',component:PagInicioComponent},
+    //rutas para inicio,registro, homepage una vez iniciado
     {path:'registrarse', component:RegistrarseComponent},
     {path:'iniciarSesion',component:IniciarSesionComponent},
     {path:'home',component:HomePageComponent},
+    //rutas para detalle recetas, agregar,modificar
     {path:'recetas-detalles/:id', component: RecetaDetailComponent},
     {path:'agregar-receta', component: RecetaFormComponent},
     {path:'modificar-receta/:id', component: RecetaUpdateComponent},
+    //ruta para buscador de receta
     {path: 'recetas', component: RecetaListComponent},
-    {path:'crear-recetario', component: ListasPersonalizadasComponent},
-    {path: 'mi-listas', component:MiListasComponent},
+    //rutas para las listas personales
     {path:'agregar-lista', component:ListasPersonalizadasComponent},
     {path:'perfil', component:PerfilPageComponent},
-    {path:'mis-listas', component: MiListasComponent}
+    {path:'mis-listas', component: MiListasComponent},
+    {path:'lista/:id', component:ListaDetailComponent}
 ];

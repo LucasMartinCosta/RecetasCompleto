@@ -6,11 +6,13 @@ import { ignoreElements } from 'rxjs';
 import { RecetaCardComponent } from '../receta-card/receta-card.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FooterComponent } from '../../shared/footer/footer.component';
+import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 
 @Component({
   selector: 'app-receta-list',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, RecetaCardComponent, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, RecetaCardComponent, CommonModule, FooterComponent, NavBarLoginComponent],
   templateUrl: './receta-list.component.html',
   styleUrl: './receta-list.component.css'
 })

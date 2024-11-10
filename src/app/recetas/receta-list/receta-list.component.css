@@ -1,6 +1,9 @@
+
+
 .buscador-container{
   display: flex;
   flex-direction: column;
+  
 }
 
 .form-busqueda {
@@ -8,6 +11,8 @@
     flex-direction: row;
     width: 100%;
     align-items: center;
+ 
+   
   }
 
   .input-container {
@@ -15,6 +20,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+   
 
 
   }

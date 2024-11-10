@@ -10,7 +10,7 @@ export class ListasPersonalizadasService {
 
   constructor() { }
 
-  url : string = "http://localhost:3100/listasPersonalizadas"
+  url : string = "http://localhost:3000/listasPersonalizadas"
 
 
   http = inject(HttpClient);

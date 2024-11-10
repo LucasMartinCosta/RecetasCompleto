@@ -6,12 +6,13 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { ListasPersonalizadasComponent } from '../listas-personalizadas/listas-personalizadas.component';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { ListaRecetasPersonalizadas } from '../../interfaces/recetas';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-mi-listas',
   standalone: true,
   imports: [RouterModule, NavBarLoginComponent, FooterComponent,
-     ListasPersonalizadasComponent],
+     ListasPersonalizadasComponent, CommonModule],
   templateUrl: './mi-listas.component.html',
   styleUrl: './mi-listas.component.css'
 })
@@ -38,9 +39,9 @@ export class MiListasComponent implements OnInit{
   }
 
   verDetallesLista(id: string){
-    this.router.navigate(['/detalles-lista/${id}'])
+    this.router.navigate(['/lista/',id])
   }
  
-
+  
 
 }
