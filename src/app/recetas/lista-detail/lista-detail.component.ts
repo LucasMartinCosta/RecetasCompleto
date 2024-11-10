@@ -159,7 +159,7 @@ Onupdate(recipeId: number) {
     // Si el índice es válido
     if (index !== -1) {
       // Elimina la receta del arreglo de recetas
-      this.rutas.navigate([`modificar-recetas/${index}`]);
+      this.rutas.navigate([`modificar-receta/${index}`]);
 
       // Si necesitas guardar el cambio, por ejemplo en el backend:
   
