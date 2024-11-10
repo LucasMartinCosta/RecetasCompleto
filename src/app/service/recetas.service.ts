@@ -14,7 +14,7 @@ export class RecetasService {
 
   http = inject(HttpClient);
   private key = environment.tokenLaura;
-  private baseUrl = 'http://localhost:3000/recetas';
+  private baseUrl = 'http://localhost:3001/recetas';
 
 
   getRecetasByIngredients (ingredients : string, number:number) : Observable<any> {

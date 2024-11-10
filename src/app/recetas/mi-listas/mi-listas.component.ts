@@ -38,7 +38,7 @@ export class MiListasComponent implements OnInit{
     });
   }
 
-  verDetallesLista(id: string){
+  verDetallesLista(id: number){
     this.router.navigate(['/lista/',id])
   }
  

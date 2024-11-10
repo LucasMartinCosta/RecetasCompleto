@@ -1,3 +1,5 @@
+
+
 <form [formGroup]="formulario" (ngSubmit)="updateRecipe()">
     <fieldset>
       <!-- Título -->
@@ -59,7 +61,7 @@
       </label>
   
       <!-- Botón para guardar receta -->
-      <button type="submit" [disabled]="formulario.invalid">Guardar receta</button>
+      <button type="submit"  [disabled]="formulario.invalid">Guardar receta</button>
     
     </fieldset>
   </form>
