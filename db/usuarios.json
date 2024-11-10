@@ -1,5 +1,10 @@
 {
-  "UsuarioActivo": [],
+  "UsuarioActivo": [
+    {
+      "id": "2323",
+      "nombreUsuario": "lucas"
+    }
+  ],
   "Usuarios": [
     {
       "id": "2323",
@@ -8,21 +13,9 @@
       "email": "Lucassmartin.costa@gmail.com",
       "listas": [
         {
-          "id": 2,
-          "nombre": "lucas",
-          "recetas": [
-            {
-              "vegetarian": false,
-              "vegan": false,
-              "glutenFree": false,
-              "title": "Beef Lo Mein Noodles",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "image": "https://img.spoonacular.com/recipes/634629-556x370.jpg",
-              "instructions": "Drop noodles into a large quantity of boiling water and cook 3-5 minutes, until barely tender to the bite. Drain, rinse with cold water and reserve.\nCombine the beef and oyster sauce in a bowl; stir to coat. Let stand for 10 minutes.\nIn another bowl, combine the chicken broth, soy sauce and sesame oil. Set aside.\nHeat a wok over high heat. When hot, add the vegetable oil, swirling to coat the sides. Add the garlic, ginger, and green onions and cook, stirring until fragrant, about 30 seconds. Add the beef and cook, stirring constantly, about 1 minute.\nAdd the sauce and noodles.\nGently toss until heated through and sauce has thickened. Serve immediately.",
-              "spoonacularScore": 52.66490173339844
-            }
-          ]
+          "id": 1,
+          "nombre": "lista1",
+          "recetas": []
         }
       ]
     }
