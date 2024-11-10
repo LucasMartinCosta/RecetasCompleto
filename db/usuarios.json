@@ -11,7 +11,38 @@
       "nombreUsuario": "lucas",
       "contrasena": "123123",
       "email": "Lucassmartin.costa@gmail.com",
-      "listas": []
+      "listas": [
+        {
+          "id": 8,
+          "nombre": "laura",
+          "recetas": []
+        },
+        {
+          "id": 11,
+          "nombre": "laura",
+          "recetas": []
+        },
+        {
+          "id": 13,
+          "nombre": "laura",
+          "recetas": []
+        },
+        {
+          "id": 14,
+          "nombre": "laura",
+          "recetas": []
+        },
+        {
+          "id": 8,
+          "nombre": "mediterraneo",
+          "recetas": []
+        },
+        {
+          "id": 9,
+          "nombre": "prueba 2",
+          "recetas": []
+        }
+      ]
     }
   ]
 }

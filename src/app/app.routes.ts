@@ -30,5 +30,6 @@ export const routes: Routes = [
     {path:'agregar-lista', component:ListasPersonalizadasComponent},
     {path:'perfil', component:PerfilPageComponent},
     {path:'mis-listas', component: MiListasComponent},
-    {path:'lista/:id', component:ListaDetailComponent}
+    {path:'lista/:id', component:ListaDetailComponent},
+    {path:'**', redirectTo:'home'}
 ];

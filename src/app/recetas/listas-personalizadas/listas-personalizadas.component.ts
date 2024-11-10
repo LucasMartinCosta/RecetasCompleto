@@ -10,7 +10,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 import { UsuariosService } from '../../service/usuarios.service';
@@ -69,6 +69,7 @@ export class ListasPersonalizadasComponent implements OnInit {
   listas: ListaRecetasPersonalizadas[] = []; //esta variable solo sirve para mostrar las todas las listas
   servicio = inject(ListasPersonalizadasService);
   fb = inject(FormBuilder);
+  router= inject(Router)
 
   nombreLista? = '';
   arrayRecetas: RecipeInfo[] = [];
@@ -96,6 +97,9 @@ export class ListasPersonalizadasComponent implements OnInit {
     this.servicioUsuario.editUser(this.userComun).subscribe({
       next: () => {
         console.log('Lista creada correctamente');
+        alert('Recetario creado correctamente!')
+        this.router.navigate(['/mis-listas']);
+
       },
       error: (e: Error) => {
         console.log(e.message);

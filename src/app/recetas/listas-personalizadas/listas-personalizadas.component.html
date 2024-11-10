@@ -4,15 +4,15 @@
 <!-- Crear una nueva lista -->
 <form [formGroup]="formulario" (ngSubmit)="postLista()" class="formulario">
   <div class="input-container">
-    <label for="nombre" class="form-label">Nombre de la lista:</label>
+    <label for="nombre" class="form-label">Nombre del recetario:</label>
     <input
       type="text"
-      placeholder="Introduce el nombre de la nueva lista"
+      placeholder="Introduce el nombre del nuevo recetario"
       formControlName="nombre"
       class="form-input" />
   </div>
 
- 
+
   <div *ngIf="formulario.controls['nombre'].hasError('required') && formulario.controls['nombre'].touched" class="error-message">
     <p>Campo requerido</p>
   </div>
