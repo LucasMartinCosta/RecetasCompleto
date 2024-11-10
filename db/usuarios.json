@@ -3,6 +3,10 @@
     {
       "id": "2323",
       "nombreUsuario": "lucas"
+    },
+    {
+      "id": "2323",
+      "nombreUsuario": "lucas"
     }
   ],
   "Usuarios": [
@@ -15,7 +19,33 @@
         {
           "id": 1,
           "nombre": "lista1",
-          "recetas": []
+          "recetas": [
+            {
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": true,
+              "title": "Easy Chicken Tandoori",
+              "readyInMinutes": 45,
+              "servings": 12,
+              "image": "https://img.spoonacular.com/recipes/641904-556x370.jpg",
+              "instructions": "<ol><li>Mix the tandoori paste and yogurt well. Marinate the chicken pieces well for about 30 minutes</li><li>Place the chicken pieces along with the marinate into a baking pan and bake until golden brown and then turn over  until chicken is done. Keep turning the chicken pieces a few times while baking. </li><li>Serve with in a bed of rice. Then lay the chicken fillets on the rice and put a bit of greek yogurt</li></ol>",
+              "spoonacularScore": 60.168785095214844,
+              "id": 641904
+            },
+            {
+              "id": 1,
+              "title": "qwedsa",
+              "vegetarian": true,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 1,
+              "servings": 123,
+              "instructions": "adsdas",
+              "image": "",
+              "spoonacularScore": 0,
+              "listaId": "1"
+            }
+          ]
         }
       ]
     }
