@@ -6,17 +6,22 @@
     <p class="nombre-lista">{{lista?.nombre}}</p>
     <h3 class="titulo">Recetas</h3>
     <ul>
-      @for (item of recetasarreglo; track $index) {
-        <div class="cont-recetas">
-          <app-receta-card [receta]="item" (verDetalles)="navigateToDetails($event)"> </app-receta-card>
+     
+       
           <div class="botones">
-            <button class="btn"  (click)="deleteRecipe(item.id)">Eliminar</button>
-          <button  class="btn">Modificar</button>
+         
+            @for (receta of recetasarreglo; track receta.id) {
+              <app-delete-update-output
+            [receta]="receta"
+            (delete)="deleterecipe22($event)">
+          </app-delete-update-output>
+            }
+        
           </div>
-        </div>
+    
        
         
-      }
+      
     </ul>
    
   </div>
