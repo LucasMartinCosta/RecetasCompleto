@@ -109,29 +109,6 @@ export class RecetaFormComponent implements OnInit {
     }
   }
   
-/*addRecipe(){  //este addrecipe tiene que guardar la receta en la lista que elige en el formulario 
-  if(this.formulario.invalid) return
-  const receta = this.formulario.getRawValue()
-  const id =  // recibir el id de la receta
-
-  this.userComun.listas[id].recetas.push(receta)
-  
-}
-
-addRecipe(){  //este addrecipe tiene que guardar la receta en la lista que elige en el formulario 
-  if(this.formulario.invalid) return
-  const receta = this.formulario.getRawValue()
-
-  this.serviceRec.postRectea(receta).subscribe({
-    next: ()=>{
-      alert ('receta agregada con exito!')
-    },
-    error:(e : Error)=>{
-      console.log(e.message)
-
-    }
-  })
-}*/
 
 updateRecipe(id:number) {
 
