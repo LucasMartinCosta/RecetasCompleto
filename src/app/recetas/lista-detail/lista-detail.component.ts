@@ -151,5 +151,26 @@ deleterecipe22(recipeId: number) {
   }
 }
 
+Onupdate(recipeId: number) {
+
+  if (this.lista?.recetas) {
+    const index = this.lista.recetas.findIndex(receta => receta.id === recipeId);
+
+    // Si el índice es válido
+    if (index !== -1) {
+      // Elimina la receta del arreglo de recetas
+      this.rutas.navigate([`modificar-recetas/${index}`]);
+
+      // Si necesitas guardar el cambio, por ejemplo en el backend:
+  
+    } else {
+      console.log('Receta no encontrada.');
+    }
+  } else {
+    console.error('No se encontraron recetas.');
+  }
+  
+ }
+
 }
 

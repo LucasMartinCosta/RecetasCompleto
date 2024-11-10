@@ -13,7 +13,8 @@
             @for (receta of recetasarreglo; track receta.id) {
               <app-delete-update-output
             [receta]="receta"
-            (delete)="deleterecipe22($event)">
+            (delete)="deleterecipe22($event)"
+            (update)="Onupdate($event)">
           </app-delete-update-output>
             }
         
