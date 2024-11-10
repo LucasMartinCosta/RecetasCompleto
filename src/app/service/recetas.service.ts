@@ -63,23 +63,24 @@ export class RecetasService {
     // Hacer la solicitud GET con parámetros y headers
     return this.http.get<RecetasRandom>(url, { headers, params });
   }
+
 //form
 getRecetas(): Observable<Receta[]> {
   return this.http.get<Receta[]>(this.baseUrl);
 }
 
-  postRectea(receta: Receta): Observable <Receta>{
+postRectea(receta: Receta): Observable <Receta>{
     return this.http.post<Receta>(this.baseUrl,receta);
-  }
+}
 
 
-   updateReceta(idReceta: number, receta: Receta): Observable<Receta> {
+updateReceta(idReceta: number, receta: Receta): Observable<Receta> {
     return this.http.put<Receta>(`${this.baseUrl}/${idReceta}`, receta);
-  }
+}
 
 
-  deleteReceta(idReceta: number): Observable<Receta> {
+deleteReceta(idReceta: number): Observable<Receta> {
     return this.http.delete<Receta>(`${this.baseUrl}/${idReceta}`);
-  }
+}
   //form
 }

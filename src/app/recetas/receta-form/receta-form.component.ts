@@ -8,6 +8,9 @@ import { Receta, Receta2 } from '../../interfaces/recetas';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 import { DeleteUpdateOutputComponent } from '../delete-update-output/delete-update-output.component';
+import { UserActivo } from '../../interfaces/user-activo';
+import { User } from '../../interfaces/user';
+import { UsuariosService } from '../../service/usuarios.service';
 
 @Component({
   selector: 'app-receta-form',
@@ -19,11 +22,14 @@ import { DeleteUpdateOutputComponent } from '../delete-update-output/delete-upda
 export class RecetaFormComponent implements OnInit {
 
   serviceRec = inject(RecetasService);
-  serviceListo = inject(ListasPersonalizadasService);
+  //serviceListo = inject(ListasPersonalizadasService);
+  servicio=inject(UsuariosService); 
   fb = inject(FormBuilder);
   router = inject(Router);
   route = inject(ActivatedRoute);
   recetas: Array<Receta>= [];
+
+  idLista = 0; 
 
   formulario=this.fb.nonNullable.group({
     title: ['', Validators.required],  
@@ -34,25 +40,85 @@ export class RecetaFormComponent implements OnInit {
     servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
     instructions: ['', Validators.required],
     image: [''],
-    spoonacularScore: [0]
+    spoonacularScore: [0], 
+    listaId: [0, Validators.required]
   });
 
-  ngOnInit(){
-    this.serviceRec.getRecetas().subscribe(
+  userACT:UserActivo={
+    id:0,
+    nombreUsuario:''
+  };
+
+  userComun:User={
+    nombreUsuario:'',
+    contrasena:'',
+    listas:[]
+  };
+
+  ngOnInit(){ // al renderizarse el formulario obtiene el usuario activo y lo carga a userComun, con ese usuario es con el que hay que trabajar. CON EL ARREGLO 
+    this.servicio.getUserActivo().subscribe(
       {
-        next: (recetas)=>{
-         this.recetas=recetas;
+        next:(usuario)=>{
+          this.userACT=usuario[0];
+          this.servicio.getUSerById(this.userACT.id).subscribe({
 
+            next:(usuario)=>
+            {
+              this.userComun=usuario;
+            },
+            error:(err:Error)=>
+            {
+              console.log(err.message);
+            }
+          })
         },
-
-        error:(e:Error)=>{
-          console.log(e);
+        error:(err:Error)=>{
+          console.log(err.message);
         }
       }
     )
   }
+
+  addRecipe() {
+    if (this.formulario.invalid) return;
+    
+    // Obtiene los datos de la receta y el ID de la lista seleccionada
+    const receta = this.formulario.getRawValue();
+    const listaId = this.formulario.get('listaId')?.value;
+    console.log('ID de lista seleccionada:', listaId);
   
-addRecipe(){
+    // Encuentra la lista seleccionada en el usuario y agrega la receta
+    const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
+
+
+    if (listaSeleccionada) {
+      listaSeleccionada.recetas.push(receta);
+  
+      // Opcional: Guarda los cambios en el backend
+      this.servicio.editUser(this.userComun).subscribe({
+        next: () => {
+          alert('Receta agregada exitosamente a la lista seleccionada!');
+          this.router.navigate(['/home']); // Redirige al usuario si es necesario
+        },
+        error: (err) => {
+          console.error("Error al guardar la receta:", err);
+        }
+      });
+    } else {
+      console.error("Lista seleccionada no encontrada.");
+    }
+  }
+  
+/*addRecipe(){  //este addrecipe tiene que guardar la receta en la lista que elige en el formulario 
+  if(this.formulario.invalid) return
+  const receta = this.formulario.getRawValue()
+  const id =  // recibir el id de la receta
+
+  this.userComun.listas[id].recetas.push(receta)
+  
+}
+
+addRecipe(){  //este addrecipe tiene que guardar la receta en la lista que elige en el formulario 
   if(this.formulario.invalid) return
   const receta = this.formulario.getRawValue()
 
@@ -65,18 +131,17 @@ addRecipe(){
 
     }
   })
-}
+}*/
 
 updateRecipe(id:number) {
 
-      this.router.navigate([`modificar-receta/:${id}`]);
+  this.router.navigate([`modificar-receta/:${id}`]);
    
-  
 }
 
-// Método para eliminar receta
-deleteRecipe(id:number) {
-  if (id=== null) return alert('BOLUDAZO')
+// Método para eliminar receta 
+deleteRecipe(id:number) { //este metodo tiene que eliminar la receta del arreglo en la que esta guardada
+  if (id === null) return alert('BOLUDAZO')
 
   this.serviceRec.deleteReceta(id).subscribe({
     next: () => {

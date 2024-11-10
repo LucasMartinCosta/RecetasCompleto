@@ -79,13 +79,26 @@
         <input formControlName="image" type="text" />
       </label>
      </div>
+
+
+      <!-- seleccionar lista -->
+     <div> 
+      <label for="listaId">Selecciona una lista:</label>
+      <select id="listaId" formControlName="listaId">
+      <option *ngFor="let lista of userComun.listas" [value]="lista.id">{{ lista.nombre }}</option>
+      </select>
+     </div>
    
 
     <!-- Botón para guardar receta -->
     <button type="submit" [disabled]="formulario.invalid">Guardar receta</button>
-    <button class="button-click">Agregar a una lista</button>
+
+  
 
 </form>
+
+
+
 
 
 

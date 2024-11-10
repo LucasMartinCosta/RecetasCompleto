@@ -66,7 +66,7 @@ export interface Metric {
 export interface ListaRecetasPersonalizadas {
     id : number;
     nombre ?: string; // Nombre de la lista
-    recetas: RecipeInfo[]; // Array de recetas (puedes usar la interfaz que ya tienes para recetas)
+    recetas: Receta[]; // Array de recetas (puedes usar la interfaz que ya tienes para recetas)
 }
 
   export interface Receta2 {
