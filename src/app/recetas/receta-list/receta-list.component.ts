@@ -12,7 +12,7 @@ import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-lo
 @Component({
   selector: 'app-receta-list',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, RecetaCardComponent, CommonModule, FooterComponent, NavBarLoginComponent],
+  imports: [ReactiveFormsModule, FormsModule, RecetaCardComponent, CommonModule],
   templateUrl: './receta-list.component.html',
   styleUrl: './receta-list.component.css'
 })

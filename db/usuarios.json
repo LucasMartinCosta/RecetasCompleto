@@ -3,6 +3,22 @@
     {
       "id": "021f",
       "nombreUsuario": "lucas"
+    },
+    {
+      "id": "021f",
+      "nombreUsuario": "lucas"
+    },
+    {
+      "id": "021f",
+      "nombreUsuario": "lucas"
+    },
+    {
+      "id": "021f",
+      "nombreUsuario": "lucas"
+    },
+    {
+      "id": "021f",
+      "nombreUsuario": "lucas"
     }
   ],
   "Usuarios": [
@@ -11,7 +27,13 @@
       "nombreUsuario": "lucas",
       "contrasena": "111111",
       "email": "Lucassmartin.costa@gmail.com",
-      "listas": []
+      "listas": [
+        {
+          "id": 1,
+          "nombre": "a",
+          "recetas": []
+        }
+      ]
     }
   ]
 }

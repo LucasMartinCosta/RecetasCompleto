@@ -35,3 +35,18 @@ nav{
     border-bottom: 1px solid rgb(0, 0, 0);
     border-top: 1px solid rgb(0, 0, 0);
 }
+.btn{
+    padding: 10px 20px;
+    background-color: #e09422;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn:hover {
+    background-color: #e2a7319f;
+  }

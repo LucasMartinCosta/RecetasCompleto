@@ -1,16 +1,24 @@
+
 <nav class="navegacion">
+
   <div class="logo-container">
     <button mat-button class="menu-option" [routerLink]="['/home']">
       <img src="/img/imagenLogo.jpeg" alt="Logo" class="logo-image">
     </button>
   </div>
+
   <ul class="menu">
-    <li><a routerLink="/perfil">Perfil</a></li>
+
     <li>
-      <button (click)="obtenerUserActivo()" class="submit-button"> <u>
-        Cerrar sesión </u></button>
+      <button (click)="irperfil()">Perfil</button>
     </li>
+
+    <li>
+      <button (click)="obtenerUserActivo()" class="submit-button">Cerrar sesión</button>
+    </li>
+
   </ul>
+
 </nav>
 
 

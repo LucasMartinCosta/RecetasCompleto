@@ -46,6 +46,10 @@ export class NavBarLoginComponent {
     });
   }
 
+  irperfil()
+  {
+    this.ruta.navigate(['perfil']);
+  }
   
 
 }

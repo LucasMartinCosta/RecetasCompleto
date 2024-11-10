@@ -1,10 +1,13 @@
 /* Estilos generales */
+*{
+  font-family: 'Montserrat', sans-serif;
+}
 form {
   font-family: 'Montserrat', sans-serif;
     max-width: 600px;
     margin: auto;
     padding: 50px;
-    background-color: rgba(247, 207, 121, 0.596);
+    background-color: rgb(230, 203, 145);
     border-radius: 10px;
     box-shadow: 0 4px 10px  #e6b76d;;
     display: flex;
@@ -19,6 +22,7 @@ form {
   form label {
     font-weight: bold;
     margin-top: 10px;
+    font-size: 25px;
     display: block;
     color: rgb(92, 87, 87);
 
@@ -113,16 +117,16 @@ form {
   }
 
   .button-click {
-    padding: 8px 12px;
+    padding: 12px 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #e09422ad;
     color: white;
     cursor: pointer;
-    width: auto;
+    width: 300px;
     margin: 10px auto;
     display: block;
-    font-size: 0.9rem;
+    font-size: 18px;
 
   }
   fieldset {
@@ -135,4 +139,34 @@ form {
     margin: 0;
     padding: 0;
     width: 100%;
+    }
+
+.datos-box{
+  margin: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+    .datos{
+      margin: 10px;
+   
+      border-radius: 10px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .titulo{
+      font-size: 40px;
+      margin-top: -10px;
+      
+    }
+    input{
+      border: 1px solid #e2a731;
+    }
+
+    .requerido{
+      color: #c0392b;
+      margin-top: -20px;
     }

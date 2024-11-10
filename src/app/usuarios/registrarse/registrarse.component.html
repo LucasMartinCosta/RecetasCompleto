@@ -48,7 +48,7 @@
 
                     <label for="password" class="ingresar-datos">Contraseña</label>
                 <input #password type="password" id="password" formControlName="password">
-                <button type="button" (click)="onRevealPassword(password)">Ojito</button>
+                <button class="ojito" type="button" (click)="onRevealPassword(password)">Ojito</button>
 
                 </div>
               
@@ -63,7 +63,7 @@
                 }
             </section>
 
-            <button type="submit" [disabled]="form.invalid">Enviar</button>
+            <button class="btn" type="submit" [disabled]="form.invalid">Enviar</button>
         
     </form>
 

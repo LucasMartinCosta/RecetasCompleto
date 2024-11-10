@@ -37,18 +37,5 @@
       "recetas": []
     }
   ],
-  "recetas": [
-    {
-      "id": "2c38",
-      "title": "asd",
-      "vegetarian": true,
-      "vegan": false,
-      "glutenFree": false,
-      "readyInMinutes": 123,
-      "servings": 1,
-      "instructions": "aaa",
-      "image": "",
-      "spoonacularScore": 0
-    }
-  ]
+  "recetas": []
 }
