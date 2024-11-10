@@ -13,9 +13,22 @@
       "email": "Lucassmartin.costa@gmail.com",
       "listas": [
         {
-          "id": 1,
-          "nombre": "lista1",
-          "recetas": []
+          "id": 9,
+          "nombre": "prueba 2",
+          "recetas": [
+            {
+              "title": "TAYLOR",
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 15,
+              "servings": 2,
+              "instructions": "WILD DREAMS AAA A A A A",
+              "image": "",
+              "spoonacularScore": 0,
+              "listaId": "9"
+            }
+          ]
         }
       ]
     }

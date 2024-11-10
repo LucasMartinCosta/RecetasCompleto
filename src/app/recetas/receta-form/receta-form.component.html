@@ -10,7 +10,7 @@
       </label>
 
      </div>
-    
+
     <div *ngIf="formulario.get('title')?.invalid && formulario.get('title')?.touched">
       <span class="requerido">*Titulo requerido</span>
     </div>
@@ -21,18 +21,18 @@
         Vegetariano:
         <input formControlName="vegetarian" type="checkbox" />
       </label>
-  
+
       <label>
         Vegano:
         <input formControlName="vegan" type="checkbox" />
       </label>
-  
+
       <label>
         Sin gluten:
         <input formControlName="glutenFree" type="checkbox" />
       </label>
      </div>
-    
+
 
     <!-- Tiempo de preparación -->
 
@@ -45,8 +45,8 @@
         <span class="requerido">*Tiempo minimo de preparacion: 1 minuto</span>
       </div>
     </div>
-   
-    
+
+
 
     <!-- Porciones -->
      <div class="datos">
@@ -58,7 +58,7 @@
         <span class="requerido">*Minimo de porciones: 1</span>
       </div>
      </div>
-    
+
 
     <!-- Instrucciones -->
      <div class="datos">
@@ -70,7 +70,7 @@
         <span class="requerido">*Las instrucciones son requeridas</span>
       </div>
      </div>
-   
+
 
     <!-- Imagen -->
      <div class="datos">
@@ -82,47 +82,24 @@
 
 
       <!-- seleccionar lista -->
-     <div> 
+     <div>
       <label for="listaId">Selecciona una lista:</label>
       <select id="listaId" formControlName="listaId">
       <option *ngFor="let lista of userComun.listas" [value]="lista.id">{{ lista.nombre }}</option>
       </select>
      </div>
-   
+
 
     <!-- Botón para guardar receta -->
     <button type="submit" [disabled]="formulario.invalid">Guardar receta</button>
 
-  
+
 
 </form>
-
-
-
-
-
-
-<div class="recetas-container">
-  <h2>Recetas Disponibles</h2>
-
-  <div *ngFor="let receta of recetas" class="receta-card">
-    <h3>{{ receta.title }}</h3>
-    <p><strong>Ingredientes:</strong></p>
-    <p><strong>Tiempo de preparación:</strong> {{ receta.readyInMinutes }} minutos</p>
-    <p><strong>Porciones:</strong> {{ receta.servings }}</p>
-    <p><strong>Instrucciones:</strong> {{ receta.instructions }}</p>
-    <img *ngIf="receta.image" [src]="receta.image" alt="Imagen de la receta" class="receta-image" />
-
-    @for (receta of recetas; track receta.id) {
-      <app-delete-update-output
-    [receta]="receta"
-    (delete)="deleteRecipe($event)"
-    (update)="updateRecipe($event)"
-      >
-    </app-delete-update-output>
-    }
-
-
-
-
 <app-footer></app-footer>
+
+
+
+
+
+
