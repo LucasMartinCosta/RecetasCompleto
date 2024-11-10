@@ -17,11 +17,25 @@
           "nombre": "listaiMA",
           "recetas": [
             {
-              "title": "asdasd",
+              "id": 0,
+              "title": "r1",
               "vegetarian": false,
               "vegan": false,
               "glutenFree": false,
-              "readyInMinutes": 3,
+              "readyInMinutes": 123,
+              "servings": 1,
+              "instructions": "asdasd",
+              "image": "",
+              "spoonacularScore": 0,
+              "listaId": "1"
+            },
+            {
+              "id": 2,
+              "title": "r3",
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 123,
               "servings": 1,
               "instructions": "asd",
               "image": "",

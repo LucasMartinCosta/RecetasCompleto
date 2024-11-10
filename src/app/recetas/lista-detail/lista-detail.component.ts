@@ -8,11 +8,12 @@ import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
 import { RecetaCardComponent } from "../receta-card/receta-card.component";
+import { DeleteUpdateOutputComponent } from "../delete-update-output/delete-update-output.component";
 
 @Component({
   selector: 'app-lista-detail',
   standalone: true,
-  imports: [NavBarLoginComponent, FooterComponent, RecetaCardComponent],
+  imports: [NavBarLoginComponent, FooterComponent, RecetaCardComponent, DeleteUpdateOutputComponent],
   templateUrl: './lista-detail.component.html',
   styleUrl: './lista-detail.component.css'
 })
@@ -93,21 +94,11 @@ navigateToDetails(id: number) {
  }
 
  deleteRecipe(recipeId: number) {
-  // Obtén el ID de la lista seleccionada
-  const listaId = this.route.snapshot.paramMap.get('id');
+ 
+   
+      
+      this.lista?.recetas.splice(recipeId-1!, 1);
 
-  // Encuentra la lista seleccionada en el usuario
-  const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
-
-  if (listaSeleccionada) {
-    // Encuentra el índice de la receta en la lista
-    const index = listaSeleccionada.recetas.findIndex(receta => receta.id === recipeId);
-
-    if (index !== -1) {
-      // Elimina la receta de la lista
-      listaSeleccionada.recetas.splice(index, 1);
-
-      // Guarda los cambios en el backend
       this.servicioUser.editUser(this.userComun).subscribe({
         next: () => {
           alert('Receta eliminada exitosamente de la lista seleccionada!');
@@ -116,11 +107,49 @@ navigateToDetails(id: number) {
           console.error("Error al eliminar la receta:", err);
         }
       });
+    } 
+  
+
+
+deleterecipe2(recipeId:number) {
+
+    const index = this.lista?.recetas.findIndex(receta => receta.id === recipeId);
+
+    if (index !== -1) {
+      // Elimina la receta del arreglo de recetas
+      this.lista?.recetas.splice(index!, 1);
+
+}
+
+}
+
+
+deleterecipe22(recipeId: number) {
+  // Asegurémonos de que lista y recetas estén definidas
+  if (this.lista?.recetas) {
+    const index = this.lista.recetas.findIndex(receta => receta.id === recipeId);
+
+    // Si el índice es válido
+    if (index !== -1) {
+      // Elimina la receta del arreglo de recetas
+      this.lista.recetas.splice(index, 1);
+
+      // Si necesitas guardar el cambio, por ejemplo en el backend:
+      this.servicioUser.editUser(this.userComun).subscribe({
+        next: () => {
+          alert('Receta eliminada exitosamente!');
+        },
+        error: (err) => {
+          console.error("Error al eliminar la receta:", err);
+        }
+      });
     } else {
-      console.error("Receta no encontrada en la lista.");
+      console.log('Receta no encontrada.');
     }
   } else {
-    console.error("Lista seleccionada no encontrada.");
+    console.error('No se encontraron recetas.');
   }
 }
+
 }
+
