@@ -1,7 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ListaRecetasPersonalizadas, RecipeInfo } from '../../interfaces/recetas';
+import {
+  ListaRecetasPersonalizadas,
+  RecipeInfo,
+} from '../../interfaces/recetas';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
@@ -13,105 +21,96 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-listas-personalizadas',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, RouterModule,
-  FooterComponent,NavBarLoginComponent, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule,
+    FooterComponent,
+    NavBarLoginComponent,
+    CommonModule,
+  ],
   templateUrl: './listas-personalizadas.component.html',
-  styleUrl: './listas-personalizadas.component.css'
+  styleUrl: './listas-personalizadas.component.css',
 })
-export class ListasPersonalizadasComponent implements OnInit{
+export class ListasPersonalizadasComponent implements OnInit {
+
 
   ngOnInit(): void {
-    this.servicioUsuario.getUserActivo().subscribe(
-      {
-        next:(usuario)=>{
-          this.userACT=usuario[0];
-          this.servicioUsuario.getUSerById(this.userACT.id).subscribe({
-
-            next:(usuario)=>
-            {
-              this.userComun=usuario;
-            },
-            error:(err:Error)=>
-            {
-              console.log(err.message);
-            }
-          })
-        },
-        error:(err:Error)=>{
-          console.log(err.message);
-        }
-      }
-    )
+    this.servicioUsuario.getUserActivo().subscribe({
+      next: (usuario) => {
+        this.userACT = usuario[0];
+        this.servicioUsuario.getUSerById(this.userACT.id).subscribe({
+          next: (usuario) => {
+            this.userComun = usuario;
+          },
+          error: (err: Error) => {
+            console.log(err.message);
+          },
+        });
+      },
+      error: (err: Error) => {
+        console.log(err.message);
+      },
+    });
   }
 
-  userACT:UserActivo={
-    id:0,
-    nombreUsuario:''
+  userACT: UserActivo = {
+    id: 0,
+    nombreUsuario: '',
   };
-  userComun:User={
-    nombreUsuario:'',
-    contrasena:'',
-    listas:[]
+  userComun: User = {
+    nombreUsuario: '',
+    contrasena: '',
+    listas: [],
   };
 
+  servicioUsuario = inject(UsuariosService);
 
-    servicioUsuario = inject(UsuariosService);
+  listas: ListaRecetasPersonalizadas[] = []; //esta variable solo sirve para mostrar las todas las listas
+  servicio = inject(ListasPersonalizadasService);
+  fb = inject(FormBuilder);
 
+  nombreLista? = '';
+  arrayRecetas: RecipeInfo[] = [];
 
-    listas: ListaRecetasPersonalizadas[] = []; //esta variable solo sirve para mostrar las todas las listas
-    servicio = inject(ListasPersonalizadasService);
-    fb = inject(FormBuilder);
+  constructor() {}
 
-    nombreLista ?= "";
-    arrayRecetas : RecipeInfo[] = [];
+  formulario = this.fb.nonNullable.group({
+    nombre: ['', Validators.required],
+  });
 
-    constructor() {}
+  setNombreLista() {
+    if (this.formulario.invalid) return;
+    this.nombreLista = this.formulario.get('nombre')?.value || '';
+  }
 
-    formulario = this.fb.nonNullable.group({
-      nombre : ["", Validators.required]
-    })
+  postLista() {
+    this.setNombreLista();
+    const listaNueva: ListaRecetasPersonalizadas = {
+      id: this.userComun.listas.length + 1,
+      nombre: this.nombreLista,
+      recetas: this.arrayRecetas,
+    };
+    this.userComun.listas.push(listaNueva);
 
-    setNombreLista () {
-      if (this.formulario.invalid) return;
-      this.nombreLista = this.formulario.get("nombre")?.value || "";
-    }
+    this.servicioUsuario.editUser(this.userComun).subscribe({
+      next: () => {
+        console.log('Lista creada correctamente');
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+      },
+    });
+  }
 
-    postLista () {
-
-      this.setNombreLista();
-      const listaNueva : ListaRecetasPersonalizadas = {
-        nombre : this.nombreLista,
-        recetas : this.arrayRecetas
-      }
-
-      this.servicio.postLista(listaNueva).subscribe({
-        next: () => {
-          console.log("Lista creada correctamente");
-          this.userComun.listas.push(listaNueva);
-          this.servicioUsuario.editUser(this.userComun)
-        },
-        error: (e:Error) => {
-          console.log(e.message);
-        }
-      })
-    }
-
-    eliminarLista (id:string) {
-
-      this.servicio.deleteLista(id). subscribe ({
-        next : (lista) => {
-          console.log("Lista eliminada correctamente", lista);
-        },
-        error: (e:Error) => {
-          console.log(e.message);
-        }
-      })
-    }
-
-
-
-
-
-
+  eliminarLista(id: string) {
+    this.servicio.deleteLista(id).subscribe({
+      next: (lista) => {
+        console.log('Lista eliminada correctamente', lista);
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+      },
+    });
+  }
 }
-
