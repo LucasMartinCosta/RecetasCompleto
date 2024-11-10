@@ -1,6 +1,5 @@
-import { routes } from './../../app.routes';
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import {Router, RouterModule } from '@angular/router';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { ListasPersonalizadasComponent } from '../listas-personalizadas/listas-personalizadas.component';
@@ -73,19 +72,36 @@ export class MiListasComponent implements OnInit{
         console.log("No hay listas personalizadas para mostrar.");
     }
 }
-
- 
-  
- 
-
-
   verDetallesLista(id: number){
-    this.router.navigate(['/lista/',id])
+    if(this.listas.some(u=>u.id === id))
+    {
+      this.router.navigate([`lista/${id}`]);
+    }
+   
   }
 
-  mostrarListas2(){
+  borrarLista(id: number) {
+   
+    if (this.listas.some(u => u.id === id)) {
 
+      this.listas = this.listas.filter(lista => lista.id !== id);
+
+      this.userComun.listas=this.listas
+
+      this.serviciouser.editUser(this.userComun).subscribe({
+        next:()=>
+        {
+          alert("Lista eliminada")
+        },
+        error:(err:Error)=>{
+          console.log(err.message);
+        }
+      })
+     
+    }
   }
+
+  
  
   
 

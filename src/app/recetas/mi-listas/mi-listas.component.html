@@ -13,6 +13,7 @@
         <li *ngFor="let lista of listas" class="item-lista">
           <span>{{ lista.nombre }}</span>
           <button (click)="verDetallesLista(lista.id)">Ver detalles</button>
+          <button (click)="borrarLista(lista.id)">Eliminar lista</button>
         </li>
       </ul>
     </div>
