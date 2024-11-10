@@ -1,4 +1,6 @@
-
+*{
+  font-family: 'Monserrat', sans-serif;
+}
 .page-container {
   display: flex;
   flex-direction: column;
@@ -25,8 +27,8 @@ h3{
   font-size: 30px;
   color:#f7cf79;
   text-transform: uppercase;
-  font-family: 'Monserrat', sans-serif;
   
+
 
 }
 

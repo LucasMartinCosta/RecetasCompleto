@@ -1,41 +1,43 @@
 
 
 <div class="buscador-container">
+  <app-nav-bar-login></app-nav-bar-login>
 
-    <form [formGroup]="formulario" (ngSubmit)="setIngredientes()" class="form-busqueda">  
-      
+    <form [formGroup]="formulario" (ngSubmit)="setIngredientes()" class="form-busqueda">
+
       <input type="text" name="ingredientes" id="ingredientes" formControlName="ingredientes" placeholder="Escribe ingredientes...">
-  
+
       <button type="submit" class="btn">Buscar recetas</button>
     </form>
-  
-  
+
+
     <div>
       @for (item of listaRecetas; track $index) {
       <div>
         <app-receta-card *ngFor="let receta of listaRecetas"
         [receta]="receta"
         (verDetalles)="navigateToDetails($event)">
-  
+
         </app-receta-card>
       </div>
       <!-- aca se selecciona toda la info que queramos mostrar en la lista -->
       }
-  
+
     </div>
+
+    <app-footer></app-footer>
     <!-- aca se selecciona toda la info que queramos mostrar en la lista -->
 
   </div>
-  
-  
-  
-  
+
+
+
+
   <!-- lo que habria qe hacer es que por cada receta te muestre una carta con poca informacion  (para esto habria que hacer
    el componente carta como veniamos haciendo y pasarle la receta con un @input creo)
    si nos gusta la receta hacemos clic en un boton que puede decir detalles y te abre toda la info de la receta que
    para eso podemos usar el otro metodo del servicio que se le pasa el id
-  
+
    en la carta tendria que haber un boton que dice agregar a una lista y eso te tendria que guardar la receta en una lista propia
    para eso hay que hacer mas cosas como un componente que sea de listas o algo asi, todavia no lo pense muy bien
    pero masomenos la estructura tendria que ser asi creo -->
-  

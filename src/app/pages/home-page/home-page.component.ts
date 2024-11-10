@@ -15,7 +15,7 @@ import { MenuInicioComponent } from '../../menu/menu-inicio/menu-inicio.componen
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RecetaCardComponent, FooterComponent, NavBarLoginComponent, RecetaListComponent
+  imports: [RecetaCardComponent, FooterComponent, NavBarLoginComponent
   ,MenuInicioComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'

@@ -3,16 +3,21 @@
 .buscador-container{
   display: flex;
   flex-direction: column;
-  
+
+
+
+
 }
 
 .form-busqueda {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
+    padding: 200px;
+
     align-items: center;
- 
-   
+
+
   }
 
   .input-container {
@@ -20,7 +25,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-   
+
 
 
   }
@@ -44,8 +49,16 @@
     cursor: pointer;
     margin-top: 5px;
     font-size: 15px;
+
   }
 
   button:hover {
     background-color: #e2a731;
   }
+
+  app-footer{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    }

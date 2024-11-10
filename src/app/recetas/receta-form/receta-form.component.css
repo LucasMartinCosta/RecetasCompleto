@@ -44,7 +44,7 @@ form {
     resize: vertical; /* Permite redimensionar verticalmente */
     max-height: 700px; /* Limita la altura máxima */
   }
-  
+
   /* También puedes agregar un control sobre el tamaño mínimo del campo de texto */
   form textarea:focus {
     outline: none;
@@ -132,14 +132,14 @@ form {
   fieldset {
     border: none;
   }
-
-
-  app-footer{
+app-footer{
     display: block;
     margin: 0;
     padding: 0;
     width: 100%;
     }
+
+
 
 .datos-box{
   margin: 10px;
@@ -150,7 +150,7 @@ form {
 }
     .datos{
       margin: 10px;
-   
+
       border-radius: 10px;
       width: 90%;
       display: flex;
@@ -160,7 +160,7 @@ form {
     .titulo{
       font-size: 40px;
       margin-top: -10px;
-      
+
     }
     input{
       border: 1px solid #e2a731;
