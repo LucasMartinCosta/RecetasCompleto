@@ -13,34 +13,22 @@
       "email": "Lucassmartin.costa@gmail.com",
       "listas": [
         {
-          "id": 8,
-          "nombre": "laura",
-          "recetas": []
-        },
-        {
-          "id": 11,
-          "nombre": "laura",
-          "recetas": []
-        },
-        {
-          "id": 13,
-          "nombre": "laura",
-          "recetas": []
-        },
-        {
-          "id": 14,
-          "nombre": "laura",
-          "recetas": []
-        },
-        {
-          "id": 8,
-          "nombre": "mediterraneo",
-          "recetas": []
-        },
-        {
-          "id": 9,
-          "nombre": "prueba 2",
-          "recetas": []
+          "id": 1,
+          "nombre": "listaiMA",
+          "recetas": [
+            {
+              "title": "asdasd",
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 3,
+              "servings": 1,
+              "instructions": "asd",
+              "image": "",
+              "spoonacularScore": 0,
+              "listaId": "1"
+            }
+          ]
         }
       ]
     }

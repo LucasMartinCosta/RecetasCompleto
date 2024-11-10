@@ -24,6 +24,7 @@ export class HomePageComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }
+  
   ngOnInit(): void {  //aca se autentifica el usuario y se guarda en una variable
     this.sub = this.servicioUser.auth().subscribe({
       next: (activeUser) => {
