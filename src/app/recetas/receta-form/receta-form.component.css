@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 *{
   font-family: 'Montserrat', sans-serif;
 }
@@ -18,7 +18,7 @@ form {
 }
 
 
-  /* Estilos para los labels */
+
   form label {
     font-weight: bold;
     margin-top: 10px;
@@ -28,7 +28,6 @@ form {
 
   }
 
-  /* Estilos para los inputs y textarea */
   form input[type="text"],
   form input[type="number"],
   form textarea {
@@ -36,27 +35,27 @@ form {
     max-width: 100%;
     padding: 8px;
     margin-top: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #e6b76d;
     border-radius: 4px;
     font-size: 1rem;
-    box-sizing: border-box; /* Asegura que el padding se incluya dentro del tamaño total */
-    resize: vertical; /* Permite redimensionar verticalmente */
-    max-height: 700px; /* Limita la altura máxima */
+    box-sizing: border-box;
+    resize: vertical;
+    max-height: 500px;
   }
 
-  /* También puedes agregar un control sobre el tamaño mínimo del campo de texto */
+
   form textarea:focus {
     outline: none;
     border-color: #e09422;
   }
 
-  /* Estilos para checkbox */
+
   form input[type="checkbox"] {
     margin-right: 5px;
   }
 
-  /* Estilos para el FormArray de ingredientes */
+
   .ingredients-group {
     margin-bottom: 10px;
   }
@@ -160,6 +159,7 @@ app-footer{
     .titulo{
       font-size: 40px;
       margin-top: -10px;
+      color: rgb(92, 87, 87);
 
     }
     input{

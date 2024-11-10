@@ -4,11 +4,12 @@ import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
 import { NavBarLoginComponent } from "../../navegadores/nav-bar-login/nav-bar-login.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-page',
   standalone: true,
-  imports: [NavBarLoginComponent, FooterComponent],
+  imports: [NavBarLoginComponent, FooterComponent, RouterModule],
   templateUrl: './perfil-page.component.html',
   styleUrl: './perfil-page.component.css'
 })
@@ -39,7 +40,7 @@ export class PerfilPageComponent implements OnInit{
   }
 
   servicio = inject(UsuariosService);
-  
+
   userACT:UserActivo={
     id:0,
     nombreUsuario:''
@@ -51,5 +52,5 @@ export class PerfilPageComponent implements OnInit{
     listas:[]
   };
 
-  
+
 }

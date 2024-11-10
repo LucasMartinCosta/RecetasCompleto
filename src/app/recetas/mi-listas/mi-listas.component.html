@@ -2,18 +2,18 @@
   <app-nav-bar-login></app-nav-bar-login>
 
   <div class="content">
-    <h3>Mis listas</h3>
+    <h3>Mis recetarios</h3>
     <div class="contenedor">
-      <button [routerLink]="['/agregar-lista']" class="submit-button">Crear nueva lista</button>
+      <button [routerLink]="['/agregar-lista']" class="submit-button">Crear nuevo recetario</button>
     </div>
 
-    
+
     <div *ngIf="listas.length > 0; else noListas">
       <ul class="lista-de-listas">
         <li *ngFor="let lista of listas" class="item-lista">
           <span>{{ lista.nombre }}</span>
-          <button (click)="verDetallesLista(lista.id)">Ver detalles</button>
-          <button (click)="borrarLista(lista.id)">Eliminar lista</button>
+          <button (click)="verDetallesLista(lista.id)">Ver recetas</button>
+          <button (click)="borrarLista(lista.id)">Eliminar recetario</button>
         </li>
       </ul>
     </div>

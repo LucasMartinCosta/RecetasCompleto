@@ -56,9 +56,17 @@ export class RecetaDetailComponent implements OnInit{
     });
   }
 
+
   getInstructions() {
-    return this.recipe?.instructions.split('\n')
-  }
+
+    if (!this.recipe?.instructions) return [];
+
+
+    const cleanText = this.recipe.instructions.replace(/<\/?[^>]+(>|$)/g, "");
+
+    
+    return cleanText.split('\n').filter(step => step.trim() !== '');
+}
 
 
   obtenerUSer () {

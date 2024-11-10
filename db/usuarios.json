@@ -11,7 +11,13 @@
       "nombreUsuario": "lucas",
       "contrasena": "123123",
       "email": "Lucassmartin.costa@gmail.com",
-      "listas": []
+      "listas": [
+        {
+          "id": 1,
+          "nombre": "lista1",
+          "recetas": []
+        }
+      ]
     }
   ]
 }
