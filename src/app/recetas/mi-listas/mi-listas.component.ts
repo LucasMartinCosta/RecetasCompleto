@@ -7,6 +7,9 @@ import { ListasPersonalizadasComponent } from '../listas-personalizadas/listas-p
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { ListaRecetasPersonalizadas } from '../../interfaces/recetas';
 import { CommonModule } from '@angular/common';
+import { UsuariosService } from '../../service/usuarios.service';
+import { UserActivo } from '../../interfaces/user-activo';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-mi-listas',
@@ -21,25 +24,67 @@ export class MiListasComponent implements OnInit{
   listas: ListaRecetasPersonalizadas[]= [];
   servicio =inject(ListasPersonalizadasService);
   router= inject(Router)
+  serviciouser= inject(UsuariosService);
 
-  ngOnInit(): void {
-      this.mostrarListas();
-  }
+  userACT:UserActivo={
+    id:0,
+    nombreUsuario:''
+  };
 
-  mostrarListas() {
-    this.servicio.getListas().subscribe({
-      next: (data) => {
-        this.listas = data;
-        console.log("Listas obtenidas:", this.listas);
-      },
-      error: (e: Error) => {
-        console.error("Error al obtener listas:", e.message);
+  userComun:User={
+    nombreUsuario:'',
+    contrasena:'',
+    listas:[]
+  };
+
+
+ ngOnInit(): void {
+    this.serviciouser.getUserActivo().subscribe(
+      {
+        next:(usuario)=>{
+          this.userACT=usuario[0];
+          this.serviciouser.getUSerById(this.userACT.id).subscribe({
+
+            next:(usuario)=>
+            {
+              this.userComun=usuario;
+              this.listas=this.userComun.listas;
+              this.mostrarNlistas();
+            },
+            error:(err:Error)=>
+            {
+              console.log(err.message);
+            }
+          })
+        },
+        error:(err:Error)=>{
+          console.log(err.message);
+        }
       }
-    });
+    )
   }
+
+  mostrarNlistas() {
+    if (this.listas && this.listas.length > 0) {
+        this.listas.forEach((lista, index) => {
+            console.log(`Lista personalizada ${index + 1}:`, lista);
+        });
+    } else {
+        console.log("No hay listas personalizadas para mostrar.");
+    }
+}
+
+ 
+  
+ 
+
 
   verDetallesLista(id: number){
     this.router.navigate(['/lista/',id])
+  }
+
+  mostrarListas2(){
+
   }
  
   

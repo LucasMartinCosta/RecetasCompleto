@@ -1,9 +1,6 @@
 {
   "UsuarioActivo": [
-    {
-      "id": "2323",
-      "nombreUsuario": "lucas"
-    }
+  
   ],
   "Usuarios": [
     {
@@ -11,7 +8,18 @@
       "nombreUsuario": "lucas",
       "contrasena": "123123",
       "email": "Lucassmartin.costa@gmail.com",
-      "listas": []
+      "listas": [
+        {
+          "id": 1,
+          "nombre": "lista1",
+          "recetas": []
+        },
+        {
+          "id": 2,
+          "nombre": "lista2",
+          "recetas": []
+        }
+      ]
     }
   ]
 }
