@@ -124,7 +124,8 @@ export class RecetaDetailComponent implements OnInit{
       servings: recipeInfo.servings,
       image: recipeInfo.image,
       instructions: recipeInfo.instructions,
-      spoonacularScore: recipeInfo.spoonacularScore
+      spoonacularScore: recipeInfo.spoonacularScore,
+      id: recipeInfo.id
     };
   }
 
