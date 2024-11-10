@@ -6,6 +6,7 @@ import { routes } from '../../app.routes';
 import { UsuariosService } from '../../service/usuarios.service';
 import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
+import { UserActivo } from '../../interfaces/user-activo';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -30,17 +31,19 @@ export class IniciarSesionComponent {
   onLogin() {
     if (this.form.invalid) return;
     const { username, password } = this.form.getRawValue();
+    
     this.authService.login(username!, password!).subscribe({
-      next: (loggedIn) => {
-        if (loggedIn) {
-          this.router.navigate(['home']);
-        } else { 
-          console.log('error en las credenciales');
-        }
-      },
-      error: console.log
+        next: (user) => {
+            if (user) {
+                this.asignarUserActivo(user);
+                this.router.navigate(['home']);
+            } else {
+                console.log('Error en las credenciales');
+            }
+        },
+        error: console.log
     });
-  }
+}
 
   onRevealPassword(pwInput: HTMLInputElement) {
     if (pwInput.type == 'password') {
@@ -49,65 +52,18 @@ export class IniciarSesionComponent {
       pwInput.type = 'password';
     }
   }
-  
 
-
-  /*
-  servicioUsuario= inject(UsuariosService);
-  rutas = inject(Router);
-
-  formulario=this.fb.nonNullable.group({
-    nombreUsuario:['',[Validators.required]],
-    contrasena:['',[Validators.required]]
-  })
-
-  
-  ingresar(){
-    if(this.formulario.invalid){
-      alert("El formulario esta mal realizado");
-      return;
-    }
-
-    const user:User = this.formulario.getRawValue();
-
-    
-
-      this.servicioUsuario.getUsuarios().subscribe({
-      next:(lista)=>
-      {
-       this.listausuarios=lista
-        const nombreencontrado = this.listausuarios.some(us=>us.nombreUsuario=== user.nombreUsuario);
-        const contrasenaEncontrada= this.listausuarios.some(us=>us.contrasena===user.contrasena);
-
-        if(!nombreencontrado){
-          alert("El nombre de usuario es incorrecto");
-          return;
+  asignarUserActivo(user: User) {
+    const userActivo: UserActivo = { id: user.id!, nombreUsuario: user.nombreUsuario };
+    this.authService.postUserActivo(userActivo).subscribe({
+        next: (user) => {
+            console.log("Usuario en sesión:", user);
+        },
+        error: (e: Error) => {
+            console.log(e.message);
         }
-        if(!contrasenaEncontrada)
-        {
-          alert("La contraseña es incorrecta");
-          return;
-        }
-
-
-        this.servicioUsuario.login(user.nombreUsuario,user.contrasena).subscribe(
-          {
-            next:(logueado)=>{
-              if(logueado){
-                this.rutas.navigate(['home']); //tendria que ser el home page putitos
-              }
-            },
-            error:(err:Error)=>{
-              console.log(err.message);
-            }
-          }
-        )
-
-      }
-    })
-    }
-
-   */
+    });
+}
     
     
 }

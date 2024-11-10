@@ -21,19 +21,19 @@ export class UsuariosService {
     return this.activeUserSubject.asObservable();
   }
 
-  login(username: string, password: string): Observable<boolean> {
+  login(username: string, password: string): Observable<User | null> {
     return this.http.get<User[]>(`${this.urlUsuarios}?username=${username}`).pipe(
-      map((users) => {
-        const user = users.at(0);
-        if (user && user.nombreUsuario == username && user.contrasena == password) {
-          this.activeUserSubject.next({ nombreUsuario: user.nombreUsuario, id: user.id! });
-          return true;
-        }
-        return false;
-      }),
-      catchError(() => of(false))
+        map((users) => {
+            const user = users.at(0);
+            if (user && user.nombreUsuario === username && user.contrasena === password) {
+                this.activeUserSubject.next({ nombreUsuario: user.nombreUsuario, id: user.id! });
+                return user;
+            }
+            return null;
+        }),
+        catchError(() => of(null))
     );
-  }
+}
 
   logout(): Observable<boolean> {
     this.activeUserSubject.next(undefined);

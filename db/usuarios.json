@@ -1,39 +1,17 @@
 {
   "UsuarioActivo": [
     {
-      "id": "021f",
-      "nombreUsuario": "lucas"
-    },
-    {
-      "id": "021f",
-      "nombreUsuario": "lucas"
-    },
-    {
-      "id": "021f",
-      "nombreUsuario": "lucas"
-    },
-    {
-      "id": "021f",
-      "nombreUsuario": "lucas"
-    },
-    {
-      "id": "021f",
+      "id": "2323",
       "nombreUsuario": "lucas"
     }
   ],
   "Usuarios": [
     {
-      "id": "021f",
+      "id": "2323",
       "nombreUsuario": "lucas",
-      "contrasena": "111111",
+      "contrasena": "123123",
       "email": "Lucassmartin.costa@gmail.com",
-      "listas": [
-        {
-          "id": 1,
-          "nombre": "a",
-          "recetas": []
-        }
-      ]
+      "listas": []
     }
   ]
 }

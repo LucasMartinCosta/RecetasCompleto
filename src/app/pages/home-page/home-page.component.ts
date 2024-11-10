@@ -28,7 +28,6 @@ export class HomePageComponent implements OnInit, OnDestroy{
     this.sub = this.servicioUser.auth().subscribe({
       next: (activeUser) => {
         if (activeUser){
-          this.asignarUserActivo(activeUser)
           this.usuario = activeUser
         }
       }
@@ -67,16 +66,6 @@ export class HomePageComponent implements OnInit, OnDestroy{
    this.rutas.navigate([`recetas-detalles/${id}`]);
   }
 
-  asignarUserActivo (user:UserActivo){
-    this.servicioUser.postUserActivo(user).subscribe({
-      next: (user) => {
-        console.log("Usuario en sesion:", user);
-      },
-      error: (e:Error) => {
-        console.log(e.message);
-      }
-    })
-  }
 
 
 
