@@ -27,7 +27,15 @@
 
 
 
-
+    <div class="libreta">
+      <form [formGroup]="formulario" (ngSubmit)="guardarAnotacion()">
+        <div class="anotacionesTitulo">Anotaciones!</div>
+        <div class="escribir">
+          <textarea name="formulario" id="anotacion" formControlName="anotacion">Escribe aqui...</textarea>
+        </div>
+        <button type="submit" [disabled]="formulario.invalid">Guarda</button>
+      </form>
+  </div>
 
 
 

@@ -27,6 +27,7 @@ export class UsuariosService {
             const user = users.at(0);
             if (user && user.nombreUsuario === username && user.contrasena === password) {
                 this.activeUserSubject.next({ nombreUsuario: user.nombreUsuario, id: user.id! });
+                localStorage.setItem('token', user.id?.toString()!)
                 return user;
             }
             return null;

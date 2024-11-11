@@ -18,7 +18,7 @@ import { DeleteUpdateOutputComponent } from "../delete-update-output/delete-upda
   styleUrl: './lista-detail.component.css'
 })
 export class ListaDetailComponent implements OnInit {
-  
+
 
 
   userACT:UserActivo= {
@@ -48,7 +48,8 @@ recetasarreglo: Array<RecipeInfo>=[];
       servings:0,
       instructions:'',
       spoonacularScore:0,
-      image:''
+      image:'',
+      anotaciones: ""
     };
 
  cargararreglo()
@@ -73,7 +74,7 @@ ngOnInit(): void {
               this.userComun= usuario
               this.lista = this.userComun.listas.find((lista: any) => lista.id === Number(id))
               this.cargararreglo();
-              
+
             },
             error:(err:Error)=>
             {
@@ -95,9 +96,9 @@ navigateToDetails(event: { listaId: number; recetaId: number }) {
 }
 
  deleteRecipe(recipeId: number) {
- 
-   
-      
+
+
+
       this.lista?.recetas.splice(recipeId-1!, 1);
 
       this.servicioUser.editUser(this.userComun).subscribe({
@@ -108,8 +109,8 @@ navigateToDetails(event: { listaId: number; recetaId: number }) {
           console.error("Error al eliminar la receta:", err);
         }
       });
-    } 
-  
+    }
+
 
 
 deleterecipe2(recipeId:number) {
@@ -163,14 +164,14 @@ Onupdate(recipeId: number) {
       this.rutas.navigate([`modificar-receta/${index}`]);
 
       // Si necesitas guardar el cambio, por ejemplo en el backend:
-  
+
     } else {
       console.log('Receta no encontrada.');
     }
   } else {
     console.error('No se encontraron recetas.');
   }
-  
+
  }
 
  onUpdate(recipeId: number) {
@@ -181,7 +182,7 @@ Onupdate(recipeId: number) {
     if (receta) {
       // Navega usando el ID de la receta, no el índice
       this.rutas.navigate([`modificar-receta/${recipeId}`]);
-      
+
 
       // Si necesitas guardar el cambio, por ejemplo en el backend, puedes hacerlo aquí.
     } else {

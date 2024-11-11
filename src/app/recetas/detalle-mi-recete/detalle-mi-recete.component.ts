@@ -7,11 +7,12 @@ import { User } from '../../interfaces/user';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-detalle-mi-recete',
   standalone: true,
-  imports: [FooterComponent,NavBarLoginComponent, CommonModule],
+  imports: [FooterComponent,NavBarLoginComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './detalle-mi-recete.component.html',
   styleUrl: './detalle-mi-recete.component.css'
 })
@@ -28,7 +29,8 @@ export class DetalleMiReceteComponent implements OnInit{
       servings: 0,
       image: "",
       instructions: "",
-      spoonacularScore: 0
+      spoonacularScore: 0,
+      anotaciones: ""
   }
 
   route = inject(ActivatedRoute)
@@ -98,6 +100,10 @@ export class DetalleMiReceteComponent implements OnInit{
         instructions: "",
         spoonacularScore: 0
       };
+      //carga las anotaciones guardadas en el textarea.
+      this.formulario.patchValue({
+        anotacion: this.receta.anotaciones
+      });
     } else {
       console.error('No se encontró la lista con el ID proporcionado');
     }
@@ -120,4 +126,27 @@ export class DetalleMiReceteComponent implements OnInit{
   }
 
 
+  fb= inject(FormBuilder);
+  formulario=this.fb.nonNullable.group({
+    anotacion:['', Validators.required]
+  })
+
+  guardarAnotacion(){
+    if(this.formulario.invalid) return;
+
+    const anotacion = this.formulario.get('anotacion')?.value;
+
+    this.receta.anotaciones = anotacion;
+
+    //guardar el usuario con el campo anotacion modificado
+    this.servicio.editUser(this.userComun).subscribe({
+      next: () => {
+        alert('Anotacion guardada!');
+      },
+      error: (err) => {
+        console.error("Error al guardar anotacion:", err);
+      }
+    });
+
+  }
 }

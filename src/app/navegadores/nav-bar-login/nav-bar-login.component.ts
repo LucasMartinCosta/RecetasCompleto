@@ -12,10 +12,10 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class NavBarLoginComponent {
 
-  private servicioUser = inject(UsuariosService); 
+  private servicioUser = inject(UsuariosService);
   private ruta = inject(Router)
 
-  
+
 
   obtenerUserActivo() {
     this.servicioUser.getUserActivo().subscribe({
@@ -38,6 +38,7 @@ export class NavBarLoginComponent {
     this.servicioUser.deleteUserActivo(id).subscribe({
       next: () => {
         console.log(`Usuario con ID ${id} eliminado.`);
+        localStorage.removeItem('token');//remueve el token para evitar acceder a otras pags sin sesion iniciada.
         this.ruta.navigateByUrl(""); // Redirige después de eliminar
       },
       error: (e: Error) => {
@@ -50,6 +51,6 @@ export class NavBarLoginComponent {
   {
     this.ruta.navigate(['perfil']);
   }
-  
+
 
 }

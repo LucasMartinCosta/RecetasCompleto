@@ -10,6 +10,7 @@ export interface Receta {
     image:                    string;
     instructions:             string;
     spoonacularScore:         number;
+    anotaciones?:             string;
 }
 
 
@@ -80,5 +81,5 @@ export interface ListaRecetasPersonalizadas {
     servings:                 number;
     //image?:                    string;
     instructions:             string;
-  
+
 }

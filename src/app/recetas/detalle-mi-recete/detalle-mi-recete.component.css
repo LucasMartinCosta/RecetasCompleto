@@ -102,3 +102,59 @@
     font-size: 1.6em;
     color: #7e654e;
   }
+
+  .libreta{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e6b76d;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 1px 1px 20px #e6b76d;
+    padding: 20px;
+  }
+
+  .anotacionesTitulo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #7e654e;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  button[type="submit"] {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ba904e;
+    color: #faf3e1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:disabled {
+    background-color: #d3c1a5;
+    cursor: not-allowed;
+  }
+
+  button[type="submit"]:hover:enabled {
+    background-color: #a87b4c;
+  }
+
+  .escribir textarea {
+    width: 350px;
+    max-width: 500px; /* Limita el ancho máximo */
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ba904e;
+    background-color: #faf3e1;
+    color: #7e654e;
+    font-size: 1em;
+    resize: vertical; /* Permite solo redimensionar verticalmente */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+  }
