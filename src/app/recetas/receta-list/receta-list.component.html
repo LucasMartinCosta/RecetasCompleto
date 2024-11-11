@@ -3,6 +3,7 @@
 <div class="buscador-container">
   <app-nav-bar-login></app-nav-bar-login>
 
+  <section>
     <form [formGroup]="formulario" (ngSubmit)="setIngredientes()" class="form-busqueda">
       <h2>Buscador de recetas</h2>
 
@@ -11,7 +12,7 @@
       <button type="submit" class="btn">Buscar </button>
     </form>
 
-    <div>
+    <div class="cont-recetas">
       @for (item of listaRecetas; track $index) {
       <div>
         <app-receta-card *ngFor="let receta of listaRecetas"
@@ -24,11 +25,14 @@
       }
 
     </div>
+  </section>
+    
 
-    <app-footer></app-footer>
+   
 
 
   </div>
+  <app-footer></app-footer>
 
 
 

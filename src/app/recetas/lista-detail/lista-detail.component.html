@@ -3,8 +3,9 @@
 <section>
   <div class="info-receta">
 
-    <p class="nombre-lista">{{lista?.nombre}}</p>
+    
     <h3 class="titulo">Recetas</h3>
+    <p class="nombre-lista">{{lista?.nombre}}</p>
     <ul>
 
 
@@ -15,7 +16,7 @@
             [receta]="receta"
             [listaId]="lista?.id ?? 0"
             (delete)="deleterecipe22($event)"
-            (update)="Onupdate($event)"
+            (update)="onUpdate($event)"
             (detalles)="navigateToDetails($event)">
           </app-delete-update-output>
             }
@@ -28,4 +29,4 @@
   </div>
 </section>
 
-<app-footer></app-footer>
+

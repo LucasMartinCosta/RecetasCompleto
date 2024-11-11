@@ -15,9 +15,8 @@ section{
 min-height: 100vh;
 }
 .titulo{
-  font-size: 25px;
+  font-size: 35px;
   margin-top: 10px;
-  
 }
 .info-receta{
   display: flex;

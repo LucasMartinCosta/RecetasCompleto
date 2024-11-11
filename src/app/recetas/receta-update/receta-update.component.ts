@@ -99,29 +99,34 @@ id: number|null=null;
 
 updateRecipe() {
   if (this.formulario.invalid || this.id === null) return;
+
   const receta = this.formulario.getRawValue();
   const listaId = this.formulario.get('listaId')?.value;
   const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
 
   if (listaSeleccionada) {
+    // Encuentra el índice de la receta en la lista utilizando el id de la receta
+    const recetaIndex = listaSeleccionada.recetas.findIndex(receta => receta.id === this.id);
 
-    // Agrega la receta a la lista seleccionada
-    listaSeleccionada.recetas[this.id]= {...listaSeleccionada.recetas[this.id], ...receta}
+    if (recetaIndex !== -1) {
+      // Actualiza la receta en el índice encontrado
+      listaSeleccionada.recetas[recetaIndex] = { ...listaSeleccionada.recetas[recetaIndex], ...receta };
 
-    // Guarda los cambios en el backend
-    this.servicio.editUser(this.userComun).subscribe({
-      next: () => {
-  
-        alert('Receta modificada exitosamente!');
-      },
-      error: (e: Error) => {
-        console.error("Error al modificar la receta:", e);
-      }
-    });
+      // Guarda los cambios en el backend
+      this.servicio.editUser(this.userComun).subscribe({
+        next: () => {
+          alert('Receta modificada exitosamente!');
+        },
+        error: (e: Error) => {
+          console.error("Error al modificar la receta:", e);
+        }
+      });
+    } else {
+      console.error('Receta no encontrada en la lista.');
+    }
   } else {
     console.error("Lista seleccionada no encontrada.");
   }
-
 }
 
 

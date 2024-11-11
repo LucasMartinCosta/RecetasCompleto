@@ -1,5 +1,4 @@
 
-
 .buscador-container{
   display: flex;
   flex-direction: column;
@@ -58,9 +57,34 @@
     background-color: #e2a731;
   }
 
+  app-nav-bar-login{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+   
+  }
+
   app-footer{
     display: block;
     margin: 0;
     padding: 0;
     width: 100%;
     }
+
+    .buscador-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+ 

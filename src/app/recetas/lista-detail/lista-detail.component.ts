@@ -173,5 +173,24 @@ Onupdate(recipeId: number) {
   
  }
 
+ onUpdate(recipeId: number) {
+  if (this.lista?.recetas) {
+    const receta = this.lista.recetas.find(receta => receta.id === recipeId);
+
+    // Si la receta existe
+    if (receta) {
+      // Navega usando el ID de la receta, no el índice
+      this.rutas.navigate([`modificar-receta/${recipeId}`]);
+      
+
+      // Si necesitas guardar el cambio, por ejemplo en el backend, puedes hacerlo aquí.
+    } else {
+      console.log('Receta no encontrada.');
+    }
+  } else {
+    console.error('No se encontraron recetas.');
+  }
+}
+
 }
 

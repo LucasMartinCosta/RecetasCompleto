@@ -105,3 +105,28 @@ footer {
   background-color: #f7cf79;
   color: #555;
 }
+
+.nombre-li{
+font-size: 25px;
+}
+
+.contenedor-info{
+  width: 500px;
+  border-radius: 5px;
+}
+
+.btn{
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 45px;
+  width: 200px;
+  background-color: #e09422ad;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.titulo-general{
+  font-size: 40px;
+}
