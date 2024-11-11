@@ -12,6 +12,7 @@ import { PerfilPageComponent } from './pages/perfil-page/perfil-page.component';
 import { Component } from '@angular/core';
 import { RecetaUpdateComponent } from './recetas/receta-update/receta-update.component';
 import { ListaDetailComponent } from './recetas/lista-detail/lista-detail.component';
+import { DetalleMiReceteComponent } from './recetas/detalle-mi-recete/detalle-mi-recete.component';
 
 
 export const routes: Routes = [
@@ -31,5 +32,6 @@ export const routes: Routes = [
     {path:'perfil', component:PerfilPageComponent},
     {path:'mis-listas', component: MiListasComponent},
     {path:'lista/:id', component:ListaDetailComponent},
+    { path: 'receta-lista-detalle/:idLista/:idReceta', component: DetalleMiReceteComponent }, 
     {path:'**', redirectTo:'home'}
 ];

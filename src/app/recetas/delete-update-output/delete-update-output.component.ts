@@ -10,9 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class DeleteUpdateOutputComponent {
   @Input() receta!:Receta;
+  @Input() listaId!: number;
   @Output() delete = new EventEmitter<number>();
   @Output() update = new EventEmitter<number>();
-  @Output() detalles = new EventEmitter<number>();
+  @Output() detalles = new EventEmitter<{ listaId: number; recetaId: number }>();
 
   onUpdate(){
     this.update.emit(this.receta.id);
@@ -20,8 +21,8 @@ export class DeleteUpdateOutputComponent {
   onDelete(){
     this.delete.emit(this.receta.id);
   }
-  onDetalles(){
-    this.detalles.emit(this.receta.id);
+  onDetalles() {
+    this.detalles.emit({ listaId: this.listaId, recetaId: this.receta.id! }); // Emitiendo ambos IDs como un objeto
   }
   
 }

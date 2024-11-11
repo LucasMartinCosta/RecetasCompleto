@@ -89,9 +89,10 @@ ngOnInit(): void {
   }
 }
 
-navigateToDetails(id: number) {
-  this.rutas.navigate([`recetas-detalles/${id}`]);
- }
+navigateToDetails(event: { listaId: number; recetaId: number }) {
+  const { listaId, recetaId } = event;
+  this.rutas.navigate([`receta-lista-detalle/${listaId}/${recetaId}`]);
+}
 
  deleteRecipe(recipeId: number) {
  
