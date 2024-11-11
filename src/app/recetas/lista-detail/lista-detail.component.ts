@@ -89,9 +89,10 @@ ngOnInit(): void {
   }
 }
 
-navigateToDetails(id: number) {
-  this.rutas.navigate([`recetas-detalles/${id}`]);
- }
+navigateToDetails(event: { listaId: number; recetaId: number }) {
+  const { listaId, recetaId } = event;
+  this.rutas.navigate([`receta-lista-detalle/${listaId}/${recetaId}`]);
+}
 
  deleteRecipe(recipeId: number) {
  
@@ -150,6 +151,27 @@ deleterecipe22(recipeId: number) {
     console.error('No se encontraron recetas.');
   }
 }
+
+Onupdate(recipeId: number) {
+
+  if (this.lista?.recetas) {
+    const index = this.lista.recetas.findIndex(receta => receta.id === recipeId);
+
+    // Si el índice es válido
+    if (index !== -1) {
+      // Elimina la receta del arreglo de recetas
+      this.rutas.navigate([`modificar-receta/${index}`]);
+
+      // Si necesitas guardar el cambio, por ejemplo en el backend:
+  
+    } else {
+      console.log('Receta no encontrada.');
+    }
+  } else {
+    console.error('No se encontraron recetas.');
+  }
+  
+ }
 
 }
 

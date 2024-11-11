@@ -13,16 +13,14 @@
             @for (receta of recetasarreglo; track receta.id) {
               <app-delete-update-output
             [receta]="receta"
+            [listaId]="lista?.id ?? 0"
             (delete)="deleterecipe22($event)"
-          
-            >
-
+            (update)="Onupdate($event)"
+            (detalles)="navigateToDetails($event)">
           </app-delete-update-output>
             }
 
           </div>
-
-
 
 
     </ul>

@@ -15,7 +15,7 @@ import { UsuariosService } from '../../service/usuarios.service';
 @Component({
   selector: 'app-receta-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FooterComponent,NavBarLoginComponent,DeleteUpdateOutputComponent],
+  imports: [ReactiveFormsModule, CommonModule, FooterComponent,NavBarLoginComponent],
   templateUrl: './receta-form.component.html',
   styleUrl: './receta-form.component.css'
 })
@@ -146,27 +146,6 @@ export class RecetaFormComponent implements OnInit {
     }
   }
   
-
-updateRecipe(id:number) {
-
-  this.router.navigate([`modificar-receta/:${id}`]);
-   
-}
-
-// Método para eliminar receta 
-deleteRecipe(id:number) { //este metodo tiene que eliminar la receta del arreglo en la que esta guardada
-  if (id === null) return alert('BOLUDAZO')
-
-  this.serviceRec.deleteReceta(id).subscribe({
-    next: () => {
-      alert('¡Receta eliminada con éxito!');
-     // this.router.navigate(['']);
-    },
-    error: (e: Error) => {
-      console.error('Error al eliminar receta:', e.message);
-    }
-  });
-}
 
 }
 

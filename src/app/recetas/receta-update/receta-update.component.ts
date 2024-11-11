@@ -4,17 +4,45 @@ import { RecetasService } from '../../service/recetas.service';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from '../../navegadores/navbar/navbar.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
+import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
+import { User } from '../../interfaces/user';
+import { UserActivo } from '../../interfaces/user-activo';
+import { UsuariosService } from '../../service/usuarios.service';
 
 @Component({
   selector: 'app-receta-update',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule,CommonModule,NavBarLoginComponent,FooterComponent],
   templateUrl: './receta-update.component.html',
   styleUrl: './receta-update.component.css'
 })
 export class RecetaUpdateComponent implements OnInit {
 
   ngOnInit(): void {
+    this.servicio.getUserActivo().subscribe(
+      {
+        next:(usuario)=>{
+          this.userACT=usuario[0];
+          this.servicio.getUSerById(this.userACT.id).subscribe({
+
+            next:(usuario)=>
+            {
+              this.userComun=usuario;
+            },
+            error:(err:Error)=>
+            {
+              console.log(err.message);
+            }
+          })
+        },
+        error:(err:Error)=>{
+          console.log(err.message);
+        }
+      }
+    )
+
     this.route.paramMap.subscribe({
       next: (param) => {
         const idString = param.get('id'); // Obtener el valor como string o null
@@ -33,40 +61,67 @@ export class RecetaUpdateComponent implements OnInit {
     });
   }
 
-serviceRec = inject(RecetasService);
-serviceListo = inject(ListasPersonalizadasService);
-fb = inject(FormBuilder);
-router = inject(Router);
-route = inject(ActivatedRoute);
+  serviceRec = inject(RecetasService);
+  //serviceListo = inject(ListasPersonalizadasService);
+  servicio=inject(UsuariosService); 
+  fb = inject(FormBuilder);
+  router = inject(Router);
+  route = inject(ActivatedRoute);
+  idLista = 0; 
+
+  formulario=this.fb.nonNullable.group({
+    
+    id:[0],
+    title: ['', Validators.required],  
+    vegetarian: [false, Validators.required],  // Tipo boolean
+    vegan: [false, Validators.required],       // Tipo boolean
+    glutenFree: [false, Validators.required],  // Tipo boolean
+    readyInMinutes: [0, [Validators.required, Validators.min(1)]],  // Tipo number
+    servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
+    instructions: ['', Validators.required],
+    image: [''],
+    spoonacularScore: [0], 
+    listaId: [0, Validators.required]
+  });
+
+  userACT:UserActivo={
+    id:0,
+    nombreUsuario:''
+  };
+
+  userComun:User={
+    nombreUsuario:'',
+    contrasena:'',
+    listas:[]
+  };
 
 id: number|null=null;
-
-formulario=this.fb.nonNullable.group({
-  title: ['', Validators.required],  
-  vegetarian: [false, Validators.required],  // Tipo boolean
-  vegan: [false, Validators.required],       // Tipo boolean
-  glutenFree: [false, Validators.required],  // Tipo boolean
-  readyInMinutes: [0, [Validators.required, Validators.min(1)]],  // Tipo number
-  servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
-  instructions: ['', Validators.required],
-  image: [''],
-  spoonacularScore: [0]
-});
 
 updateRecipe() {
   if (this.formulario.invalid || this.id === null) return;
   const receta = this.formulario.getRawValue();
+  const listaId = this.formulario.get('listaId')?.value;
+  const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
 
-  this.serviceRec.updateReceta(this.id, receta).subscribe({
-    next: () => {
-      alert('¡Receta actualizada con éxito!');
-     
-      this.router.navigate(['home']);
-    },
-    error: (e: Error) => {
-      console.error('Error al actualizar receta:', e.message);
-    }
-  });
+  if (listaSeleccionada) {
+
+    // Agrega la receta a la lista seleccionada
+    listaSeleccionada.recetas[this.id]= {...listaSeleccionada.recetas[this.id], ...receta}
+
+    // Guarda los cambios en el backend
+    this.servicio.editUser(this.userComun).subscribe({
+      next: () => {
+  
+        alert('Receta modificada exitosamente!');
+      },
+      error: (e: Error) => {
+        console.error("Error al modificar la receta:", e);
+      }
+    });
+  } else {
+    console.error("Lista seleccionada no encontrada.");
+  }
+
 }
 
 

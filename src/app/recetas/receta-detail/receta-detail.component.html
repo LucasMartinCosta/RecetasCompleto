@@ -26,11 +26,9 @@
             {{ ingredient.amount.toFixed(1) }}
             {{ingredient.name}}
              {{ingredient.unit}}
-
           </li>
         </ul>
       </div>
-
      </div>
 
 
@@ -38,11 +36,9 @@
 
     <div class="cont-instrucciones">
       <h3>Instrucciones</h3>
-
       <ol>
         <li *ngFor="let step of getInstructions()">
-          {{ step }}
-        </li>
+          {{ step }}</li>
       </ol>
     </div>
 
@@ -68,6 +64,5 @@
  
 
 </section>
-
 
   <app-footer></app-footer>
