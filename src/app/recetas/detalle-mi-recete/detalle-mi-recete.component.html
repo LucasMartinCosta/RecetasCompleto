@@ -1,2 +1,53 @@
-{{idLista}} {{idReceta}}
-{{receta.title}}
+<app-nav-bar-login></app-nav-bar-login>
+
+<section>
+  <div *ngIf="receta" class="recipe-container">
+
+    <h2 class="recipe-title">{{ receta.title }}</h2>
+
+    <div class="cont-img">
+      <img [src]="receta.image" alt="Imagen de {{ receta.title }}" class="recipe-image" />
+    </div>
+
+    <!-- Información General -->
+    <div class="recipe-info">
+      <p><strong>Tiempo de preparación:</strong> {{ receta.readyInMinutes }} minutos</p>
+      <p><strong>Calificación:</strong> {{ receta.spoonacularScore.toFixed(2) }} / 100</p>
+
+    </div>
+
+
+    <div class="cont-instrucciones">
+      <h3>Instrucciones</h3>
+      <ul>
+        <li *ngFor="let step of getInstructions()">
+          {{ step }}</li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
+
+  </div> <!-- Cierra el div que está abierto antes del *ngIf -->
+</section> <!-- Cierra la sección aquí -->
+
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

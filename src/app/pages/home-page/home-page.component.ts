@@ -24,12 +24,13 @@ export class HomePageComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }
-  
+
   ngOnInit(): void {  //aca se autentifica el usuario y se guarda en una variable
     this.sub = this.servicioUser.auth().subscribe({
       next: (activeUser) => {
         if (activeUser){
           this.usuario = activeUser
+          this.obtenerRecetasRandom()
         }
       }
     });
@@ -40,7 +41,7 @@ export class HomePageComponent implements OnInit, OnDestroy{
     nombreUsuario:"invitado"
   }
 
-  private sub? : Subscription; 
+  private sub? : Subscription;
 
   rutas = inject(Router);
   servicio= inject(RecetasService);
@@ -50,7 +51,7 @@ export class HomePageComponent implements OnInit, OnDestroy{
 
   obtenerRecetasRandom()
   {
-    this.servicio.getRandomRecipe(1).subscribe(
+    this.servicio.getRandomRecipe(5).subscribe(
       {
         next:(data)=>{
         console.log(data);

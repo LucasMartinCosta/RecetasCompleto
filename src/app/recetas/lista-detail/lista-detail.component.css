@@ -17,6 +17,9 @@ min-height: 100vh;
 .titulo{
   font-size: 35px;
   margin-top: 10px;
+  font-weight: 600;
+  font-family: 'Monserrat', sans-serif;
+  color: #e6af39;
 }
 .info-receta{
   display: flex;

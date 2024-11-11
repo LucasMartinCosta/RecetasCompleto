@@ -47,7 +47,7 @@ export class RecetaUpdateComponent implements OnInit {
       next: (param) => {
         const idString = param.get('id'); // Obtener el valor como string o null
         this.id = idString !== null ? Number(idString) : null; // Convertir a número si no es null
-  
+
         if (this.id === null || isNaN(this.id)) {
           console.log('El valor de id no es un número válido');
           this.id = null; // Opcional: asignar null si no es un número válido
@@ -63,16 +63,16 @@ export class RecetaUpdateComponent implements OnInit {
 
   serviceRec = inject(RecetasService);
   //serviceListo = inject(ListasPersonalizadasService);
-  servicio=inject(UsuariosService); 
+  servicio=inject(UsuariosService);
   fb = inject(FormBuilder);
   router = inject(Router);
   route = inject(ActivatedRoute);
-  idLista = 0; 
+  idLista = 0;
 
   formulario=this.fb.nonNullable.group({
-    
+
     id:[0],
-    title: ['', Validators.required],  
+    title: ['', Validators.required],
     vegetarian: [false, Validators.required],  // Tipo boolean
     vegan: [false, Validators.required],       // Tipo boolean
     glutenFree: [false, Validators.required],  // Tipo boolean
@@ -80,7 +80,7 @@ export class RecetaUpdateComponent implements OnInit {
     servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
     instructions: ['', Validators.required],
     image: [''],
-    spoonacularScore: [0], 
+    spoonacularScore: [0],
     listaId: [0, Validators.required]
   });
 
@@ -116,6 +116,7 @@ updateRecipe() {
       this.servicio.editUser(this.userComun).subscribe({
         next: () => {
           alert('Receta modificada exitosamente!');
+          this.router.navigate(['/mis-listas'])
         },
         error: (e: Error) => {
           console.error("Error al modificar la receta:", e);
