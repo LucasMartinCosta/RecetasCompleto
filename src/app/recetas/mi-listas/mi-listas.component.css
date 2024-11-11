@@ -1,5 +1,6 @@
 *{
   font-family: 'Monserrat', sans-serif;
+  font-weight: 600;
 }
 .page-container {
   display: flex;
@@ -15,6 +16,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
+
 }
 
 
@@ -23,12 +25,11 @@
   justify-content: center;
   margin: 20px 0;
 }
+
 h3{
   font-size: 30px;
   color:#f7cf79;
-  text-transform: uppercase;
-  
-
+  font-weight: 600;
 
 }
 
@@ -92,6 +93,7 @@ h3{
 p {
   font-size: 16px;
   color: #555;
+  font-weight: 600;
 }
 
 

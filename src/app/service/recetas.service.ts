@@ -13,7 +13,7 @@ export class RecetasService {
   constructor() { }
 
   http = inject(HttpClient);
-  private key = environment.tokenLaura;
+  private key = environment.tokenIma;
   private baseUrl = 'http://localhost:3001/recetas';
 
 

@@ -5,8 +5,12 @@
   justify-content: space-around;
   align-items: center;
   width: 70%;
-  height: 100%;
+
+  margin-bottom: 20px;
+
+
 }
+
 .recetas-ind{
 
   border-radius: 5px;
@@ -21,6 +25,7 @@
   background-color: rgba(247, 207, 121, 0.596);
   text-align: center;
   box-shadow: 1px 1px 10px rgba(247, 207, 121, 0.596);
+  
 }
 .texto-card{
   display: flex;

@@ -6,24 +6,27 @@
     <p class="nombre-lista">{{lista?.nombre}}</p>
     <h3 class="titulo">Recetas</h3>
     <ul>
-     
-       
+
+
           <div class="botones">
-         
+
             @for (receta of recetasarreglo; track receta.id) {
               <app-delete-update-output
             [receta]="receta"
-            (delete)="deleterecipe22($event)">
+            (delete)="deleterecipe22($event)"
+          
+            >
+
           </app-delete-update-output>
             }
-        
+
           </div>
-    
-       
-        
-      
+
+
+
+
     </ul>
-   
+
   </div>
 </section>
 

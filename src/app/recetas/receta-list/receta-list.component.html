@@ -4,10 +4,11 @@
   <app-nav-bar-login></app-nav-bar-login>
 
     <form [formGroup]="formulario" (ngSubmit)="setIngredientes()" class="form-busqueda">
+      <h2>Buscador de recetas</h2>
 
       <input type="text" name="ingredientes" id="ingredientes" formControlName="ingredientes" placeholder="Escribe ingredientes...">
 
-      <button type="submit" class="btn">Buscar recetas</button>
+      <button type="submit" class="btn">Buscar </button>
     </form>
 
     <div>
@@ -19,7 +20,7 @@
 
         </app-receta-card>
       </div>
-    
+
       }
 
     </div>

@@ -4,7 +4,11 @@ app-navbar{
     margin: 0;
     padding: 0;
     width: 100%;
-    
+
+}
+*{
+  font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 main{
     height: 400px;
@@ -32,6 +36,7 @@ main{
 .carta-pag p{
     font-size: 25px;
     color: rgb(92, 87, 87);
+
 
 }
 
@@ -120,7 +125,7 @@ ul li{
     border-top: 1px solid rgb(0, 0, 0);
 }
 #titulo-redes{
-    font-size: 22px;
+    font-size: 18px;
     color: rgb(92, 87, 87);
     border-bottom: 1px solid rgb(0, 0, 0);
 
@@ -136,6 +141,44 @@ ul li{
     text-decoration: none;
 }
 
-.info1 ul li a:hover{
-    border-bottom: 1px solid rgb(0, 0, 0);
+
+.social-links{
+  margin: 14px;
+
+
+}
+
+.social-links a{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  transition: .4s;
+  justify-content: center; /* Centra los íconos */
+  align-items: center;
+  margin: 0 10px;
+}
+
+.social-links a:hover{
+  transform: scale(1.7);
+
+}
+
+.social-links a i{
+  color: #b6702e;
+
+
+}
+
+@media screen and (max-width: 600px) {
+  .team {
+      max-width: 100%;
+  }
+}
+.sub-us{
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 0;
+
+  flex-wrap: wrap;
+  justify-content: center;
 }

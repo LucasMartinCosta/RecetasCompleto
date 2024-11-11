@@ -2,8 +2,8 @@
 .navegacion {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
-  padding: 0 20px; 
+  justify-content: space-between;
+  padding: 0 20px;
   height: 60px;
   background-color: rgba(247, 207, 121, 0.596);
   border-bottom: 1px solid rgba(0, 0, 0, 0.192);
@@ -31,7 +31,7 @@
 
 .menu {
   display: flex;
-  gap: 15px; 
+  gap: 15px;
   list-style: none;
   margin: 0;
   padding: 0;

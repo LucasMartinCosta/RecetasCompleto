@@ -1,5 +1,5 @@
 footer {
-  margin-top: auto; 
+  margin-top: auto;
   width: 100%;
   padding: 10px;
   text-align: center;
@@ -17,6 +17,7 @@ min-height: 100vh;
 .titulo{
   font-size: 25px;
   margin-top: 10px;
+  
 }
 .info-receta{
   display: flex;

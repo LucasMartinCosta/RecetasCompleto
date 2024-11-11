@@ -3,10 +3,6 @@
 .buscador-container{
   display: flex;
   flex-direction: column;
-
-
-
-
 }
 
 .form-busqueda {
@@ -18,6 +14,12 @@
     align-items: center;
 
 
+
+  }
+  h2{
+    font-weight: 600;
+    font-family: 'Monserrat', sans-serif;
+    color: #e2a731;
   }
 
   .input-container {
