@@ -28,6 +28,8 @@ min-height: 100vh;
 }
 .nombre-lista{
   font-size: 30px;
+  font-weight: 600;
+  font-family: 'Montserrat';
   margin-top: 10px;
 }
 .btn{
