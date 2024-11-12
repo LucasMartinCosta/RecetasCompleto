@@ -6,6 +6,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 import { ListasPersonalizadasComponent } from '../../recetas/listas-personalizadas/listas-personalizadas.component';
 import { ListaRecetasPersonalizadas } from '../../interfaces/recetas';
+import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 
 @Component({
   selector: 'app-registrarse',
@@ -26,33 +27,55 @@ export class RegistrarseComponent {
 
   listasIniciales : ListaRecetasPersonalizadas[] = []
 
-  constructor(private authService: UsuariosService, private router: Router) { }
+  constructor(private authService: UsuariosService, private router: Router, private listasPersonalizadasService:
+    ListasPersonalizadasService) { }
 
   onSubmit() {
     if (this.form.invalid) return;
     const formValues = this.form.getRawValue();
-    
-    const user: User = {
-      nombreUsuario: formValues.username ?? '',  // Usa un valor predeterminado si es null
-      contrasena: formValues.password ?? '',
-      email: formValues.email ?? '', 
-      listas : this.listasIniciales
-    };
 
-    this.authService.signup(user).subscribe({
-      next: () => {
-        alert('Usuario agregado');
-        this.router.navigate(['/']);
+    const email = formValues.email;
+    if (email === null) {
+      alert('El correo electrónico es obligatorio.');
+      return;
+    }
+
+
+
+    this.authService.checkEmailExists(email).subscribe({
+      next: (emailExists) => {
+        if (emailExists) {
+          alert('Este correo electrónico ya está registrado. Por favor, elige otro.');
+        } else {
+
+          const user: User = {
+            nombreUsuario: formValues.username ?? '',
+            contrasena: formValues.password ?? '',
+            email: email ?? '',
+            listas: this.listasIniciales
+          };
+
+          this.authService.signup(user).subscribe({
+            next: () => {
+              alert('Usuario agregado');
+              this.router.navigate(['/']);
+            },
+            error: (error) => {
+              console.error(error);
+              console.log('Redirecting to Home');
+              setTimeout(() => {
+                this.router.navigate(['/']);
+              }, 1500);
+            }
+          });
+        }
       },
       error: (error) => {
-        console.error(error);
-        console.log('redirecting to Home');
-        setTimeout(() => {
-          this.router.navigate(['/']);
-        }, 1500);
+        console.error('Error checking email: ', error);
       }
-    })
+    });
   }
+
 
   onRevealPassword(pwInput: HTMLInputElement) {
     if (pwInput.type == 'password') {
@@ -66,7 +89,7 @@ export class RegistrarseComponent {
   rutas = inject(Router);
   fb= inject(FormBuilder);
   servicioLog= inject(UsuariosService);
-  
+
   formulario= this.fb.nonNullable.group({
     nombreUsuario:['',[Validators.required]],
     contrasena:['',[Validators.required]],
@@ -88,13 +111,13 @@ export class RegistrarseComponent {
         const encontradonombre= listausuarios.some(us=>us.nombreUsuario === usuario.nombreUsuario);
         const encontradoemail= listausuarios.some(us=>us.email === usuario.email);
 
-        
-    if(encontradoemail) 
+
+    if(encontradoemail)
       {
         alert("El email que ingreso ya tiene un usuario");
         return;
       }
-  
+
       if(encontradonombre)
       {
         alert("El nombre de usuario que ingreso ya existe");
@@ -112,11 +135,11 @@ export class RegistrarseComponent {
           console.log("Error al registrarse:",err.message);
         }
       })
-    }      
+    }
     })
 
-   
-   
+
+
   }
 
   viajariniciarSesion()

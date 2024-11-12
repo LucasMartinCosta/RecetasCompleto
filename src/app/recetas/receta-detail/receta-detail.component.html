@@ -36,28 +36,28 @@
 
     <div class="cont-instrucciones">
       <h3>Instrucciones</h3>
-      <ol>
+      <ul>
         <li *ngFor="let step of getInstructions()">
           {{ step }}</li>
-      </ol>
+      </ul>
     </div>
 
 
 
-  
 
-  <button class="add-to-list-btn" (click)="activarAgregarLista = true" >Agregar a una lista</button> 
+
+  <button class="add-to-list-btn" (click)="activarAgregarLista = true" >Agregar a una lista</button>
 
   <section class="agregar-lista">
     @if (activarAgregarLista) {<!-- seleccionar lista -->
-      <form [formGroup]="formulario" (ngSubmit)="addRecipe()"> 
-        <div> 
+      <form [formGroup]="formulario" (ngSubmit)="addRecipe()">
+        <div>
           <label for="listaId">Selecciona una lista:</label>
           <select id="listaId" formControlName="listaId">
           <option *ngFor="let lista of userComun.listas" [value]="lista.id">{{ lista.nombre }}</option>
           </select>
          </div>
-  
+
          <button type="submit"> Agregar </button>
       </form>
     }

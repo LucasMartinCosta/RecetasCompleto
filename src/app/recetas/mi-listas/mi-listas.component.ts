@@ -19,7 +19,7 @@ import { User } from '../../interfaces/user';
   styleUrl: './mi-listas.component.css'
 })
 export class MiListasComponent implements OnInit{
- 
+
   listas: ListaRecetasPersonalizadas[]= [];
   servicio =inject(ListasPersonalizadasService);
   router= inject(Router)
@@ -77,11 +77,11 @@ export class MiListasComponent implements OnInit{
     {
       this.router.navigate([`lista/${id}`]);
     }
-   
+
   }
 
   borrarLista(id: number) {
-   
+
     if (this.listas.some(u => u.id === id)) {
 
       this.listas = this.listas.filter(lista => lista.id !== id);
@@ -92,17 +92,18 @@ export class MiListasComponent implements OnInit{
         next:()=>
         {
           alert("Lista eliminada")
+          
         },
         error:(err:Error)=>{
           console.log(err.message);
         }
       })
-     
+
     }
   }
 
-  
- 
-  
+
+
+
 
 }

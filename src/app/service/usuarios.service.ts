@@ -97,6 +97,12 @@ loginChat(username: string, password: string): Observable<User | null> {
   clearUserActivo(): Observable<void> {
     return this.http.delete<void>(this.urlActivo); // Esta línea elimina todos los usuarios activos si json-server lo permite.
   }
+  checkEmailExists(email: string): Observable<boolean> {
+    return this.http.get<User[]>(`${this.urlUsuarios}?email=${email}`).pipe(
+      map((users) => users.length > 0), 
+      catchError(() => of(false))
+    );
+  }
 
 
 

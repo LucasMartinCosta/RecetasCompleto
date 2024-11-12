@@ -23,18 +23,18 @@ export class RecetaFormComponent implements OnInit {
 
   serviceRec = inject(RecetasService);
   //serviceListo = inject(ListasPersonalizadasService);
-  servicio=inject(UsuariosService); 
+  servicio=inject(UsuariosService);
   fb = inject(FormBuilder);
   router = inject(Router);
   route = inject(ActivatedRoute);
   recetas: Array<Receta>= [];
 
-  idLista = 0; 
+  idLista = 0;
 
   formulario=this.fb.nonNullable.group({
-    
+
     id:[0],
-    title: ['', Validators.required],  
+    title: ['', Validators.required],
     vegetarian: [false, Validators.required],  // Tipo boolean
     vegan: [false, Validators.required],       // Tipo boolean
     glutenFree: [false, Validators.required],  // Tipo boolean
@@ -42,7 +42,7 @@ export class RecetaFormComponent implements OnInit {
     servings: [1, [Validators.required, Validators.min(1)]],        // Tipo number
     instructions: ['', Validators.required],
     image: [''],
-    spoonacularScore: [0], 
+    spoonacularScore: [0],
     listaId: [0, Validators.required]
   });
 
@@ -57,7 +57,7 @@ export class RecetaFormComponent implements OnInit {
     listas:[]
   };
 
-  ngOnInit(){ // al renderizarse el formulario obtiene el usuario activo y lo carga a userComun, con ese usuario es con el que hay que trabajar. CON EL ARREGLO 
+  ngOnInit(){
     this.servicio.getUserActivo().subscribe(
       {
         next:(usuario)=>{
@@ -83,55 +83,26 @@ export class RecetaFormComponent implements OnInit {
 
   addRecipe() {
     if (this.formulario.invalid) return;
-    
-    // Obtiene los datos de la receta y el ID de la lista seleccionada
+
+
     const receta = this.formulario.getRawValue();
     for(var id=0;id<this.userComun.listas.length;id++)
     {
       receta.id = id
     }
-    
+
     const listaId = this.formulario.get('listaId')?.value;
-    
+
     console.log('ID de lista seleccionada:', listaId);
-  
-    // Encuentra la lista seleccionada en el usuario y agrega la receta
+
+
     const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
 
 
     if (listaSeleccionada) {
       listaSeleccionada.recetas.push(receta);
-  
-      // Opcional: Guarda los cambios en el backend
-      this.servicio.editUser(this.userComun).subscribe({
-        next: () => {
-          alert('Receta agregada exitosamente a la lista seleccionada!');
-          this.router.navigate(['/home']); // Redirige al usuario si es necesario
-        },
-        error: (err) => {
-          console.error("Error al guardar la receta:", err);
-        }
-      });
-    } else {
-      console.error("Lista seleccionada no encontrada.");
-    }
-  }
 
-  addRecipe2() {
-    if (this.formulario.invalid) return;
-  
-    const receta = this.formulario.getRawValue();
-    const listaId = this.formulario.get('listaId')?.value;
-    const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
-  
-    if (listaSeleccionada) {
-      // Asigna un ID basado en la longitud actual del arreglo de recetas
-      receta.id = listaSeleccionada.recetas.length;
-  
-      // Agrega la receta a la lista seleccionada
-      listaSeleccionada.recetas.push(receta);
-  
-      // Guarda los cambios en el backend
+
       this.servicio.editUser(this.userComun).subscribe({
         next: () => {
           alert('Receta agregada exitosamente a la lista seleccionada!');
@@ -145,7 +116,40 @@ export class RecetaFormComponent implements OnInit {
       console.error("Lista seleccionada no encontrada.");
     }
   }
-  
+
+  addRecipe2() {
+    if (this.formulario.invalid) return;
+
+    const receta = this.formulario.getRawValue();
+    const listaId = this.formulario.get('listaId')?.value;
+    const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
+
+    if (!receta.image || receta.image.trim() === '') {
+      receta.image = 'img/no-foto.png'; 
+    }
+
+    if (listaSeleccionada) {
+
+      receta.id = listaSeleccionada.recetas.length;
+
+
+      listaSeleccionada.recetas.push(receta);
+
+
+      this.servicio.editUser(this.userComun).subscribe({
+        next: () => {
+          alert('Receta agregada exitosamente a la lista seleccionada!');
+          this.router.navigate(['/home']);
+        },
+        error: (err) => {
+          console.error("Error al guardar la receta:", err);
+        }
+      });
+    } else {
+      console.error("Lista seleccionada no encontrada.");
+    }
+  }
+
 
 }
 

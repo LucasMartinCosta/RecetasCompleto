@@ -36,7 +36,7 @@ export class RecetaListComponent{
       console.log("formulario Invalido");
        return;
     }
-    const ingredientesForm :string = this.formulario.get("ingredientes")?.value || "";   //|| "": Esto asegura que, si el valor es null o undefined, se asigne una cadena vacía a this.ingredients.
+    const ingredientesForm :string = this.formulario.get("ingredientes")?.value || "";    
     this.listarRecetasPorIngredientes(ingredientesForm) // llamo a la funcion de abajo que usa el servicio y carga en el arreglo las recetas
   }
 

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from '../../interfaces/user';
 import { Router, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
@@ -8,21 +8,23 @@ import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
 import { UserActivo } from '../../interfaces/user-activo';
 import { catchError, Observable, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [ReactiveFormsModule, NavbarComponent, RouterModule],
+  imports: [ReactiveFormsModule, NavbarComponent, RouterModule, CommonModule],
   templateUrl: './iniciar-sesion.component.html',
   styleUrl: './iniciar-sesion.component.css'
 })
 export class IniciarSesionComponent {
 
   fb = inject(FormBuilder)
-  authService = inject(UsuariosService); 
+  authService = inject(UsuariosService);
   router = inject(Router)
   http = inject(UsuariosService)
   urlUsuarios = "http://localhost:3000/Usuarios"
+  cdr = inject(ChangeDetectorRef)
 
   listausuarios:Array<User>=[];
 
@@ -34,13 +36,14 @@ export class IniciarSesionComponent {
   onLogin() {
     if (this.form.invalid) return;
     const { username, password } = this.form.getRawValue();
-    
+
     this.authService.loginChat(username!, password!).subscribe({
         next: (user) => {
             if (user) {
                 this.asignarUserActivo(user);
                 this.router.navigate(['home']);
             } else {
+              this.form.controls['password'].setErrors({ incorrect: true });
                 console.log('Error en las credenciales');
             }
         },
@@ -68,6 +71,6 @@ export class IniciarSesionComponent {
         }
     });
 }
-    
-    
+
+
 }
