@@ -36,6 +36,22 @@ export class UsuariosService {
     );
 }
 
+loginChat(username: string, password: string): Observable<User | null> {
+  return this.http.get<User[]>(`${this.urlUsuarios}?username=${username}`).pipe(
+      map((users) => {
+          // Buscar el usuario que coincida tanto en el nombre de usuario como en la contraseña
+          const user = users.find(u => u.nombreUsuario === username && u.contrasena === password);
+          if (user) {
+              this.activeUserSubject.next({ nombreUsuario: user.nombreUsuario, id: user.id! });
+              localStorage.setItem('token', user.id?.toString()!);
+              return user;
+          }
+          return null; // Si no encuentra el usuario, retorna null
+      }),
+      catchError(() => of(null))
+  );
+}
+
   logout(): Observable<boolean> {
     this.activeUserSubject.next(undefined);
     return of(true);
@@ -55,6 +71,10 @@ export class UsuariosService {
 
   getUSerById (id:number) : Observable<User>{
     return this.http.get<User>(`${this.urlUsuarios}/${id}`)
+  }
+
+  getUSer () : Observable<User[]> {
+    return this.http.get<User[]>(this.urlUsuarios)
   }
 
 

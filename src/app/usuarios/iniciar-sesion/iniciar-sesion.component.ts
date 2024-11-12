@@ -7,11 +7,12 @@ import { UsuariosService } from '../../service/usuarios.service';
 import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
 import { UserActivo } from '../../interfaces/user-activo';
+import { catchError, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [ReactiveFormsModule, NavbarComponent, RouterModule, FooterComponent],
+  imports: [ReactiveFormsModule, NavbarComponent, RouterModule],
   templateUrl: './iniciar-sesion.component.html',
   styleUrl: './iniciar-sesion.component.css'
 })
@@ -20,6 +21,8 @@ export class IniciarSesionComponent {
   fb = inject(FormBuilder)
   authService = inject(UsuariosService); 
   router = inject(Router)
+  http = inject(UsuariosService)
+  urlUsuarios = "http://localhost:3000/Usuarios"
 
   listausuarios:Array<User>=[];
 
@@ -32,7 +35,7 @@ export class IniciarSesionComponent {
     if (this.form.invalid) return;
     const { username, password } = this.form.getRawValue();
     
-    this.authService.login(username!, password!).subscribe({
+    this.authService.loginChat(username!, password!).subscribe({
         next: (user) => {
             if (user) {
                 this.asignarUserActivo(user);
@@ -44,6 +47,7 @@ export class IniciarSesionComponent {
         error: console.log
     });
 }
+
 
   onRevealPassword(pwInput: HTMLInputElement) {
     if (pwInput.type == 'password') {
