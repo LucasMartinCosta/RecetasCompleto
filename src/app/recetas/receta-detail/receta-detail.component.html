@@ -44,25 +44,26 @@
 
 
 
-  </div>
+  
 
   <button class="add-to-list-btn" (click)="activarAgregarLista = true" >Agregar a una lista</button> 
 
+  <section class="agregar-lista">
+    @if (activarAgregarLista) {<!-- seleccionar lista -->
+      <form [formGroup]="formulario" (ngSubmit)="addRecipe()"> 
+        <div> 
+          <label for="listaId">Selecciona una lista:</label>
+          <select id="listaId" formControlName="listaId">
+          <option *ngFor="let lista of userComun.listas" [value]="lista.id">{{ lista.nombre }}</option>
+          </select>
+         </div>
+  
+         <button type="submit"> Agregar </button>
+      </form>
+    }
+  </section>
 
-  @if (activarAgregarLista) {<!-- seleccionar lista -->
-    <form [formGroup]="formulario" (ngSubmit)="addRecipe()"> 
-      <div> 
-        <label for="listaId">Selecciona una lista:</label>
-        <select id="listaId" formControlName="listaId">
-        <option *ngFor="let lista of userComun.listas" [value]="lista.id">{{ lista.nombre }}</option>
-        </select>
-       </div>
-
-       <button type="submit"> Agregar </button>
-    </form>
-  }
- 
-
+  </div>
 </section>
 
   <app-footer></app-footer>

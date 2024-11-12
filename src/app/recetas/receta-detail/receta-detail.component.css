@@ -141,6 +141,13 @@ ul{
     font-size: 35px;
   }
 
+  .agregar-lista{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+
 
   app-footer{
     display: block;

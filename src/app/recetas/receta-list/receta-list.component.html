@@ -15,8 +15,8 @@
     <div class="cont-recetas">
       @for (item of listaRecetas; track $index) {
       <div>
-        <app-receta-card *ngFor="let receta of listaRecetas"
-        [receta]="receta"
+        <app-receta-card 
+        [receta]="item"
         (verDetalles)="navigateToDetails($event)">
 
         </app-receta-card>
