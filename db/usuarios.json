@@ -1,12 +1,8 @@
 {
   "UsuarioActivo": [
     {
-      "id": "cad2",
-      "nombreUsuario": "imanol"
-    },
-    {
-      "id": "cad2",
-      "nombreUsuario": "imanol"
+      "id": "7fda",
+      "nombreUsuario": "marianuevo2"
     }
   ],
   "Usuarios": [
@@ -39,22 +35,35 @@
     },
     {
       "id": "7fda",
-      "nombreUsuario": "maria",
+      "nombreUsuario": "marianuevo2",
       "contrasena": "maria1",
-      "email": "mariaortiz642@gmail.com",
+      "email": "mari2@gmail.com",
       "listas": [
         {
           "id": 0,
           "nombre": "Mis favoritos",
-          "recetas": []
+          "recetas": [
+            {
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": true,
+              "title": "Easy To Make Spring Rolls",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "image": "https://img.spoonacular.com/recipes/642129-556x370.jpg",
+              "instructions": "<ol><li>Have all the ingredients ready for assembly. In a large bowl filled with water, dip a wrapper in the water. The rice wrapper will begin to soften and this is your cue to remove it from the water and lay it flat. Place 2 shrimp halves in a row across the center and top with basil, mint, cilantro and lettuce. Leave about 1 to 2 inches uncovered on each side.  Fold uncovered sides inward, then tightly roll the wrapper, beginning at the end with the lettuce.  Repeat with remaining wrappers and ingredients. Cut and serve at room temperature with dipping sauce.</li><li>The Culinary Chases Note: The rice wrapper can be fussy to handle if you let it soak too long. I usually give it a couple of swishes in the water and then remove. It may feel slightly stiff but by the time you are ready to roll up, the wrapper will become very pliable.  A typical spring roll contains cooked rice vermicelli, slivers of cooked pork and julienned carrots but you can use whatever suits your fancy.  Enjoy!</li></ol>",
+              "spoonacularScore": 98.02590942382812,
+              "id": 642129
+            }
+          ]
         }
       ]
     },
     {
       "id": "cad2",
-      "nombreUsuario": "imanol",
+      "nombreUsuario": "ima",
       "contrasena": "123123",
-      "email": "imanolsayago@gmail.com",
+      "email": "imamamama@gmail.com",
       "listas": [
         {
           "id": 1,
@@ -94,6 +103,20 @@
           "recetas": []
         }
       ]
+    },
+    {
+      "id": "d645",
+      "nombreUsuario": "imanolito",
+      "contrasena": "123123",
+      "email": "ima@gmail.com",
+      "listas": []
+    },
+    {
+      "id": "ed20",
+      "nombreUsuario": "imaaa",
+      "contrasena": "123123",
+      "email": "ima1@gmail.com",
+      "listas": []
     }
   ]
 }

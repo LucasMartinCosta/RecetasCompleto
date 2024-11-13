@@ -6,6 +6,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -69,9 +70,27 @@ export class EditarPerfilComponent implements OnInit {
   servicio = inject(UsuariosService);
   imagenPerfil = "img/perfil-de-usuario.web"; 
 
-  editPerfil()
-  {
-    
+  editPerfil(): void {
+    if (this.formulario.valid) {
+      const updatedUser: User = {
+        ...this.userComun, // Mantiene los datos actuales del usuario
+        nombreUsuario: this.formulario.value.nombre!, // Actualiza solo el nombre
+        email: this.formulario.value.email!           // Actualiza solo el email
+      };
+  
+      
+      this.servicio.editUser(updatedUser).subscribe({
+        next: () => {
+          console.log('Perfil actualizado correctamente');
+          this.rutas.navigate(['perfil']); 
+        },
+        error: (err: Error) => {
+          console.log('Error al actualizar el perfil:', err.message);
+        }
+      });
+    } else {
+      console.log('Formulario no válido');
+    }
   }
 
 

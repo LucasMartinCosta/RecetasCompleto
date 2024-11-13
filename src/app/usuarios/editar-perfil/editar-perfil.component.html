@@ -1,20 +1,27 @@
-<app-nav-bar-login></app-nav-bar-login>
+<div class="contenedor-principal">
+    <app-nav-bar-login></app-nav-bar-login>
+  
+    <section>
+      <h3 class="titulo">Editar perfil</h3>
+  
+      <div class="carta">
 
-<section>
-
-    <form >
-        <div>
-            <input type="text" formControlName="nombre">
-            <label for="nombre" >Nuevo nombre</label>
-
-        </div>
-       
-        <div>
-            <input type="email" formControlName="email">
+        <form class="formulario" [formGroup]="formulario">
+            
+          <div class="info-edit">
+            <label for="nombre">Nuevo nombre</label>
+            <input type="text" formControlName="nombre" />
+          </div>
+  
+          <div class="info-edit">
             <label for="email">Nuevo email</label>
-        </div>
-    </form>
-</section>
-
-
-<app-footer></app-footer>
+            <input type="email" formControlName="email" />
+          </div>
+  
+          <button class="btn" (click)="editPerfil()">Guardar cambios</button>
+        </form>
+      </div>
+    </section>
+  
+    <app-footer></app-footer>
+  </div>
