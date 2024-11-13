@@ -125,7 +125,7 @@ export class RecetaFormComponent implements OnInit {
     const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
 
     if (!receta.image || receta.image.trim() === '') {
-      receta.image = 'img/no-foto.png'; 
+      receta.image = 'img/logoUltimo.jpeg'; 
     }
 
     if (listaSeleccionada) {

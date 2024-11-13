@@ -1,8 +1,12 @@
 {
   "UsuarioActivo": [
     {
-      "id": "2323",
-      "nombreUsuario": "lucas"
+      "id": "cad2",
+      "nombreUsuario": "imanol"
+    },
+    {
+      "id": "cad2",
+      "nombreUsuario": "imanol"
     }
   ],
   "Usuarios": [
@@ -14,23 +18,8 @@
       "listas": [
         {
           "id": 1,
-          "nombre": "favoritos",
-          "recetas": [
-            {
-              "id": 0,
-              "title": "Receta 1 ",
-              "vegetarian": true,
-              "vegan": true,
-              "glutenFree": true,
-              "readyInMinutes": 123,
-              "servings": 123,
-              "instructions": "adsdasmdlkañjkndejiñcowpexdwq\ndxlqowdkioxqpkw\ndkqwojxipjqwimx",
-              "image": "img/no-foto.png",
-              "spoonacularScore": 0,
-              "listaId": "1",
-              "anotaciones": "Agregar los ingredientes "
-            }
-          ]
+          "nombre": "fav",
+          "recetas": []
         }
       ]
     },
@@ -57,6 +46,51 @@
         {
           "id": 0,
           "nombre": "Mis favoritos",
+          "recetas": []
+        }
+      ]
+    },
+    {
+      "id": "cad2",
+      "nombreUsuario": "imanol",
+      "contrasena": "123123",
+      "email": "imanolsayago@gmail.com",
+      "listas": [
+        {
+          "id": 1,
+          "nombre": "Lista1",
+          "recetas": [
+            {
+              "id": 0,
+              "title": "rece2",
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 123,
+              "servings": 1123,
+              "instructions": "asd",
+              "image": "https://imgs.search.brave.com/l0qtZBIVGXnxXH8Yn1vOEGy2KrKj02gW5cw15h9RjZo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTMx/NzUzNTE2MS9lcy9m/b3RvL21lc2EtbGxl/bmEtZGUtY29taWRh/LXBhcmEtbGEtdmlz/dGEtcHJpbmNpcGFs/LWRlLWxhLWZhbWls/aWEuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPTA1Vkt0b1dD/Y0x6aV9jeTAwa0lp/ZGJkcU8wWEI2THVs/QUJlbWxDRjBwR2s9",
+              "spoonacularScore": 0,
+              "listaId": "1"
+            },
+            {
+              "id": 1,
+              "title": "titulo1",
+              "vegetarian": true,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 123,
+              "servings": 1123,
+              "instructions": "asd",
+              "image": "img/logoUltimo.jpeg",
+              "spoonacularScore": 0,
+              "listaId": "1"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "nombre": "Lista 2",
           "recetas": []
         }
       ]

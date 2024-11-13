@@ -15,16 +15,21 @@ section{
 min-height: 100vh;
 }
 .titulo{
-  font-size: 35px;
+  font-size: 45px;
   margin-top: 10px;
   font-weight: 600;
   font-family: 'Monserrat', sans-serif;
   color: #e6af39;
+  margin-bottom: 10px;
 }
 .info-receta{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(241, 232, 232, 0.5);
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 15px;
 }
 .nombre-lista{
   font-size: 30px;
@@ -32,16 +37,7 @@ min-height: 100vh;
   font-family: 'Montserrat';
   margin-top: 10px;
 }
-.btn{
-  padding: 2px;
-  font-size: 15px;
-  width: 150px;
-  background-color: rgba(247, 207, 121, 0.596);
-  color: rgb(0, 0, 0);
-  border: 1px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
+
 .botones{
   display: flex;
   flex-direction: column;
