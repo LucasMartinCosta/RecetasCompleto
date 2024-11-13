@@ -40,6 +40,7 @@ export class PerfilPageComponent implements OnInit{
   }
 
   servicio = inject(UsuariosService);
+  imagenPerfil = "img/perfil-de-usuario.web"; 
 
   userACT:UserActivo={
     id:0,

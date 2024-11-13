@@ -14,6 +14,7 @@ import { RecetaUpdateComponent } from './recetas/receta-update/receta-update.com
 import { ListaDetailComponent } from './recetas/lista-detail/lista-detail.component';
 import { DetalleMiReceteComponent } from './recetas/detalle-mi-recete/detalle-mi-recete.component';
 import { authUsuariosGuard } from './usuarios/auth-usuarios.guard/auth-usuarios.guard';
+import { EditarPerfilComponent } from './usuarios/editar-perfil/editar-perfil.component';
 
 
 export const routes: Routes = [
@@ -66,6 +67,11 @@ export const routes: Routes = [
     {
       path:'perfil',
       component:PerfilPageComponent,
+      canActivate: [authUsuariosGuard]
+    },
+    {
+      path:'edit-perfil/:id',
+      component:EditarPerfilComponent,
       canActivate: [authUsuariosGuard]
     },
     {

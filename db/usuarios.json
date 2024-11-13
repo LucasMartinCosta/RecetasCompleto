@@ -1,24 +1,8 @@
 {
   "UsuarioActivo": [
     {
-      "id": "f372",
-      "nombreUsuario": "laufernandez"
-    },
-    {
-      "id": "f372",
-      "nombreUsuario": "laufernandez"
-    },
-    {
-      "id": "f7ab",
-      "nombreUsuario": "maria"
-    },
-    {
-      "id": "f7ab",
-      "nombreUsuario": "maria"
-    },
-    {
-      "id": "7fda",
-      "nombreUsuario": "maria"
+      "id": "2323",
+      "nombreUsuario": "lucas"
     }
   ],
   "Usuarios": [
@@ -27,7 +11,28 @@
       "nombreUsuario": "lucas",
       "contrasena": "123123",
       "email": "Lucassmartin.costa@gmail.com",
-      "listas": []
+      "listas": [
+        {
+          "id": 1,
+          "nombre": "favoritos",
+          "recetas": [
+            {
+              "id": 0,
+              "title": "Receta 1 ",
+              "vegetarian": true,
+              "vegan": true,
+              "glutenFree": true,
+              "readyInMinutes": 123,
+              "servings": 123,
+              "instructions": "adsdasmdlkañjkndejiñcowpexdwq\ndxlqowdkioxqpkw\ndkqwojxipjqwimx",
+              "image": "img/no-foto.png",
+              "spoonacularScore": 0,
+              "listaId": "1",
+              "anotaciones": "Agregar los ingredientes "
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "b671",
