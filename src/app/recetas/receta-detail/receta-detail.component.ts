@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Receta, RecipeInfo } from '../../interfaces/recetas';
+import { ExtendedIngredient, Ingredientes, Receta, RecipeInfo } from '../../interfaces/recetas';
 import { RecetasService } from '../../service/recetas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -20,11 +20,11 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 export class RecetaDetailComponent implements OnInit{
 
   recipe!: RecipeInfo;
-  serviciouser = inject(UsuariosService); 
+  serviciouser = inject(UsuariosService);
   fb = inject(FormBuilder)
-  activarAgregarLista : boolean = false; 
+  activarAgregarLista : boolean = false;
   router = inject(Router)
-  
+
   constructor(
     private route: ActivatedRoute,
     private servicio: RecetasService
@@ -45,7 +45,7 @@ export class RecetaDetailComponent implements OnInit{
     listaId: [0, Validators.required]
   })
 
-  
+
 
   ngOnInit() {
     this.obtenerUSer()
@@ -64,7 +64,7 @@ export class RecetaDetailComponent implements OnInit{
 
     const cleanText = this.recipe.instructions.replace(/<\/?[^>]+(>|$)/g, "");
 
-    
+
     return cleanText.split('\n').filter(step => step.trim() !== '');
 }
 
@@ -93,12 +93,12 @@ export class RecetaDetailComponent implements OnInit{
     )
   }
 
-  addRecipe() { 
+  addRecipe() {
 
-    const receta = this.mapearRecipeInfoAReceta(this.recipe); 
+    const receta = this.mapearRecipeInfoAReceta(this.recipe);
     const listaId = this.formulario.get('listaId')?.value;
     console.log('ID de lista seleccionada:', listaId);
-  
+
     // Encuentra la lista seleccionada en el usuario y agrega la receta
     const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
     console.log(listaSeleccionada);
@@ -106,7 +106,7 @@ export class RecetaDetailComponent implements OnInit{
 
     if (listaSeleccionada) {
       listaSeleccionada.recetas.push(receta);
-  
+
       // Opcional: Guarda los cambios en el backend
       this.serviciouser.editUser(this.userComun).subscribe({
         next: () => {
@@ -122,7 +122,7 @@ export class RecetaDetailComponent implements OnInit{
     }
   }
 
-   mapearRecipeInfoAReceta(recipeInfo: RecipeInfo): Receta {
+  mapearRecipeInfoAReceta(recipeInfo: RecipeInfo): Receta {
     return {
       vegetarian: recipeInfo.vegetarian,
       vegan: recipeInfo.vegan,
@@ -133,8 +133,20 @@ export class RecetaDetailComponent implements OnInit{
       image: recipeInfo.image,
       instructions: recipeInfo.instructions,
       spoonacularScore: recipeInfo.spoonacularScore,
-      id: recipeInfo.id
+      id: recipeInfo.id,
+      ingredientes: recipeInfo.extendedIngredients.map(
+        this.mapearExtendIngredientAIngrediente
+      )// como ingredientes pertenece a Recetas al mapear Recetas, tambien se mapean los Ingredientes
     };
+  }
+
+  //convierto los ExtendedIngredients a Ingredientes
+  mapearExtendIngredientAIngrediente(exIngr: ExtendedIngredient): Ingredientes{
+    return {
+      name: exIngr.name,
+      unit: exIngr.unit,
+      amount: exIngr.amount
+    }
   }
 
 

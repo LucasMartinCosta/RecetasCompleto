@@ -20,18 +20,19 @@ export class DetalleMiReceteComponent implements OnInit{
 
 
   receta : Receta = {
-      vegetarian: false,
-      vegan: false,
-      glutenFree: false,
-      id: 0,  // o el valor que desees como predeterminado
-      title: "Receta no encontrada",
-      readyInMinutes: 0,
-      servings: 0,
-      image: "",
-      instructions: "",
-      spoonacularScore: 0,
-      anotaciones: ""
-  }
+    vegetarian: false,
+    vegan: false,
+    glutenFree: false,
+    id: 0,  // o el valor que desees como predeterminado
+    title: "Receta no encontrada",
+    readyInMinutes: 0,
+    servings: 0,
+    image: "",
+    instructions: "",
+    spoonacularScore: 0,
+    anotaciones: "",
+    ingredientes: [],
+}
 
   route = inject(ActivatedRoute)
   idLista!: number;
@@ -98,7 +99,8 @@ export class DetalleMiReceteComponent implements OnInit{
         servings: 0,
         image: "",
         instructions: "",
-        spoonacularScore: 0
+        spoonacularScore: 0,
+        ingredientes: [],
       };
       //carga las anotaciones guardadas en el textarea.
       this.formulario.patchValue({

@@ -50,12 +50,14 @@ export class ListaDetailComponent implements OnInit {
     instructions: '',
     spoonacularScore: 0,
     image: '',
-    anotaciones: ""
+    anotaciones: "",
+    ingredientes: [],
   };
 
   cargararreglo() {
     this.lista?.recetas.forEach(recetas => {
-      this.recetasarreglo.push(recetas as RecipeInfo);
+      this.recetasarreglo.push(recetas as unknown as RecipeInfo);
+      //define recetas como unknown y luego lo redefine como RecipeInfo
     })
   }
 

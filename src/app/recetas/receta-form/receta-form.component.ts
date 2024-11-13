@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators, FormArray } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
 import { CommonModule } from '@angular/common';
-import { Receta, Receta2 } from '../../interfaces/recetas';
+import { Ingredientes, Receta, Receta2 } from '../../interfaces/recetas';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 import { DeleteUpdateOutputComponent } from '../delete-update-output/delete-update-output.component';
@@ -43,7 +43,9 @@ export class RecetaFormComponent implements OnInit {
     instructions: ['', Validators.required],
     image: [''],
     spoonacularScore: [0],
-    listaId: [0, Validators.required]
+    listaId: [0, Validators.required],
+    ingredientes: this.fb.array([]),
+    //creo Un form array que permite agregar la cantidad de ingredientes que quiera
   });
 
   userACT:UserActivo={
@@ -81,87 +83,97 @@ export class RecetaFormComponent implements OnInit {
     )
   }
 
-  addRecipe() {
-    if (this.formulario.invalid) return;
+
+addRecipe() {
+  if (this.formulario.invalid) return;
 
 
-    const receta = this.formulario.getRawValue();
-    for(var id=0;id<this.userComun.listas.length;id++)
-    {
-      receta.id = id
-    }
-
-    const listaId = this.formulario.get('listaId')?.value;
-
-    console.log('ID de lista seleccionada:', listaId);
-
-
-    const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
-
-
-    if (listaSeleccionada) {
-      listaSeleccionada.recetas.push(receta);
-
-
-      this.servicio.editUser(this.userComun).subscribe({
-        next: () => {
-          alert('Receta agregada exitosamente a la lista seleccionada!');
-          this.router.navigate(['/home']);
-        },
-        error: (err) => {
-          console.error("Error al guardar la receta:", err);
-        }
-      });
-    } else {
-      console.error("Lista seleccionada no encontrada.");
-    }
+  const receta = {
+    ...this.formulario.getRawValue(),
+    ingredientes: this.formulario.get('ingredientes')?.value as Ingredientes[]
+  } as Receta;
+  for(var id=0;id<this.userComun.listas.length;id++)
+  {
+    receta.id = id
   }
 
-  addRecipe2() {
-    if (this.formulario.invalid) return;
+  const listaId = this.formulario.get('listaId')?.value;
 
-    const receta = this.formulario.getRawValue();
-    const listaId = this.formulario.get('listaId')?.value;
-    const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
-
-    if (!receta.image || receta.image.trim() === '') {
-      receta.image = 'img/logoUltimo.jpeg'; 
-    }
-
-    if (listaSeleccionada) {
-
-      receta.id = listaSeleccionada.recetas.length;
+  console.log('ID de lista seleccionada:', listaId);
 
 
-      listaSeleccionada.recetas.push(receta);
+  const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
 
 
-      this.servicio.editUser(this.userComun).subscribe({
-        next: () => {
-          alert('Receta agregada exitosamente a la lista seleccionada!');
-          this.router.navigate(['/home']);
-        },
-        error: (err) => {
-          console.error("Error al guardar la receta:", err);
-        }
-      });
-    } else {
-      console.error("Lista seleccionada no encontrada.");
-    }
+  if (listaSeleccionada) {
+    listaSeleccionada.recetas.push(receta);
+
+
+    this.servicio.editUser(this.userComun).subscribe({
+      next: () => {
+        alert('Receta agregada exitosamente a la lista seleccionada!');
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.error("Error al guardar la receta:", err);
+      }
+    });
+  } else {
+    console.error("Lista seleccionada no encontrada.");
   }
-
-
 }
 
+addRecipe2() {
+  if (this.formulario.invalid) return;
+
+  const receta = {
+    ...this.formulario.getRawValue(),
+    ingredientes: this.formulario.get('ingredientes')?.value as Ingredientes[]
+  } as Receta;
+  const listaId = this.formulario.get('listaId')?.value;
+  const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
+
+  if (!receta.image || receta.image.trim() === '') {
+    receta.image = 'img/no-foto.png';
+  }
+
+  if (listaSeleccionada) {
+
+    receta.id = listaSeleccionada.recetas.length;
 
 
+    listaSeleccionada.recetas.push(receta);
 
 
+    this.servicio.editUser(this.userComun).subscribe({
+      next: () => {
+        alert('Receta agregada exitosamente a la lista seleccionada!');
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.error("Error al guardar la receta:", err);
+      }
+    });
+  } else {
+    console.error("Lista seleccionada no encontrada.");
+  }
+}
 
+get ingredientes(){
+  return this.formulario.get('ingredientes') as FormArray;
+}
 
+//asigna los datos cargados del ArrayForm al form de receta.
+agregarIngrediente(){
+  const ingredienteForm = this.fb.group({
+    name:['', Validators.required],
+    amount: [0, [Validators.required, Validators.min(0.1)]],
+    unit:['', Validators.required]
+  });
+  this.ingredientes.push(ingredienteForm)
+}
 
-
-
+}
 
 
 

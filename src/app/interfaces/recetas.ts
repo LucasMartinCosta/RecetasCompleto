@@ -1,17 +1,26 @@
 
 export interface Receta {
-    vegetarian:               boolean;
-    vegan:                    boolean;
-    glutenFree:               boolean;
-    id?:                       number;
-    title:                    string;
-    readyInMinutes:           number;
-    servings:                 number;
-    image:                    string;
-    instructions:             string;
-    spoonacularScore:         number;
-    anotaciones?:             string;
+  vegetarian:               boolean;
+  vegan:                    boolean;
+  glutenFree:               boolean;
+  id?:                       number;
+  title:                    string;
+  readyInMinutes:           number;
+  servings:                 number;
+  image:                    string;
+  instructions:             string;
+  spoonacularScore:         number;
+  anotaciones?:             string;
+  ingredientes:             Ingredientes[];
 }
+
+export interface Ingredientes{
+  id?:                      number;
+  name:                     string;
+  amount:                   number;
+  unit:                     string;
+}
+
 
 
 export interface RecipeInfo {

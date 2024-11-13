@@ -16,6 +16,19 @@
 
     </div>
 
+    <div class="cont-ingredientes">
+
+      <h3>Ingredientes</h3>
+      <div class="info-ingredientes">
+        <ul class="ingredient-list">
+          <li *ngFor="let ingrediente of receta.ingredientes">
+            {{ ingrediente.amount.toFixed(1) }}
+            {{ingrediente.name}}
+             {{ingrediente.unit}}
+          </li>
+        </ul>
+      </div>
+     </div>
 
     <div class="cont-instrucciones">
       <h3>Instrucciones</h3>

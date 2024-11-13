@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import {
+  ExtendedIngredient,
   ListaRecetasPersonalizadas,
   RecipeInfo,
 } from '../../interfaces/recetas';
@@ -73,6 +74,7 @@ export class ListasPersonalizadasComponent implements OnInit {
 
   nombreLista? = '';
   arrayRecetas: RecipeInfo[] = [];
+  arrayIngredientes: ExtendedIngredient[] =[];
 
   constructor() {}
 
@@ -90,7 +92,10 @@ export class ListasPersonalizadasComponent implements OnInit {
     const listaNueva: ListaRecetasPersonalizadas = {
       id: this.userComun.listas.length + 1,
       nombre: this.nombreLista,
-      recetas: this.arrayRecetas,
+      recetas: this.arrayRecetas.map((receta) => ({
+        ...receta,
+        ingredientes: [],
+      })),
     };
     this.userComun.listas.push(listaNueva);
 
