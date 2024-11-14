@@ -13,11 +13,11 @@
   </div>
 
 
-  <div *ngIf="formulario.controls['nombre'].hasError('required') && formulario.controls['nombre'].touched" class="error-message">
+  <div *ngIf="formulario.controls['nombre'].getError('required') && formulario.controls['nombre'].touched" class="error-message">
     <p>Campo requerido</p>
   </div>
 
-  <button type="submit" class="submit-button">Crear lista</button>
+  <button type="submit" class="submit-button" [disabled]="formulario.invalid">Crear lista</button>
 </form>
 <app-footer></app-footer>
 </div>

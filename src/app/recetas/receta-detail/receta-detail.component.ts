@@ -94,7 +94,7 @@ export class RecetaDetailComponent implements OnInit{
   }
 
   addRecipe() {
-
+    
     const receta = this.mapearRecipeInfoAReceta(this.recipe);
     const listaId = this.formulario.get('listaId')?.value;
     console.log('ID de lista seleccionada:', listaId);

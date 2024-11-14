@@ -56,7 +56,7 @@
           <select id="listaId" formControlName="listaId">
             <option *ngFor="let lista of userComun.listas" [value]="lista.id">{{ lista.nombre }}</option>
           </select>
-          <button type="button" class="add-button">Agregar</button>
+          <button type="submit" class="add-button">Agregar</button>
         </div>
       </form>
     }
