@@ -170,3 +170,26 @@ app-footer{
       color: #c0392b;
       margin-top: -20px;
     }
+
+    /* Estilo para el selector de lista */
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #e6b76d;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/* Estilo para el label del selector de lista */
+form label[for="listaId"] {
+  font-weight: bold;
+  font-size: 25px;
+  display: block;
+  color: rgb(92, 87, 87);
+  margin-top: 15px;
+}
+

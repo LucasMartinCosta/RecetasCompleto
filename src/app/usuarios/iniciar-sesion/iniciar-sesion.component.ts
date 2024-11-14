@@ -44,6 +44,7 @@ export class IniciarSesionComponent {
                 this.router.navigate(['home']);
             } else {
               this.form.controls['password'].setErrors({ incorrect: true });
+              alert("Usuario o contraseña incorrectos"); 
                 console.log('Error en las credenciales');
             }
         },

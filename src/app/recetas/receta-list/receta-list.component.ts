@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RecetasService } from '../../service/recetas.service';
-import { RecipeInfo } from '../../interfaces/recetas';
+import { Receta, RecipeInfo } from '../../interfaces/recetas';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ignoreElements } from 'rxjs';
+import { ignoreElements, map } from 'rxjs';
 import { RecetaCardComponent } from '../receta-card/receta-card.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -23,9 +23,10 @@ export class RecetaListComponent{
   fb = inject(FormBuilder);
   router = inject(Router)
 
-  listaRecetas : RecipeInfo[] = [];
+  listaRecetas : RecipeInfo[]= [];
   ingredients : string = ""
   contenedorRecetas = false; 
+  idRecetaModelo: number = 0 
 
 
   formulario = this.fb.nonNullable.group({
@@ -60,17 +61,26 @@ export class RecetaListComponent{
 
 
   actualizarRecetas() {
-    this.servicio.getSimilarRecipes(this.listaRecetas[0].id, 5).subscribe({
-      next: (recetas) => {
-        this.listaRecetas = recetas; 
-        console.log(this.ingredients);
-        console.log(recetas);
+    this.idRecetaModelo = this.listaRecetas[0].id;
+    const idModelo = this.idRecetaModelo;
+  
+    this.servicio.getSimilarRecipes(idModelo, 5).subscribe({
+      next: (recetasSimilares) => {
+        // Usamos `Promise.all` para esperar a que todas las recetas tengan su información completa
+        const recetasCompletas = recetasSimilares.map((receta: any) => 
+          this.servicio.getRecipeInfotmation(receta.id).toPromise()
+        );
+  
+        Promise.all(recetasCompletas).then((recetas) => {
+          this.listaRecetas = recetas; // Ahora `listaRecetas` tendrá recetas con imágenes y más detalles
+        }).catch((error) => console.log(error));
       },
-      error: (e:Error) => {
+      error: (e: Error) => {
         console.log(e.message);
       }
-    })
+    });
   }
+  
 
   //devuelve la info de una receta por id
   recipe?:RecipeInfo;

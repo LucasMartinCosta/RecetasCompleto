@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserActivo } from '../interfaces/user-activo';
-import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, switchMap } from 'rxjs';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -94,9 +94,15 @@ loginChat(username: string, password: string): Observable<User | null> {
     return this.http.delete<void>(`${this.urlActivo}/${id}`)
   }
 
-  clearUserActivo(): Observable<void> {
-    return this.http.delete<void>(this.urlActivo); // Esta línea elimina todos los usuarios activos si json-server lo permite.
-  }
+  clearUserActivo(): Observable<void> { //limpia el array de userACtivo cuando se renderiza iniciar sesion.
+    return this.http.get<any[]>(this.urlActivo).pipe(
+        switchMap(usuarios => {
+            const userId = usuarios.length > 0 ? usuarios[0].id : null;
+            return userId ? this.http.delete<void>(`${this.urlActivo}/${userId}`) : of();
+        })
+    );
+}
+
   checkEmailExists(email: string): Observable<boolean> {
     return this.http.get<User[]>(`${this.urlUsuarios}?email=${email}`).pipe(
       map((users) => users.length > 0), 

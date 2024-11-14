@@ -39,7 +39,7 @@ export class RecetasService {
     });
 
     const params = {id, number}
-    const url = "https://api.spoonacular.com/recipes/{id}/similar"
+    const url = `https://api.spoonacular.com/recipes/${id}/similar`
 
     return this.http.get(url, {headers, params})
   }

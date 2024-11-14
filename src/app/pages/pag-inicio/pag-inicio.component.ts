@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
+import { UsuariosService } from '../../service/usuarios.service';
 
 @Component({
   selector: 'app-pag-inicio',
@@ -12,8 +13,14 @@ export class PagInicioComponent implements OnInit{
 
   //remueve el token cuando llega a esta pag tambien, en caso de que se cierre la app
   //sin haber cerrado sesion.
+  private servicio = inject(UsuariosService)
   ngOnInit(): void {
     localStorage.removeItem('token');
+    this.servicio.clearUserActivo().subscribe({
+      next : () => {
+        console.log("UserActivo vacio");
+      }
+    })
   }
 
 }
