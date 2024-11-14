@@ -48,7 +48,7 @@ export const routes: Routes = [
       canActivate: [authUsuariosGuard]
     },
     {
-      path:'modificar-receta/:id',
+      path:'receta-update/:idLista/:id',
       component: RecetaUpdateComponent,
       canActivate: [authUsuariosGuard]
     },

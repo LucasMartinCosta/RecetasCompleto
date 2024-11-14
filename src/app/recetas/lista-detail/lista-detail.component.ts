@@ -158,38 +158,15 @@ export class ListaDetailComponent implements OnInit {
     }
   }
 
-  Onupdate(recipeId: number) {
-
+  onUpdate(event: { listaId: number; recetaId: number })  {
+    const { listaId, recetaId } = event;
     if (this.lista?.recetas) {
-      const index = this.lista.recetas.findIndex(receta => receta.id === recipeId);
-
-
-      if (index !== -1) {
-
-        this.rutas.navigate([`modificar-receta/${index}`]);
-
-
-
-      } else {
-        console.log('Receta no encontrada.');
-      }
-    } else {
-      console.error('No se encontraron recetas.');
-    }
-
-  }
-
-  onUpdate(recipeId: number) {
-    if (this.lista?.recetas) {
-      const receta = this.lista.recetas.find(receta => receta.id === recipeId);
-
-
+      // Encuentra la receta por su ID
+      const receta = this.lista.recetas.find(receta => receta.id === recetaId);
+  
       if (receta) {
-
-        this.rutas.navigate([`modificar-receta/${recipeId}`]);
-
-
-
+        // Navegar a la página de actualización de la receta usando listaId y recipeId
+        this.rutas.navigate([`receta-update/${listaId}/${recetaId}`]);
       } else {
         console.log('Receta no encontrada.');
       }

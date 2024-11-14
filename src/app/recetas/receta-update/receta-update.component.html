@@ -33,6 +33,27 @@
       </label>
      </div>
 
+     <div class="datos">
+      <h3>Ingredientes</h3>
+      <div formArrayName="ingredientes">
+        <div *ngFor="let ingrediente of ingredientes.controls; let i = index" [formGroupName]="i">
+          <label>
+            Nombre:
+            <input formControlName="name" type="text" />
+          </label>
+          <label>
+            Cantidad:
+            <input formControlName="amount" type="number" min="0.1" />
+          </label>
+          <label>
+            Unidad:
+            <input formControlName="unit" type="text" />
+          </label>
+        </div>
+      </div>
+      <button type="button" (click)="agregarIngrediente()">Agregar ingrediente</button>
+    </div>
+
 
     <!-- Tiempo de preparación -->
 
@@ -92,7 +113,14 @@
 
     <!-- Botón para guardar receta -->
     <button type="submit" [disabled]="formulario.invalid">Guardar receta</button>
+
+
+
 </form>
 <app-footer></app-footer>
+
+
+
+
 
 

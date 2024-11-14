@@ -13,11 +13,11 @@ export class DeleteUpdateOutputComponent {
   @Input() receta!:Receta | RecipeInfo;
   @Input() listaId!: number;
   @Output() delete = new EventEmitter<number>();
-  @Output() update = new EventEmitter<number>();
+  @Output() update = new EventEmitter<{ listaId: number; recetaId: number }>();
   @Output() detalles = new EventEmitter<{ listaId: number; recetaId: number }>();
 
   onUpdate(){
-    this.update.emit(this.receta.id);
+    this.update.emit({ listaId: this.listaId, recetaId: this.receta.id! });
   }
   onDelete(){
     this.delete.emit(this.receta.id);

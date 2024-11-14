@@ -1,5 +1,10 @@
 {
-  "UsuarioActivo": [],
+  "UsuarioActivo": [
+    {
+      "id": "b9e2",
+      "nombreUsuario": "nicooo"
+    }
+  ],
   "Usuarios": [
     {
       "id": "2323",
@@ -12,130 +17,40 @@
           "nombre": "fav",
           "recetas": [
             {
-              "id": 0,
-              "title": "receta 1 ",
-              "vegetarian": true,
-              "vegan": false,
-              "glutenFree": false,
-              "readyInMinutes": 123,
-              "servings": 1123,
-              "instructions": "dsadsadasdasdas",
-              "image": "img/no-foto.png",
-              "spoonacularScore": 0,
-              "listaId": "1",
-              "ingredientes": [
-                {
-                  "name": "pan ",
-                  "amount": 2,
-                  "unit": "kg"
-                },
-                {
-                  "name": "asd",
-                  "amount": 123,
-                  "unit": "ed"
-                }
-              ]
-            },
-            {
               "vegetarian": false,
               "vegan": false,
-              "glutenFree": true,
-              "title": "Savoy Cabbage and Celery Root Soup with Leek Confit",
-              "readyInMinutes": 45,
-              "servings": 7,
-              "image": "https://img.spoonacular.com/recipes/659513-556x370.jpg",
-              "instructions": "Heat the olive oil in a heavy pot, such as a Le Creuset, over medium-high heat. Add the onion, celery root, garlic, scallion tops, and leek confit. Saut until the onion softens, about 15 minutes.\nAdd the apple, mustard, and rosemary, and cook for another couple of minutes. The mixture will be very aromatic.\nAdd the remaining ingredients and bring to a low simmer. Cover and simmer for 40 minutes. Adjust seasoning if needed.",
-              "spoonacularScore": 54.686607360839844,
+              "glutenFree": false,
+              "title": "dssd",
+              "readyInMinutes": 23,
+              "servings": 1,
+              "image": "sda",
+              "instructions": "sad",
+              "spoonacularScore": 0,
               "id": 659513,
-              "ingredientes": [
-                {
-                  "name": "extra virgin olive oil",
-                  "unit": "tablespoons",
-                  "amount": 2
-                },
-                {
-                  "name": "onion",
-                  "unit": "cups",
-                  "amount": 1.5
-                },
-                {
-                  "name": "celery root",
-                  "unit": "cups",
-                  "amount": 1.5
-                },
-                {
-                  "name": "garlic cloves",
-                  "unit": "large",
-                  "amount": 3
-                },
-                {
-                  "name": "scallions",
-                  "unit": "cup",
-                  "amount": 0.5
-                },
-                {
-                  "name": "leek confit",
-                  "unit": "cup",
-                  "amount": 0.25
-                },
-                {
-                  "name": "fuji apple",
-                  "unit": "",
-                  "amount": 0.5
-                },
-                {
-                  "name": "dijon mustard",
-                  "unit": "tablespoon",
-                  "amount": 1
-                },
-                {
-                  "name": "rosemary",
-                  "unit": "teaspoon",
-                  "amount": 1
-                },
-                {
-                  "name": "vegetable broth",
-                  "unit": "cups",
-                  "amount": 5
-                },
-                {
-                  "name": "baby potatoes",
-                  "unit": "cup",
-                  "amount": 0.6666667
-                },
-                {
-                  "name": "savoy cabbage",
-                  "unit": "cups",
-                  "amount": 3
-                },
-                {
-                  "name": "kosher salt",
-                  "unit": "teaspoon",
-                  "amount": 1
-                },
-                {
-                  "name": "pepper",
-                  "unit": "teaspoon",
-                  "amount": 0.5
-                },
-                {
-                  "name": "brown basmati rice",
-                  "unit": "cup",
-                  "amount": 0.5
-                },
-                {
-                  "name": "parmesan cheese",
-                  "unit": "cup",
-                  "amount": 0.5
-                }
-              ]
+              "ingredientes": [],
+              "listaId": "1"
             }
           ]
         },
         {
           "id": 2,
           "nombre": "lalalalallalallalala",
-          "recetas": []
+          "recetas": [
+            {
+              "id": 0,
+              "title": "dsds",
+              "vegetarian": false,
+              "vegan": true,
+              "glutenFree": true,
+              "readyInMinutes": 2,
+              "servings": 12,
+              "instructions": "ds",
+              "image": "img/no-foto.png",
+              "spoonacularScore": 0,
+              "listaId": "2",
+              "ingredientes": []
+            }
+          ]
         }
       ]
     },
@@ -237,6 +152,54 @@
       "contrasena": "123123",
       "email": "ima1@gmail.com",
       "listas": []
+    },
+    {
+      "id": "b9e2",
+      "nombreUsuario": "nico544",
+      "contrasena": "123123",
+      "email": "nicooosauma@hotmail.com",
+      "listas": [
+        {
+          "id": 1,
+          "nombre": "lista1",
+          "recetas": [
+            {
+              "id": 0,
+              "title": "jij",
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 1,
+              "servings": 1,
+              "instructions": "oi",
+              "image": "img/no-foto.png",
+              "spoonacularScore": 0,
+              "listaId": "1",
+              "ingredientes": []
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "nombre": "lista2",
+          "recetas": [
+            {
+              "id": 0,
+              "title": "kkjn",
+              "vegetarian": true,
+              "vegan": false,
+              "glutenFree": false,
+              "readyInMinutes": 2,
+              "servings": 1,
+              "instructions": "kpj",
+              "image": "img/no-foto.png",
+              "spoonacularScore": 0,
+              "listaId": "2",
+              "ingredientes": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }
