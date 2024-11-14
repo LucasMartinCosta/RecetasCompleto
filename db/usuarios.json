@@ -1,10 +1,5 @@
 {
-  "UsuarioActivo": [
-    {
-      "id": "b9e2",
-      "nombreUsuario": "nicooo"
-    }
-  ],
+  "UsuarioActivo": [],
   "Usuarios": [
     {
       "id": "2323",
@@ -200,6 +195,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": "c927",
+      "nombreUsuario": "manu",
+      "contrasena": "manu123",
+      "email": "manu@example.com",
+      "listas": []
     }
   ]
 }

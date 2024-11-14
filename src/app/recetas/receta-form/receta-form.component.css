@@ -193,3 +193,86 @@ form label[for="listaId"] {
   margin-top: 15px;
 }
 
+/* Contenedor general para ingredientes */
+.datos .ingredientes-contenedor {
+  background-color: #f2e4c6;
+  border: 1px solid #e6b76d;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Cada ingrediente en fila, con botón debajo */
+.datos .ingredientes-contenedor .ingrediente-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 10px;
+  padding: 5px 0;
+}
+
+/* Estilo de inputs de nombre, cantidad y unidad */
+.datos .ingredientes-contenedor .ingrediente-item label {
+  font-size: 0.9rem; /* Tamaño de letra reducido */
+  margin-bottom: 3px;
+}
+
+.datos .ingredientes-contenedor .ingrediente-item input[type="text"],
+.datos .ingredientes-contenedor .ingrediente-item input[type="number"] {
+  padding: 6px;
+  font-size: 0.9rem;
+  border: 1px solid #e6b76d;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-right: 3px;
+  width: calc(100% - 10px); /* Ajuste de ancho para mantener margen */
+}
+
+/* Alineación en fila de inputs y espaciado */
+.datos .ingredientes-contenedor .ingrediente-item div {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+}
+
+/* Botón eliminar debajo de los inputs */
+.datos .ingredientes-contenedor .ingrediente-item button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  align-self: center; /* Alineado al inicio */
+}
+
+.datos .ingredientes-contenedor .ingrediente-item button:hover {
+  background-color: #c0392b;
+}
+
+/* Botón agregar ingrediente */
+.datos .add-ingredient-button {
+  background-color: #e09422ad;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.datos .add-ingredient-button:hover {
+  background-color: #e2a731;
+}
+
+.ingredientesTitulo{
+  font-size: 25px;
+      margin-top: -10px;
+      color: rgb(92, 87, 87);
+}
