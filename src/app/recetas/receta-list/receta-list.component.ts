@@ -25,6 +25,7 @@ export class RecetaListComponent{
 
   listaRecetas : RecipeInfo[] = [];
   ingredients : string = ""
+  contenedorRecetas = false; 
 
 
   formulario = this.fb.nonNullable.group({
@@ -36,7 +37,8 @@ export class RecetaListComponent{
       console.log("formulario Invalido");
        return;
     }
-    const ingredientesForm :string = this.formulario.get("ingredientes")?.value || "";    
+    const ingredientesForm :string = this.formulario.get("ingredientes")?.value || ""; 
+    this.ingredients=ingredientesForm;   
     this.listarRecetasPorIngredientes(ingredientesForm) // llamo a la funcion de abajo que usa el servicio y carga en el arreglo las recetas
   }
 
@@ -52,6 +54,20 @@ export class RecetaListComponent{
       },
       error: (e:Error) => {
         console.log("Error al bajar las recetas", e);
+      }
+    })
+  }
+
+
+  actualizarRecetas() {
+    this.servicio.getSimilarRecipes(this.listaRecetas[0].id, 5).subscribe({
+      next: (recetas) => {
+        this.listaRecetas = recetas; 
+        console.log(this.ingredients);
+        console.log(recetas);
+      },
+      error: (e:Error) => {
+        console.log(e.message);
       }
     })
   }

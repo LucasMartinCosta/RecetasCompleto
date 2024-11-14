@@ -13,7 +13,7 @@ export class RecetasService {
   constructor() { }
 
   http = inject(HttpClient);
-  private key = environment.tokenIma;
+  private key = environment.tokenLucas2;
   private baseUrl = 'http://localhost:3001/recetas';
 
 
@@ -30,6 +30,20 @@ export class RecetasService {
 
     return this.http.get(url, {headers, params})
   }
+
+  getSimilarRecipes (id:number , number:number) : Observable<any>{
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-api-key': this.key
+    });
+
+    const params = {id, number}
+    const url = "https://api.spoonacular.com/recipes/{id}/similar"
+
+    return this.http.get(url, {headers, params})
+  }
+  
 
   getRecipeInfotmation (id:number) : Observable <RecipeInfo> {
 

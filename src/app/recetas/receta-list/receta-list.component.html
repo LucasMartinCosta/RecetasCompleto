@@ -9,22 +9,28 @@
 
       <input type="text" name="ingredientes" id="ingredientes" formControlName="ingredientes" placeholder="Escribe ingredientes...">
 
-      <button type="submit" class="btn">Buscar </button>
+      <button type="submit" class="btn" (click)="contenedorRecetas = true">Buscar </button>
     </form>
 
-    <div class="cont-recetas">
-      @for (item of listaRecetas; track $index) {
-      <div>
-        <app-receta-card 
-        [receta]="item"
-        (verDetalles)="navigateToDetails($event)">
-
-        </app-receta-card>
+    @if (contenedorRecetas){
+      
+      <div class="cont-recetas">
+        @for (item of listaRecetas; track $index) {
+        <div>
+          <app-receta-card 
+          [receta]="item"
+          (verDetalles)="navigateToDetails($event)">
+          </app-receta-card>
+        </div>
+        }
+  
+        <button (click)="actualizarRecetas()">Actualizar Recetas</button>
+  
+  
       </div>
+    }
 
-      }
-
-    </div>
+    
   </section>
     
 
