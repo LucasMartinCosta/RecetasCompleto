@@ -3,6 +3,7 @@
   font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 
+
 }
 .menu-container {
   position: relative;
@@ -61,7 +62,7 @@
 }
 span{
   margin-top: 2px;
-  color:rgb(225, 131, 16);
+  color: #7e654e;
   font-size: 20px;
   font-family: 'Monserrat',  sans-serif;
   margin-top: 5px;

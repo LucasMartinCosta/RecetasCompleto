@@ -33,7 +33,7 @@ justify-content: space-around;
 border-radius: 10px ;
 margin-top: 15px;
 padding: 15px;
-box-shadow: 1px 1px 30px rgb(247, 207, 121);
+box-shadow: 1px 1px 30px rgba(247, 207, 121, 0.6);
 }
 .cont-p{
 width: 70%;
@@ -81,7 +81,7 @@ border-radius: 5px;
 margin-bottom: 5px;
 }
 .btn:hover{
-background-color: rgb(247, 207, 121);
+background-color: #d6cda1;
 color: rgb(0, 0, 0);
 }
 .cont-img{
@@ -112,7 +112,7 @@ button {
   border: 1px solid #ccc;
   border-radius: 45px;
   width: 200px;
-  background-color: #e09422ad;
+  background-color: #d6cda1;
   color: white;
   cursor: pointer;
   margin-top: 0;
@@ -120,7 +120,7 @@ button {
 }
 
 button:hover {
-  background-color: #e2a731;
+  background-color: #e2a73197;
 }
 
 

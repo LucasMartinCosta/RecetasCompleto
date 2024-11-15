@@ -7,9 +7,9 @@ form {
     max-width: 600px;
     margin: auto;
     padding: 50px;
-    background-color: rgb(230, 203, 145);
+    background-color: rgb(241, 232, 232, 0.5);
     border-radius: 10px;
-    box-shadow: 0 4px 10px  #e6b76d;;
+    box-shadow: #d6cda1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,7 +83,7 @@ form {
 
 
   .add-ingredient-button:hover {
-    background-color: #e2a731;
+    background-color: #d6cda1;
   }
 
   /* Estilos para los mensajes de error */
@@ -97,7 +97,7 @@ form {
   /* Botón de enviar */
   button[type="submit"] {
     width: 100%;
-    background-color: #e09422ad;
+    background-color: #d6cda1;
     color: white;
     border: none;
     padding: 12px;
@@ -107,11 +107,11 @@ form {
   }
 
   button[type="submit"]:hover {
-    background-color: #e2a731;
+    background-color: #d6cda1;
   }
 
   button[type="submit"]:disabled {
-    background-color: #e8bf7e;
+    background-color: #d6cda1;
     cursor: not-allowed;
   }
 
@@ -196,7 +196,7 @@ form label[for="listaId"] {
 /* Contenedor general para ingredientes */
 .datos .ingredientes-contenedor {
   background-color: #f2e4c6;
-  border: 1px solid #e6b76d;
+  border: 1px solid #e2a73179;
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 15px;
@@ -239,7 +239,7 @@ form label[for="listaId"] {
 
 /* Botón eliminar debajo de los inputs */
 .datos .ingredientes-contenedor .ingrediente-item button {
-  background-color: #e74c3c;
+  background-color:#d6cda1;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -256,7 +256,7 @@ form label[for="listaId"] {
 
 /* Botón agregar ingrediente */
 .datos .add-ingredient-button {
-  background-color: #e09422ad;
+  background-color: #d6cda1;
   color: white;
   padding: 8px 15px;
   border: none;
@@ -268,7 +268,7 @@ form label[for="listaId"] {
 }
 
 .datos .add-ingredient-button:hover {
-  background-color: #e2a731;
+  background-color: #e2a73179;
 }
 
 .ingredientesTitulo{

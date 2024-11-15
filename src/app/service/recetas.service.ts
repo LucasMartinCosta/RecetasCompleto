@@ -13,7 +13,7 @@ export class RecetasService {
   constructor() { }
 
   http = inject(HttpClient);
-  private key = environment.tokenLucas2;
+  private key = environment.tokenLaura2;
   private baseUrl = 'http://localhost:3001/recetas';
 
 
@@ -43,7 +43,7 @@ export class RecetasService {
 
     return this.http.get(url, {headers, params})
   }
-  
+
 
   getRecipeInfotmation (id:number) : Observable <RecipeInfo> {
 

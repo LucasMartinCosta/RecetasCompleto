@@ -111,19 +111,19 @@ export class DetalleMiReceteComponent implements OnInit{
     }
   }
   getInstructions(): string[] {
-    // Verificar si el campo de instrucciones existe y no está vacío
+
     if (!this.receta?.instructions || this.receta.instructions.trim() === "") {
       console.warn("No hay instrucciones disponibles para esta receta.");
       return [];
     }
 
-    // Elimina etiquetas HTML (en caso de que existan)
+
     const cleanText = this.receta.instructions.replace(/<\/?[^>]+(>|$)/g, "").trim();
 
-    // Divide el texto en pasos por salto de línea y filtra los pasos vacíos
+
     const steps = cleanText.split('\n').map(step => step.trim()).filter(step => step !== "");
 
-    console.log("Instrucciones procesadas:", steps); // Debug para verificar los pasos
+    console.log("Instrucciones procesadas:", steps);
     return steps;
   }
 
@@ -140,7 +140,7 @@ export class DetalleMiReceteComponent implements OnInit{
 
     this.receta.anotaciones = anotacion;
 
-    //guardar el usuario con el campo anotacion modificado
+   
     this.servicio.editUser(this.userComun).subscribe({
       next: () => {
         alert('Anotacion guardada!');

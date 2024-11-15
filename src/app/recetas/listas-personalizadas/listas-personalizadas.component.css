@@ -59,13 +59,13 @@ h2{
 }
 
 .form-input:focus {
-  border-color: #e09422;
+  border-color: #e3c98d;
 }
 
 /* Estilo para el botón de submit */
 .submit-button {
   padding: 12px 20px;
-  background-color: #e09422;
+  background-color: #d6cda1;
   border: none;
   border-radius: 25px;
   width: 200px;
@@ -77,7 +77,7 @@ h2{
 }
 
 .submit-button:hover {
-  background-color: #e2a731;
+  background-color: #e2a7318b;
 }
 
 /* Estilo para el mensaje de error */

@@ -57,12 +57,12 @@ export class ListaDetailComponent implements OnInit {
   cargararreglo() {
     this.lista?.recetas.forEach(recetas => {
       this.recetasarreglo.push(recetas as unknown as RecipeInfo);
-      //define recetas como unknown y luego lo redefine como RecipeInfo
+
     })
   }
 
   ngOnInit(): void {
-    // Obtener el ID de la lista desde la URL
+
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -104,7 +104,7 @@ export class ListaDetailComponent implements OnInit {
     this.servicioUser.editUser(this.userComun).subscribe({
       next: () => {
         alert('Receta eliminada exitosamente de la lista seleccionada!');
-        this.cdr.detectChanges();
+        this.cargararreglo()
 
         this.rutas.navigate([`lista/${this.lista?.id}'`])
       },
@@ -161,11 +161,11 @@ export class ListaDetailComponent implements OnInit {
   onUpdate(event: { listaId: number; recetaId: number })  {
     const { listaId, recetaId } = event;
     if (this.lista?.recetas) {
-      // Encuentra la receta por su ID
+
       const receta = this.lista.recetas.find(receta => receta.id === recetaId);
-  
+
       if (receta) {
-        // Navegar a la página de actualización de la receta usando listaId y recipeId
+
         this.rutas.navigate([`receta-update/${listaId}/${recetaId}`]);
       } else {
         console.log('Receta no encontrada.');

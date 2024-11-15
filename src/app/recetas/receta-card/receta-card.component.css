@@ -22,10 +22,10 @@
   align-items:center;
   justify-content: space-between;
   padding: 15px;
-  background-color: rgba(247, 207, 121, 0.596);
+  background-color: rgb(241, 232, 232, 0.5);
   text-align: center;
-  box-shadow: 1px 1px 10px rgba(247, 207, 121, 0.596);
-  
+  box-shadow:0 4px 10px rgba(0, 0, 0, 0.1);
+
 }
 .texto-card{
   display: flex;
@@ -40,36 +40,36 @@
   font-size: 30px;
   margin-bottom: 4px;
   font-family: 'Montserrat', sans-serif;
-  color: rgb(92, 87, 87);
+  color: #7e654e;
 }
 
 .btn{
   padding: 5px;
   font-size: 15px;
   width: 150px;
-  background-color: rgba(247, 207, 121, 0.596);
+  background-color:  #d6cda1;
   color: rgb(92, 87, 87);
-  border: 1px solid rgb(0, 0, 0);
+  border:  #a87b4c;
   border-radius: 5px;
   margin-bottom: 5px;
 }
 .btn:hover{
-  background-color: rgb(247, 207, 121);
+  background-color: rgba(247, 207, 121, 0.656);
   color: rgb(0, 0, 0);
 }
 .cont-img {
-  width: 250px;   /* Tamaño del contenedor */
-  height: 200px;  /* Tamaño del contenedor */
+  width: 250px;
+  height: 200px;
   box-shadow: 1px 1px 5px black;
   border-radius: 10px;
-  overflow: hidden; /* Evita que la imagen se salga del contenedor */
+  overflow: hidden;
 }
 
 .cont-img img {
-  width: 100%;     /* La imagen ocupa el 100% del ancho del contenedor */
-  height: 100%;    /* La imagen ocupa el 100% del alto del contenedor */
-  object-fit: cover; /* La imagen cubre todo el espacio del contenedor */
-  object-position: center; /* Muestra el centro de la imagen */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 
@@ -80,7 +80,7 @@ list-style: none;
 .titulo{
   font-size: 20px;
   text-decoration: none;
-  color: rgb(92, 87, 87);
+  color:#7e654e;
   font-family: 'Montserrat', sans-serif;
 
 }

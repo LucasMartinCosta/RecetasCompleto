@@ -19,7 +19,7 @@ min-height: 100vh;
   margin-top: 10px;
   font-weight: 600;
   font-family: 'Monserrat', sans-serif;
-  color: #e6af39;
+  color: #7e654e;
   margin-bottom: 10px;
 }
 .info-receta{
@@ -30,12 +30,14 @@ min-height: 100vh;
   margin-top: 5px;
   border-radius: 5px;
   padding: 15px;
+  color:  #7e654e;
 }
 .nombre-lista{
   font-size: 30px;
   font-weight: 600;
   font-family: 'Montserrat';
   margin-top: 10px;
+  color:  #7e654e;
 }
 
 .botones{
@@ -46,4 +48,5 @@ min-height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
+
 }
