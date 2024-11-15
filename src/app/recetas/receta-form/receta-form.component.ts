@@ -134,7 +134,7 @@ addRecipe2() {
   const listaSeleccionada = this.userComun.listas.find(lista => lista.id === Number(listaId));
 
   if (!receta.image || receta.image.trim() === '') {
-    receta.image = 'img/logoUltimojpeg';
+    receta.image = 'img/logoUltimo.jpeg';
   }
 
   if (listaSeleccionada) {
@@ -148,7 +148,7 @@ addRecipe2() {
     this.servicio.editUser(this.userComun).subscribe({
       next: () => {
         alert('Receta agregada exitosamente a la lista seleccionada!');
-        this.router.navigate(['/home']);
+        this.router.navigate(['mis-listas']);
       },
       error: (err) => {
         console.error("Error al guardar la receta:", err);

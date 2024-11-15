@@ -1,22 +1,29 @@
 
-.buscador-container{
+.buscador-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh; 
 }
-
 .form-busqueda {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 250px;
+   
 
     align-items: center;
 
 
 
   }
+  .submit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
   h2{
     font-weight: 500;
+    font-size: 30px;
     font-family: 'Monserrat', sans-serif;
     color: #7e654e;
   }
@@ -70,6 +77,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    margin-top: 20px; 
     }
 
     .buscador-container{
@@ -84,6 +92,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-
+      justify-content: flex-start; 
+      margin-top: 30px;
+      flex-grow: 1
     }
+
+    .cont-recetas {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra el contenido horizontalmente */
+      justify-content: center; /* Centra el contenido verticalmente si es necesario */
+    }
+    .similares {
+      margin-top: 20px; /* Ajusta el espacio entre el botón y el contenido anterior */
+      padding: 10px 20px;
+      border-radius: 45px;
+      background-color: #d6cda1;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+ 

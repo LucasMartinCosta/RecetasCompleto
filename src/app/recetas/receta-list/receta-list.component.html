@@ -4,6 +4,7 @@
   <app-nav-bar-login></app-nav-bar-login>
 
   <section>
+
     <form [formGroup]="formulario" (ngSubmit)="setIngredientes()" class="form-busqueda">
       <h2>Buscador de recetas</h2>
 
@@ -15,6 +16,7 @@
     @if (contenedorRecetas){
       
       <div class="cont-recetas">
+
         @for (item of listaRecetas; track $index) {
         <div>
           <app-receta-card 
@@ -24,7 +26,7 @@
         </div>
         }
   
-        <button (click)="actualizarRecetas()">Ver recetas similares</button>
+        <button class="similares" (click)="actualizarRecetas()">Ver recetas similares</button>
   
   
       </div>
@@ -33,10 +35,6 @@
     
   </section>
     
-
-   
-
-
   </div>
   <app-footer></app-footer>
 

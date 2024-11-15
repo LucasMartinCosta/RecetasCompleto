@@ -86,12 +86,12 @@ export class MiListasComponent implements OnInit{
 
       this.listas = this.listas.filter(lista => lista.id !== id);
 
-      this.userComun.listas=this.listas
-
       this.serviciouser.editUser(this.userComun).subscribe({
         next:()=>
         {
+          
           alert("Lista eliminada")
+        
           
         },
         error:(err:Error)=>{

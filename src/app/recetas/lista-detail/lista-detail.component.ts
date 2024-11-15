@@ -55,9 +55,9 @@ export class ListaDetailComponent implements OnInit {
   };
 
   cargararreglo() {
-    this.lista?.recetas.forEach(recetas => {
-      this.recetasarreglo.push(recetas as unknown as RecipeInfo);
 
+     this.lista?.recetas.forEach(recetas => {
+     this.recetasarreglo.push(recetas as unknown as RecipeInfo);
     })
   }
 
@@ -95,55 +95,21 @@ export class ListaDetailComponent implements OnInit {
     this.rutas.navigate([`receta-lista-detalle/${listaId}/${recetaId}`]);
   }
 
-  deleteRecipe(recipeId: number) {
+deleterecipe22(recipeId: number) {
 
+    if(this.lista?.recetas) {
 
-
-    this.lista?.recetas.splice(recipeId - 1!, 1);
-
-    this.servicioUser.editUser(this.userComun).subscribe({
-      next: () => {
-        alert('Receta eliminada exitosamente de la lista seleccionada!');
-        this.cargararreglo()
-
-        this.rutas.navigate([`lista/${this.lista?.id}'`])
-      },
-      error: (err) => {
-        console.error("Error al eliminar la receta:", err);
-      }
-    });
-  }
-
-
-
-  deleterecipe2(recipeId: number) {
-
-    const index = this.lista?.recetas.findIndex(receta => receta.id === recipeId);
-
-    if (index !== -1) {
-      // Elimina la receta del arreglo de recetas
-      this.lista?.recetas.splice(index!, 1);
-
-    }
-
-  }
-
-
-  deleterecipe22(recipeId: number) {
-
-    if (this.lista?.recetas) {
       const index = this.lista.recetas.findIndex(receta => receta.id === recipeId);
-
 
       if (index !== -1) {
 
         this.lista.recetas.splice(index, 1);
-
-
+        
         this.servicioUser.editUser(this.userComun).subscribe({
           next: () => {
             alert('Receta eliminada exitosamente!');
-            this.cdr.detectChanges();
+            
+            window.location.reload();
             this.rutas.navigate([`lista/${this.lista?.id}'`])
           },
           error: (err) => {
@@ -157,6 +123,7 @@ export class ListaDetailComponent implements OnInit {
       console.error('No se encontraron recetas.');
     }
   }
+
 
   onUpdate(event: { listaId: number; recetaId: number })  {
     const { listaId, recetaId } = event;
