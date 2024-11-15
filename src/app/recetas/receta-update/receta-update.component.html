@@ -34,24 +34,27 @@
      </div>
 
      <div class="datos">
-      <h3>Ingredientes</h3>
-      <div formArrayName="ingredientes">
-        <div *ngFor="let ingrediente of ingredientes.controls; let i = index" [formGroupName]="i">
-          <label>
-            Nombre:
-            <input formControlName="name" type="text" />
-          </label>
-          <label>
-            Cantidad:
-            <input formControlName="amount" type="number" min="0.1" />
-          </label>
-          <label>
-            Unidad:
-            <input formControlName="unit" type="text" />
-          </label>
+      <h3 class="ingredientesTitulo">Ingredientes</h3>
+      <div class="ingredientes-contenedor" formArrayName="ingredientes">
+        <div *ngFor="let ingrediente of ingredientes.controls; let i = index" [formGroupName]="i" class="ingrediente-item">
+          <div>
+            <label>
+              Nombre:
+              <input formControlName="name" type="text" />
+            </label>
+            <label>
+              Cantidad:
+              <input formControlName="amount" type="number" min="0.1" />
+            </label>
+            <label>
+              Unidad:
+              <input formControlName="unit" type="text" />
+            </label>
+          </div>
+          <button type="button" (click)="eliminarIngrediente(i)">Eliminar</button>
         </div>
       </div>
-      <button type="button" (click)="agregarIngrediente()">Agregar ingrediente</button>
+      <button type="button" class="add-ingredient-button" (click)="agregarIngrediente()">Agregar ingrediente</button>
     </div>
 
 

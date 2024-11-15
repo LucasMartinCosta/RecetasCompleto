@@ -28,10 +28,10 @@ serviceRec = inject(RecetasService);
   route = inject(ActivatedRoute);
   listas: ListaRecetasPersonalizadas[]= [];
 
- 
+
   receta?:Receta;
 
- 
+
   userACT:UserActivo={
     id:0,
     nombreUsuario:''
@@ -43,7 +43,7 @@ serviceRec = inject(RecetasService);
     listas:[]
   };
 
-id: number|null=null; 
+id: number|null=null;
  idLista!: number;
 
 formulario=this.fb.nonNullable.group({
@@ -86,7 +86,7 @@ formulario=this.fb.nonNullable.group({
         } else {
           console.log('ID numérico:', this.id);
           this.getRecetaUpdate();
-          
+
         }
       },
       error: (e: Error) => {
@@ -105,7 +105,7 @@ formulario=this.fb.nonNullable.group({
         }
       }
     )
-    
+
   }
 
   createIngredientFormGroup(ingredient: Ingredientes): FormGroup {
@@ -115,17 +115,17 @@ formulario=this.fb.nonNullable.group({
       unit: [ingredient.unit || '', Validators.required]
     });
   }
-  
+
 
   getRecetaUpdate() {
     console.log('Listas del usuario:', this.userComun.listas);
     const listaSeleccionada = this.userComun.listas.find(lista => lista.id === this.idLista);
     console.log("Lista seleccionada:", listaSeleccionada);  // Verifica que la lista seleccionada no sea null
-  
+
     if (listaSeleccionada) {
       const recetaSeleccionada = listaSeleccionada.recetas.find(receta => receta.id === this.id);
       console.log("Receta seleccionada:", recetaSeleccionada);  // Verifica que la receta seleccionada no sea null
-  
+
       if (recetaSeleccionada) {
         this.receta = recetaSeleccionada;  // Aquí se actualiza la receta
         // Rellenamos el formulario con los valores
@@ -139,7 +139,7 @@ formulario=this.fb.nonNullable.group({
         this.formulario.controls['image'].setValue(this.receta.image);
         this.formulario.controls['spoonacularScore'].setValue(this.receta.spoonacularScore);
         this.formulario.controls['listaId'].setValue(this.idLista);
-  
+
         // Limpiar y agregar los ingredientes
         const ingredientesFormArray = this.formulario.get('ingredientes') as FormArray;
         ingredientesFormArray.clear();
@@ -153,12 +153,12 @@ formulario=this.fb.nonNullable.group({
       console.log("Lista seleccionada no encontrada.");
     }
   }
-  
-  
-  
+
+
+
   updateRecipe() {
     if (this.formulario.invalid || this.id === null) return;
-  
+
     // Obtiene el valor del formulario y asegura que `ingredientes` sea del tipo `Ingredientes[]`
     const recetaFormValue = this.formulario.getRawValue();
     const receta: Receta = {
@@ -170,16 +170,16 @@ formulario=this.fb.nonNullable.group({
         unit: ing.unit
       }))
     };
-  
-    
+
+
     const listaSeleccionada = this.userComun.listas.find(lista => lista.id === this.idLista);
-  
+
     if (listaSeleccionada) {
       const recetaIndex = listaSeleccionada.recetas.findIndex(r => r.id === this.id);
-  
+
       if (recetaIndex !== -1) {
         listaSeleccionada.recetas[recetaIndex] = { ...listaSeleccionada.recetas[recetaIndex], ...receta };
-  
+
         this.servicio.editUser(this.userComun).subscribe({
           next: () => {
             alert('Receta modificada exitosamente!');
@@ -196,12 +196,12 @@ formulario=this.fb.nonNullable.group({
       console.error("Lista seleccionada no encontrada.");
     }
   }
-  
+
 
  get ingredientes(){
     return this.formulario.get('ingredientes') as FormArray;
   }
-  
+
   //asigna los datos cargados del ArrayForm al form de receta.
   agregarIngrediente(){
     const ingredienteForm = this.fb.group({
@@ -211,6 +211,8 @@ formulario=this.fb.nonNullable.group({
     });
     this.ingredientes.push(ingredienteForm)
   }
-  
+  eliminarIngrediente(index: number) {
+    this.ingredientes.removeAt(index);
+  }
 
 }
