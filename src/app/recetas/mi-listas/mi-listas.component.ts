@@ -80,25 +80,25 @@ export class MiListasComponent implements OnInit{
 
   }
 
+
   borrarLista(id: number) {
-
-    if (this.listas.some(u => u.id === id)) {
-
-      this.listas = this.listas.filter(lista => lista.id !== id);
-
+    if (this.listas.some(lista => lista.id === id)) {
+      // Actualiza las listas en el usuario
+      this.userComun.listas = this.listas.filter(lista => lista.id !== id);
+  
+      // Llama al servicio para actualizar el usuario en la base de datos
       this.serviciouser.editUser(this.userComun).subscribe({
-        next:()=>
-        {
-          
-          alert("Lista eliminada")
-        
-          
+        next: () => {
+          // Actualiza las listas locales solo si la operación fue exitosa
+          this.listas = [...this.userComun.listas];
+          alert("Lista eliminada correctamente");
         },
-        error:(err:Error)=>{
-          console.log(err.message);
+        error: (err: Error) => {
+          console.error("Error al eliminar la lista:", err.message);
         }
-      })
-
+      });
+    } else {
+      alert("No se encontró la lista para eliminar");
     }
   }
 
