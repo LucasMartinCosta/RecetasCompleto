@@ -36,7 +36,7 @@ export class EditarPerfilComponent implements OnInit {
 
   formulario=this.fb.nonNullable.group({
     nombre:['',[Validators.required]],
-    email:['',[Validators.required]]
+    contrasena:['',[Validators.required]]
   })
 
    ngOnInit(): void {
@@ -51,7 +51,7 @@ export class EditarPerfilComponent implements OnInit {
               this.userComun=usuario;
               this.formulario.patchValue({
                 nombre: this.userComun.nombreUsuario,
-                email: this.userComun.email
+                contrasena: this.userComun.contrasena
               });
             },
             error:(err:Error)=>
@@ -75,7 +75,7 @@ export class EditarPerfilComponent implements OnInit {
       const updatedUser: User = {
         ...this.userComun, // Mantiene los datos actuales del usuario
         nombreUsuario: this.formulario.value.nombre!, // Actualiza solo el nombre
-        email: this.formulario.value.email!           // Actualiza solo el email
+        contrasena: this.formulario.value.contrasena!           // Actualiza solo la contra
       };
   
       

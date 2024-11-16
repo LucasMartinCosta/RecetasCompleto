@@ -25,7 +25,15 @@ export class RegistrarseComponent {
     email: ['', [Validators.required, Validators.email]]
   })
 
-  listasIniciales : ListaRecetasPersonalizadas[] = []
+
+  //lista favoritos creada automaticamente
+  listaInicial : ListaRecetasPersonalizadas = {
+    id:0, 
+    nombre:"Favoritos", 
+    recetas:[]
+  }
+
+  listasIniciales : ListaRecetasPersonalizadas[] = [this.listaInicial]
 
   constructor(private authService: UsuariosService, private router: Router, private listasPersonalizadasService:
     ListasPersonalizadasService) { }
