@@ -1,11 +1,11 @@
 
 *{
-   
+
     font-family: 'Montserrat', sans-serif;
 }
 
 section{
-    
+
     display: flex;
     flex-direction: column;
    align-items: center;
@@ -14,12 +14,14 @@ section{
 .titulo{
     font-size: 40px;
     margin-top: 20px;
+    color:rgb(92, 87, 87);
 }
 .formulario{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color:rgb(92, 87, 87);
 
     height: 100%;
 }
@@ -34,7 +36,7 @@ section{
     align-items: center;
     border-radius: 20px;
     background-color: rgba(241, 232, 232, 0.5);
-    box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.164);
+    box-shadow:  0px 2px 5px rgba(209, 139, 69, 0.496);
 }
 
 .info-edit{
@@ -45,12 +47,13 @@ section{
     padding: 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 5px rgba(209, 139, 69, 0.496);
 }
 input{
     width: 100%;
     height: 30px;
     border-radius: 5px;
+   color:#4d3540;
 }
 
 label{
@@ -80,7 +83,7 @@ label{
 .contenedor-principal {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
   }
   app-footer {
     margin-top: auto;

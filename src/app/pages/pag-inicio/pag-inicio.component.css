@@ -4,6 +4,7 @@ app-navbar{
     margin: 0;
     padding: 0;
     width: 100%;
+  
 
 }
 *{
@@ -99,8 +100,8 @@ section{
 }
 
 footer{
-    background-color: rgba(247, 207, 121, 0.596);
-    border-top: 1px solid black;
+    background-color: rgba(242, 216, 161, 0.46);
+    border-top: 1px solid rgba(231, 223, 223, 0.402);
     margin-top: 50px;
     height: 130px;
     display: flex;
@@ -124,15 +125,11 @@ ul li{
     border-bottom: 1px solid rgb(0, 0, 0);
     border-top: 1px solid rgb(0, 0, 0);
 }
-#titulo-redes{
-    font-size: 18px;
-    color: rgb(92, 87, 87);
-    border-bottom: 1px solid rgb(0, 0, 0);
 
-}
 
 .info1 ul li{
     margin-top: 5px;
+    display: inline-block;
 
 }
 
