@@ -138,14 +138,12 @@ ul li{
 
 .info1 ul li a{
   color: rgb(92, 87, 87);
-    text-decoration: none;
+text-decoration: none;
 }
 
 
 .social-links{
   margin: 14px;
-
-
 }
 
 .social-links a{
@@ -182,3 +180,6 @@ ul li{
   flex-wrap: wrap;
   justify-content: center;
 }
+.social-links ul li {
+    display: inline-block;
+  }
