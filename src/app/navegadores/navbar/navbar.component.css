@@ -4,8 +4,8 @@ nav{
     justify-content: space-between;
     align-items: center;
     height: 50px;
-    background-color: rgba(247, 207, 121, 0.596);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+    background-color:  rgba(242, 216, 161, 0.46);
+    border-bottom: 1px solid rgba(236, 230, 230, 0.192);
 }
 .navegacion ul{
     display: flex;
@@ -37,7 +37,7 @@ nav{
 }
 .btn{
     padding: 10px 20px;
-    background-color: #e09422;
+    background-color: #d6cda1;
     border: none;
     border-radius: 7px;
     color: white;

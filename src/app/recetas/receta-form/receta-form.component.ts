@@ -29,6 +29,7 @@ export class RecetaFormComponent implements OnInit {
   route = inject(ActivatedRoute);
   recetas: Array<Receta>= [];
 
+
   idLista = 0;
 
   formulario=this.fb.nonNullable.group({
@@ -175,6 +176,9 @@ agregarIngrediente(){
 eliminarIngrediente(index: number) {
   this.ingredientes.removeAt(index);
 }
+
+
+
 
 }
 
