@@ -88,3 +88,7 @@ label{
   app-footer {
     margin-top: auto;
   }
+
+  .requerido{
+    color: rgb(226, 72, 72);
+}

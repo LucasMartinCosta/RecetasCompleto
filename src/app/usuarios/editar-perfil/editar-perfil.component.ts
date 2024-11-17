@@ -36,8 +36,8 @@ export class EditarPerfilComponent implements OnInit {
   servicioUser = inject(UsuariosService);
 
   formulario=this.fb.nonNullable.group({
-    nombre:['',[Validators.required]],
-    contrasena:['',[Validators.required]]
+    nombre:['',[Validators.required, Validators.minLength(4)]],
+    contrasena:['',[Validators.required, Validators.minLength(6)]]
   })
 
    ngOnInit(): void {
