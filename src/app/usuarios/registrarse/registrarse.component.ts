@@ -55,7 +55,8 @@ export class RegistrarseComponent {
     this.authService.checkEmailExists(email).subscribe({
       next: (emailExists) => {
         if (emailExists) {
-          alert('Este correo electrónico ya está registrado. Por favor, elige otro.');
+          this.alertCorreoIncorrecto();
+       
         } else {
 
           const user: User = {
@@ -104,4 +105,22 @@ export class RegistrarseComponent {
     });
   }
 
+  alertCorreoIncorrecto()
+{
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "error",
+    title: "Este correo ya esta en uso"
+  }); 
+}
 }
