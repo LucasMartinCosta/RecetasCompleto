@@ -18,7 +18,7 @@ import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
 import { CommonModule } from '@angular/common';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-listas-personalizadas',
   standalone: true,
@@ -102,7 +102,7 @@ export class ListasPersonalizadasComponent implements OnInit {
     this.servicioUsuario.editUser(this.userComun).subscribe({
       next: () => {
         console.log('Lista creada correctamente');
-        alert('Recetario creado correctamente!')
+       this.alertRecetarioCreado();
         this.router.navigate(['/mis-listas']);
 
       },
@@ -122,4 +122,25 @@ export class ListasPersonalizadasComponent implements OnInit {
       },
     });
   }
+
+  alertRecetarioCreado()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Lista creada con exito"
+    }); 
+  }
+
+  
 }

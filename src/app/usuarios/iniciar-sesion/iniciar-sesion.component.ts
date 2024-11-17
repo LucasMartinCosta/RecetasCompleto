@@ -9,6 +9,7 @@ import { FooterComponent } from "../../shared/footer/footer.component";
 import { UserActivo } from '../../interfaces/user-activo';
 import { catchError, Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -41,10 +42,11 @@ export class IniciarSesionComponent {
         next: (user) => {
             if (user) {
                 this.asignarUserActivo(user);
+                this.alertCorrecto();
                 this.router.navigate(['home']);
             } else {
               this.form.controls['password'].setErrors({ incorrect: true });
-              alert("Usuario o contraseña incorrectos"); 
+              this.alerIncorrecto();
                 console.log('Error en las credenciales');
             }
         },
@@ -73,5 +75,42 @@ export class IniciarSesionComponent {
     });
 }
 
+alertCorrecto()
+{
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1400,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Acceso correcto"
+  });
+}
+
+alerIncorrecto()
+{
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "error",
+    title: "Usuario o contraseña incorrectos"
+  }); 
+}
 
 }

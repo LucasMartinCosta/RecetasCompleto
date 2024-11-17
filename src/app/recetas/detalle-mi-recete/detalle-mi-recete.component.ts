@@ -8,7 +8,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { NavBarLoginComponent } from '../../navegadores/nav-bar-login/nav-bar-login.component';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-detalle-mi-recete',
   standalone: true,
@@ -143,7 +143,7 @@ export class DetalleMiReceteComponent implements OnInit{
    
     this.servicio.editUser(this.userComun).subscribe({
       next: () => {
-        alert('Anotacion guardada!');
+        this.alertAnotacionAdd();
       },
       error: (err) => {
         console.error("Error al guardar anotacion:", err);
@@ -151,4 +151,25 @@ export class DetalleMiReceteComponent implements OnInit{
     });
 
   }
+
+alertAnotacionAdd()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1400,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Anotacion agregada con exito"
+    });
+  }
+
+
 }

@@ -7,6 +7,7 @@ import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-editar-perfil',
@@ -81,8 +82,10 @@ export class EditarPerfilComponent implements OnInit {
       
       this.servicio.editUser(updatedUser).subscribe({
         next: () => {
+         this.alertPerfilEdit();
           console.log('Perfil actualizado correctamente');
           this.rutas.navigate(['perfil']); 
+          
         },
         error: (err: Error) => {
           console.log('Error al actualizar el perfil:', err.message);
@@ -93,5 +96,23 @@ export class EditarPerfilComponent implements OnInit {
     }
   }
 
+  alertPerfilEdit()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Cambios guardados"
+    }); 
+  }
 
 }

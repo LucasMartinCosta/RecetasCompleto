@@ -9,7 +9,7 @@ import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-receta-detail',
   standalone: true,
@@ -110,7 +110,7 @@ export class RecetaDetailComponent implements OnInit{
       // Opcional: Guarda los cambios en el backend
       this.serviciouser.editUser(this.userComun).subscribe({
         next: () => {
-          alert('Receta agregada exitosamente a la lista seleccionada!');
+          this.alertRecetaAdd();
           this.router.navigate(['/home']); // Redirige al usuario si es necesario
         },
         error: (err:Error) => {
@@ -149,7 +149,24 @@ export class RecetaDetailComponent implements OnInit{
     }
   }
 
-
+  alertRecetaAdd()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1400,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Receta agregada a la lista"
+    });
+  }
 
 
 

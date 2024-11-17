@@ -11,7 +11,7 @@ import { User } from '../../interfaces/user';
 import { UserActivo } from '../../interfaces/user-activo';
 import { UsuariosService } from '../../service/usuarios.service';
 import { Ingredientes, ListaRecetasPersonalizadas, Receta } from '../../interfaces/recetas';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-receta-update',
   standalone: true,
@@ -182,7 +182,7 @@ formulario=this.fb.nonNullable.group({
 
         this.servicio.editUser(this.userComun).subscribe({
           next: () => {
-            alert('Receta modificada exitosamente!');
+           this.alertModificado();
             this.router.navigate(['/mis-listas']);
           },
           error: (e: Error) => {
@@ -213,6 +213,25 @@ formulario=this.fb.nonNullable.group({
   }
   eliminarIngrediente(index: number) {
     this.ingredientes.removeAt(index);
+  }
+
+  alertModificado()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Receta modificada con exito"
+    }); 
   }
 
 }

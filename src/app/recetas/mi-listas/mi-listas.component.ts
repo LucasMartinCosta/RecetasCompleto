@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { UsuariosService } from '../../service/usuarios.service';
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-mi-listas',
   standalone: true,
@@ -91,7 +91,7 @@ export class MiListasComponent implements OnInit{
         next: () => {
           // Actualiza las listas locales solo si la operación fue exitosa
           this.listas = [...this.userComun.listas];
-          alert("Lista eliminada correctamente");
+          this.alertRecetarioEliminado();
         },
         error: (err: Error) => {
           console.error("Error al eliminar la lista:", err.message);
@@ -102,6 +102,24 @@ export class MiListasComponent implements OnInit{
     }
   }
 
+  alertRecetarioEliminado()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Lista eliminada con exito"
+    }); 
+  }
 
 
 

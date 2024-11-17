@@ -9,7 +9,7 @@ import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
 import { RecetaCardComponent } from "../receta-card/receta-card.component";
 import { DeleteUpdateOutputComponent } from "../delete-update-output/delete-update-output.component";
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-lista-detail',
   standalone: true,
@@ -107,7 +107,7 @@ deleterecipe22(recipeId: number) {
         
         this.servicioUser.editUser(this.userComun).subscribe({
           next: () => {
-            alert('Receta eliminada exitosamente!');
+            
             
             window.location.reload();
             this.rutas.navigate([`lista/${this.lista?.id}'`])
@@ -141,6 +141,7 @@ deleterecipe22(recipeId: number) {
       console.error('No se encontraron recetas.');
     }
   }
+
 
 }
 

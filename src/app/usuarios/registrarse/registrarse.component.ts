@@ -7,6 +7,8 @@ import { NavbarComponent } from "../../navegadores/navbar/navbar.component";
 import { ListasPersonalizadasComponent } from '../../recetas/listas-personalizadas/listas-personalizadas.component';
 import { ListaRecetasPersonalizadas } from '../../interfaces/recetas';
 import { ListasPersonalizadasService } from '../../service/listas-personalizadas.service';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-registrarse',
@@ -65,7 +67,7 @@ export class RegistrarseComponent {
 
           this.authService.signup(user).subscribe({
             next: () => {
-              alert('Usuario agregado');
+              this.alertCreado();
               this.router.navigate(['/']);
             },
             error: (error) => {
@@ -93,68 +95,13 @@ export class RegistrarseComponent {
     }
   }
 
-  /*
-  rutas = inject(Router);
-  fb= inject(FormBuilder);
-  servicioLog= inject(UsuariosService);
-
-  formulario= this.fb.nonNullable.group({
-    nombreUsuario:['',[Validators.required]],
-    contrasena:['',[Validators.required]],
-    email:['',[Validators.required]]
-  })
-
-  addUsuario()
+  alertCreado()
   {
-    if(this.formulario.invalid)return;
-
-    var listausuarios:Array<User>= [];
-    const usuario: User= this.formulario.getRawValue();
-
-     this.servicioLog.getUsuarios().subscribe({
-      next:(usuarios)=>
-      {
-        listausuarios=usuarios;
-
-        const encontradonombre= listausuarios.some(us=>us.nombreUsuario === usuario.nombreUsuario);
-        const encontradoemail= listausuarios.some(us=>us.email === usuario.email);
-
-
-    if(encontradoemail)
-      {
-        alert("El email que ingreso ya tiene un usuario");
-        return;
-      }
-
-      if(encontradonombre)
-      {
-        alert("El nombre de usuario que ingreso ya existe");
-        return;
-      }
-
-      this.servicioLog.Registrarse(usuario).subscribe({
-        next:()=>
-        {
-          alert("Usuario registrado");
-          this.viajariniciarSesion();
-        },
-        error:(err:Error)=>
-        {
-          console.log("Error al registrarse:",err.message);
-        }
-      })
-    }
-    })
-
-
-
+    Swal.fire({
+      title: "Usuario creado con exito",
+      text: "",
+      icon: "success"
+    });
   }
-
-  viajariniciarSesion()
-   {
-    this.rutas.navigate(['iniciarSesion']);
-   }
-
-   */
 
 }

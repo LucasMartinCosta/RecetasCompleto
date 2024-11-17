@@ -11,7 +11,7 @@ import { DeleteUpdateOutputComponent } from '../delete-update-output/delete-upda
 import { UserActivo } from '../../interfaces/user-activo';
 import { User } from '../../interfaces/user';
 import { UsuariosService } from '../../service/usuarios.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-receta-form',
   standalone: true,
@@ -148,7 +148,7 @@ addRecipe2() {
 
     this.servicio.editUser(this.userComun).subscribe({
       next: () => {
-        alert('Receta agregada exitosamente a la lista seleccionada!');
+        this.alertRecetaCreada();
         this.router.navigate(['mis-listas']);
       },
       error: (err) => {
@@ -156,7 +156,7 @@ addRecipe2() {
       }
     });
   } else {
-    console.error("Lista seleccionada no encontrada.");
+    this.alertaListanoEncontrada();
   }
 }
 
@@ -177,7 +177,43 @@ eliminarIngrediente(index: number) {
   this.ingredientes.removeAt(index);
 }
 
+alertRecetaCreada()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Receta agregada con exito"
+    }); 
+  }
 
+  alertaListanoEncontrada()
+  {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Lista no encontrada"
+    }); 
+  }
 
 
 }
