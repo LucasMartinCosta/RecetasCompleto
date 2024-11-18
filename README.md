@@ -1,3 +1,7 @@
+Nombre de los integrantes: Manuel Abras - Lucas Costa - Laura Fernandez - Imanol Sayago - Nicolas Sauma
+
+Para el correcto funcionamiento de las alertas hay que ejecutar el comando "npm install sweetalert2"
+
 # Recetas
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
