@@ -2,15 +2,95 @@
   "UsuarioActivo": [],
   "Usuarios": [
     {
-      "id": "1cb3",
-      "nombreUsuario": "lucas",
-      "contrasena": "123123",
-      "email": "Lucassmartin.costa@gmail.com",
+      "id": "e237",
+      "nombreUsuario": "prueba",
+      "contrasena": "prueba123",
+      "email": "prueba@gmail.com",
       "listas": [
         {
-          "id": 1,
-          "nombre": "aaa",
-          "recetas": []
+          "id": 0,
+          "nombre": "Favoritos",
+          "recetas": [
+            {
+              "vegetarian": false,
+              "vegan": false,
+              "glutenFree": false,
+              "title": "Layered Baked Eggplant Parmesan",
+              "readyInMinutes": 60,
+              "servings": 4,
+              "image": "https://img.spoonacular.com/recipes/649340-556x370.jpg",
+              "instructions": "<ol><li>Preheat oven to 375 degrees Fahrenheit. Place a sheet of aluminum foil on baking sheet. Spray with olive oil cooking spray. Slice ends off of eggplant and peel skin off with a vegetable peeler. Slice into  inch pieces.</li><li>In a shallow container, add eggs and water. Whisk to combine. In a separate container, add breadcrumbs, Italian seasoning and onion powder. Mix together. Dip eggplant slices into egg mixture. Let excess drip off and then dip into breadcrumbs. Coat evenly with breadcrumbs, pressing them onto the sides.</li><li>Place on baking sheet. Spray tops lightly with olive oil spray. Place in oven and cook for 20 minutes. Flip over and cook for another 20 minutes, until the tops are golden brown.</li><li>Remove from oven. In a 8 by 8 baking sheet, add  a cup of tomato sauce to the bottom spread evenly. Add 4 slices eggplant. Top with  cup cheese and  cup shredded Parmesan cheese. Add 3 more layers of sauce, eggplant and cheese.</li><li>Place back in oven and bake till cheese gets slightly browned on top, about 15 minutes. ENJOY!</li></ol>",
+              "spoonacularScore": 70.264892578125,
+              "id": 649340,
+              "ingredientes": [
+                {
+                  "name": "breadcrumbs",
+                  "unit": "cup",
+                  "amount": 1
+                },
+                {
+                  "name": "eggplants",
+                  "unit": "medium",
+                  "amount": 2
+                },
+                {
+                  "name": "eggs",
+                  "unit": "large",
+                  "amount": 2
+                },
+                {
+                  "name": "seasoning",
+                  "unit": "tsp",
+                  "amount": 2
+                },
+                {
+                  "name": "onion powder",
+                  "unit": "tsp",
+                  "amount": 2
+                },
+                {
+                  "name": "parmesan cheese",
+                  "unit": "cup",
+                  "amount": 1
+                },
+                {
+                  "name": "mozzarella cheese",
+                  "unit": "cups",
+                  "amount": 2
+                },
+                {
+                  "name": "tomato sauce",
+                  "unit": "oz",
+                  "amount": 25
+                },
+                {
+                  "name": "water",
+                  "unit": "TBSP",
+                  "amount": 4
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Prueba ",
+              "vegetarian": false,
+              "vegan": true,
+              "glutenFree": false,
+              "readyInMinutes": 60,
+              "servings": 1,
+              "instructions": "Prueba instrucciones creadas",
+              "image": "img/logoUltimo.jpeg",
+              "spoonacularScore": 0,
+              "listaId": 0,
+              "ingredientes": [
+                {
+                  "name": "tomate",
+                  "amount": 2,
+                  "unit": "Unidades"
+                }
+              ]
+            }
+          ]
         }
       ]
     }
