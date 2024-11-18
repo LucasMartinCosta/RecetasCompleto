@@ -1,4 +1,5 @@
-Nombre de los integrantes: Manuel Abras - Lucas Costa - Laura Fernandez - Imanol Sayago - Nicolas Sauma
+# Nombre de los integrantes: 
+Manuel Abras - Lucas Costa - Laura Fernandez - Imanol Sayago - Nicolas Sauma
 
 Para el correcto funcionamiento de las alertas hay que ejecutar el comando "npm install sweetalert2"
 
